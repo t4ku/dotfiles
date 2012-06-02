@@ -4,7 +4,7 @@ dotfiles
 Vim
 ----
 
-*** plugin ***
+### plugin
 
 from github
 
