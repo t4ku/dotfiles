@@ -33,8 +33,10 @@ syntax enable
 " syntax, indent
 
 set nocompatible
-
 set smartindent
 "set autoindent
 
 filetype indent on
+
+" commentary
+autocmd FileType ruby set commentstring=#\ %s
