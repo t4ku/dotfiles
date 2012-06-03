@@ -22,3 +22,9 @@ set tabstop=2
 "set background=dark
 "colorscheme solarized
 
+" molokai
+
+set background=dark
+colorscheme molokai
+let g:molokai_original = 1
+syntax enable
