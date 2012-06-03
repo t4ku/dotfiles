@@ -13,3 +13,4 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 set encoding=utf-8
 set expandtab
 set tabstop=2
+syntax on
