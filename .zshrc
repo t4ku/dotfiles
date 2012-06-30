@@ -48,5 +48,9 @@ if [[ -f "./zsh/local.zsh" ]];then
   source ./zsh/local.zsh
 fi
 
+# autojump
+if [ -f `brew --prefix`/etc/autojump ]; then
+    . `brew --prefix`/etc/autojump
+fi
 # 
 unset SSH_ASKPASS
