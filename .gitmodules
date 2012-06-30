@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/twilight256.vim"]
 	path = .vim/bundle/twilight256.vim
 	url = https://github.com/vim-scripts/twilight256.vim.git
+[submodule ".vim/bundle/Railscasts-Theme"]
+	path = .vim/bundle/Railscasts-Theme
+	url = https://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git
