@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh configuration.
+# change path to dotfiles git submodule
 ZSH=$HOME/dotfiles/oh-my-zsh
+# change custom dir accordingly
+ZSH_CUSTOM=$HOME/dotfiles/zsh/oh-my-zsh/custom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
