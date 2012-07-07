@@ -25,6 +25,8 @@ Install
 
 * [autojump](https://github.com/joelthelion/autojump/)
  * zshrc enable the command if installed
+* [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
+ * macvim with project browser
 
 
 Notes
