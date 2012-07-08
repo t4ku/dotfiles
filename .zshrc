@@ -42,10 +42,10 @@ stty erase '^?'
 export TERM=xterm-256color
 
 # Customize to your needs...
-export PATH=$HOME/.rbenv/bin:$HOME.bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+# rbenv/bind isn't necessary for brew installation
+export PATH=$HOME/.rbenv/bin:HOME.bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
 
-eval "$(rbenv init -)"
-
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # 
 if [[ -f "./zsh/local.zsh" ]];then
   source ./zsh/local.zsh
