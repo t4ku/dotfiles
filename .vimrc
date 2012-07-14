@@ -12,7 +12,7 @@ call pathogen#runtime_append_all_bundles()
 "syntax enable
 "set background=dark
 "colorscheme solarized
-
+"
 " molokai
 
 set background=dark
@@ -59,3 +59,11 @@ set encoding=utf-8
 set expandtab
 set tabstop=2
 set shiftwidth=2   " autoindent size
+
+" ===================
+" gui options
+" ===================
+
+set guioptions-=T  " hide toolbar
+set showtabline=2  " always show tablines
+set guifont=Monaco:h13
