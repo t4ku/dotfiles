@@ -60,6 +60,26 @@ set expandtab
 set tabstop=2
 set shiftwidth=2   " autoindent size
 
+" ==================== 
+" tagbar
+" ==================== 
+
+nnoremap <silent> rt :TagbarToggle<CR>
+
+if has("mac")
+  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
+
+"" Extending tabar to support markdown (additionally to the ~/.ctags-file!)
+let g:tagbar_type_markdown = {
+  \ 'ctagstype' : 'markdown',
+  \ 'kinds' : [
+    \ 'h:Heading_L1',
+    \ 'i:Heading_L2',
+    \ 'k:Heading_L3'
+  \ ]
+\ }
+
 " ===================
 " gui options
 " ===================
