@@ -47,8 +47,8 @@ export PATH=$HOME/.rbenv/bin:HOME.bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sb
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # 
-if [[ -f "./zsh/local.zsh" ]];then
-  source ./zsh/local.zsh
+if [[ -f "$HOME/dotfiles/zsh/local.zsh" ]];then
+  source $HOME/dotfiles/zsh/local.zsh
 fi
 
 # autojump
