@@ -43,7 +43,7 @@ export TERM=xterm-256color
 
 # Customize to your needs...
 # rbenv/bind isn't necessary for brew installation
-export PATH=$HOME/.rbenv/bin:HOME.bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # 
@@ -57,3 +57,5 @@ if [ -f `brew --prefix`/etc/autojump ]; then
 fi
 # 
 unset SSH_ASKPASS
+
+export NODE_PATH=/usr/local/lib/node_modules

@@ -14,7 +14,7 @@ Install
 # checkout files
 > git submodule update
 
-# create symlink
+
 > ./setup.sh
 ```
 
@@ -23,10 +23,18 @@ Install
 
 ### additional stuff
 
-* [autojump](https://github.com/joelthelion/autojump/)
- * zshrc enable the command if installed
-* [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
- * macvim with project browser
+* Homebrew
+  * [autojump](https://github.com/joelthelion/autojump/)
+   * zshrc enable the command if installed
+  * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
+   * macvim with project browser
+  * node
+* custom installer
+  * npm
+    * add rbenv settings to ~/.powconfig
+    * export PATH=/usr/local/Cellar/rbenv/0.3.0/shims:/Users/:/usr/local/Cellar/rbenv/0.3.0/bin:$PATH
+  * pow
+    * depends on node/npm
 
 
 Notes
