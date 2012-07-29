@@ -87,3 +87,6 @@ let g:tagbar_type_markdown = {
 set guioptions-=T  " hide toolbar
 set showtabline=2  " always show tablines
 set guifont=Monaco:h13
+
+
+set clipboard=unnamed
