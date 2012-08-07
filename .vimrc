@@ -7,18 +7,18 @@ call pathogen#runtime_append_all_bundles()
 " colors, appearance
 " ===================
 
+syntax enable
+
 " solarized
-"let g:solarized_termcolors=256
-"syntax enable
-"set background=dark
-"colorscheme solarized
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
 "
 " molokai
 
-set background=dark
-colorscheme molokai
-let g:molokai_original = 1
-syntax enable
+"set background=dark
+"colorscheme molokai
+"let g:molokai_original = 1
 
 " ===================
 " syntax, indent
@@ -89,4 +89,4 @@ set showtabline=2  " always show tablines
 set guifont=Monaco:h13
 
 
-set clipboard=unnamed
+set clipboard=unnamed,autoselect
