@@ -47,3 +47,12 @@ Notes
 git submodule add https://github.com/kien/ctrlp.vim.git .vim/bundle/ctrlp.vim
 git commit
 ```
+
+### fixing vim colorscheme
+
+[A patch to molokai.vim](https://gist.github.com/3351367)
+
+```
+hi Normal          ctermfg=252 ctermbg=none
+```
+
