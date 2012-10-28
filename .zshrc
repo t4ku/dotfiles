@@ -8,7 +8,12 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh/oh-my-zsh/custom
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
+# ZSH_THEME="blinks"
+# ZSH_THEME="dpoggi"
+# ZSH_THEME="dogenpunk"
+# ZSH_THEME="kphoen"
+# ZSH_THEME="juanghurtado"
+ZSH_THEME="aussiegeek"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -36,8 +41,8 @@ plugins=(rbenv bundler git ruby)
 
 source $ZSH/oh-my-zsh.sh
 
-stty erase ^H
-stty erase '^?'
+#stty erase ^H
+#stty erase '^?'
 
 export TERM=xterm-256color
 
@@ -56,6 +61,6 @@ if [ -f `brew --prefix`/etc/autojump ]; then
     . `brew --prefix`/etc/autojump
 fi
 # 
-unset SSH_ASKPASS
+# unset SSH_ASKPASS
 
 export NODE_PATH=/usr/local/lib/node_modules
