@@ -2,6 +2,8 @@
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+let g:ctrlp_working_path_mode = 0
+
 
 " ===================
 " colors, appearance
