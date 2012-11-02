@@ -79,3 +79,6 @@
 [submodule "iterm2/iTerm-2-Color-Themes"]
 	path = iterm2/iTerm-2-Color-Themes
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
+[submodule ".vim/bundle/vim-dbgpclient"]
+	path = .vim/bundle/vim-dbgpclient
+	url = https://github.com/garyaj/vim-dbgpclient.git
