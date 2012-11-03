@@ -81,6 +81,17 @@ let g:tagbar_type_markdown = {
 \ }
 
 " ===================
+" mouse, clipboard
+" ===================
+ 
+" fixed using brew install reattach-to-usernamespace
+" Fix Vim + Tmux yank/paste on unnamed register
+" http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
+"if $TMUX== ""
+  set clipboard=unnamed,autoselect
+"endif
+
+" ===================
 " gui options
 " ===================
 
@@ -88,8 +99,3 @@ set guioptions-=T  " hide toolbar
 set showtabline=2  " always show tablines
 set guifont=Monaco:h13
 
-" Fix Vim + Tmux yank/paste on unnamed register
-" http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
-if $TMUX== ""
-  set clipboard=unnamed,autoselect
-endif
