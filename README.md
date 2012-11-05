@@ -56,3 +56,8 @@ git commit
 hi Normal          ctermfg=252 ctermbg=none
 ```
 
+### clilpboard support macvim from inside tmux
+
+```
+brew info reattach-to-user-namespace
+```
