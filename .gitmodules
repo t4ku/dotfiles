@@ -79,3 +79,6 @@
 [submodule "iterm2/iTerm-2-Color-Themes"]
 	path = iterm2/iTerm-2-Color-Themes
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
+[submodule ".vim/bundle/vdebug"]
+	path = .vim/bundle/vdebug
+	url = https://github.com/t4ku/vdebug.git
