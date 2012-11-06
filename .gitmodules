@@ -81,4 +81,4 @@
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
 [submodule ".vim/bundle/vdebug"]
 	path = .vim/bundle/vdebug
-	url = https://github.com/joonty/vdebug.git
+	url = https://github.com/t4ku/vdebug.git
