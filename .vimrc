@@ -33,6 +33,8 @@ filetype indent on
 " key mapping
 " ===================
 
+let mapleader = ","
+
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
@@ -108,14 +110,35 @@ if executable('marktag')
     \ }
 end
 
+"" hide variable from default
+""        \ 'v:variables',
+let g:tagbar_type_php  = {
+    \ 'ctagstype' : 'php',
+    \ 'kinds'     : [
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions',
+        \ 'f:functions',
+        \ 'j:javascript functions:1'
+    \ ]
+  \ }
+
 
 " ===================
 " ctrl-p
 " ===================
 
+let g:ctrlp_map = '<Leader>c' 
+
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 30
+let g:ctrlp_extensions = ['tag', 'buffertag']
 
+nnoremap <Leader>b :CtrlPBufTag<CR> 
+nnoremap <Leader>t :CtrlPTag<CR> 
+
+" buftag ctag option
+let g:ctrlp_buftag_types = {'php': '--language-force=php --php-types=cdfi'}
 
 " ///////////// Misc ////////////
 
