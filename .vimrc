@@ -123,8 +123,8 @@ let g:ctrlp_max_height = 30
 " local setting
 " ====================
 
-if filereadable(expand('./local/.vimrc.local'))
-    source ./local/.vimrc.local
+if filereadable(expand('~/dotfiles/local/.vimrc.local'))
+    source ~/dotfiles/local/.vimrc.local
 endif
 
 " ======================
