@@ -1,9 +1,6 @@
-" pathogen
+
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
-
-let g:ctrlp_working_path_mode = 0
-
 
 " ===================
 " colors, appearance
@@ -38,6 +35,27 @@ filetype indent on
 
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
+
+" ===================
+" mouse, clipboard
+" ===================
+ 
+" fixed using brew install reattach-to-usernamespace
+" Fix Vim + Tmux yank/paste on unnamed register
+" http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
+"if $TMUX== ""
+  set clipboard=unnamed,autoselect
+"endif
+
+set mouse=a
+
+" ===================
+" gui options
+" ===================
+
+set guioptions-=T  " hide toolbar
+set showtabline=2  " always show tablines
+set guifont=Monaco:h13
 
 
 " ///////////// Plugins ////////////
@@ -92,21 +110,28 @@ end
 
 
 " ===================
-" mouse, clipboard
-" ===================
- 
-" fixed using brew install reattach-to-usernamespace
-" Fix Vim + Tmux yank/paste on unnamed register
-" http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
-"if $TMUX== ""
-  set clipboard=unnamed,autoselect
-"endif
-
-" ===================
-" gui options
+" ctrl-p
 " ===================
 
-set guioptions-=T  " hide toolbar
-set showtabline=2  " always show tablines
-set guifont=Monaco:h13
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_height = 30
 
+
+" ///////////// Misc ////////////
+
+" =====================
+" local setting
+" ====================
+
+if filereadable(expand('./local/.vimrc.local'))
+    source ./local/.vimrc.local
+endif
+
+" ======================
+" reload vimrc on change
+" ======================
+
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
