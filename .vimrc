@@ -51,6 +51,9 @@ nnoremap <S-Tab> gT
 
 set mouse=a
 
+map <Leader>v :set invpaste<CR>:set paste?<CR>
+set pastetoggle=<Leader>v
+
 " ===================
 " gui options
 " ===================
@@ -133,6 +136,7 @@ let g:ctrlp_map = '<Leader>c'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 30
 let g:ctrlp_extensions = ['tag', 'buffertag']
+let g:ctrlp_switch_buffer = 2
 
 nnoremap <Leader>b :CtrlPBufTag<CR> 
 nnoremap <Leader>B :CtrlPBuffer<CR> 
@@ -146,6 +150,9 @@ let g:ctrlp_buftag_types = {'php': '--language-force=php --php-types=cdfi'}
 " ===================
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" https://github.com/kien/ctrlp.vim/issues/78
+let g:ctrlp_reuse_window = 'NERD_tree_2'
 
 " ///////////// Misc ////////////
 
