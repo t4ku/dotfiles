@@ -135,6 +135,7 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
 nnoremap <Leader>b :CtrlPBufTag<CR> 
+nnoremap <Leader>B :CtrlPBuffer<CR> 
 nnoremap <Leader>t :CtrlPTag<CR> 
 
 " buftag ctag option
