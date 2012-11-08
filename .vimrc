@@ -141,6 +141,12 @@ nnoremap <Leader>t :CtrlPTag<CR>
 " buftag ctag option
 let g:ctrlp_buftag_types = {'php': '--language-force=php --php-types=cdfi'}
 
+" ===================
+" NERDTree
+" ===================
+
+nnoremap <Leader>n :NERDTreeToggle<CR>
+
 " ///////////// Misc ////////////
 
 " =====================
