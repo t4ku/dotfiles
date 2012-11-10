@@ -15,8 +15,8 @@ syntax enable
 "
 " molokai
 
-set background=dark
-colorscheme molokai
+"set background=dark
+colorscheme railscasts
 "let g:molokai_original = 1
 
 " ===================
