@@ -1,0 +1,9 @@
+[color]
+  ui = auto
+[merge]
+  tool = vimdiff
+[alias]
+  s = status
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  # reset
+  rh = reset HEAD
