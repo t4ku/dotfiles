@@ -37,7 +37,7 @@ ZSH_THEME="aussiegeek"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv bundler git ruby)
+plugins=(rbenv bundler git ruby autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -56,11 +56,6 @@ if [[ -f "$HOME/dotfiles/local/local.zsh" ]];then
   source $HOME/dotfiles/local/local.zsh
 fi
 
-# autojump
-if [ -f `brew --prefix`/etc/autojump ]; then
-    . `brew --prefix`/etc/autojump
-fi
-# 
 # unset SSH_ASKPASS
 
 export NODE_PATH=/usr/local/lib/node_modules
