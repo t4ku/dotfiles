@@ -76,9 +76,6 @@
 [submodule ".vim/bundle/vim-matchit"]
 	path = .vim/bundle/vim-matchit
 	url = https://github.com/edsono/vim-matchit.git
-[submodule "iterm2/iTerm-2-Color-Themes"]
-	path = iterm2/iTerm-2-Color-Themes
-	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
 [submodule ".vim/bundle/vdebug"]
 	path = .vim/bundle/vdebug
 	url = https://github.com/t4ku/vdebug.git
@@ -88,3 +85,6 @@
 [submodule ".vim/bundle/vim-railscasts-theme"]
 	path = .vim/bundle/vim-railscasts-theme
 	url = https://github.com/jpo/vim-railscasts-theme.git
+[submodule "resources/iterm2/iTerm-2-Color-Themes"]
+	path = resources/iterm2/iTerm-2-Color-Themes
+	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
