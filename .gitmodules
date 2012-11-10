@@ -88,3 +88,6 @@
 [submodule "resources/iterm2/iTerm-2-Color-Themes"]
 	path = resources/iterm2/iTerm-2-Color-Themes
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
+[submodule "resources/iterm2/vim-railscasts"]
+	path = resources/iterm2/vim-railscasts
+	url = https://github.com/rickharris/vim-railscasts.git
