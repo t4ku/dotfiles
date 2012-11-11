@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/vim-railscasts"]
 	path = .vim/bundle/vim-railscasts
 	url = https://github.com/rickharris/vim-railscasts.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
