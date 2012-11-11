@@ -13,11 +13,15 @@ syntax enable
 "let g:solarized_termtrans=1
 "colorscheme solarized
 "
-" molokai
 
-"set background=dark
+set background=dark
 colorscheme railscasts
-"let g:molokai_original = 1
+
+set number
+
+	
+"set list
+set listchars=eol:¬,tab:>-
 
 " ===================
 " syntax, indent
@@ -51,8 +55,14 @@ nnoremap <S-Tab> gT
 
 set mouse=a
 
-map <Leader>v :set invpaste<CR>:set paste?<CR>
-set pastetoggle=<Leader>v
+" toggole paste/nopaste
+noremap <Leader>v :set invpaste<CR>:set paste?<CR>
+
+" copy filepath to clipboard
+" from https://github.com/taku-o/vim-copypath/blob/master/plugin/copypath.vim
+noremap <Leader>yp :let @*=expand('%:p')<CR> " yank full path
+noremap <Leader>yf :let @*=expand('%:t')<CR> " yank file name
+
 
 " ===================
 " gui options
@@ -81,9 +91,9 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
 set encoding=utf-8
-set expandtab
-set tabstop=2
-set shiftwidth=2   " autoindent size
+"set expandtab
+set tabstop=4
+set shiftwidth=4   " autoindent size
 
 " ==================== 
 " tagbar
