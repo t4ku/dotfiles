@@ -29,6 +29,7 @@ Install
   * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
    * macvim with project browser
   * node
+  * [ack!](http://betterthangrep.com/)
 * custom installer
   * npm
     * add rbenv settings to ~/.powconfig
