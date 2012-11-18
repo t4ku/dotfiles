@@ -82,6 +82,17 @@ set tabstop=4
 set shiftwidth=4   " autoindent size
 set backspace=2    " use delete key to go back to previous line
 
+" ==================
+" Window
+" ==================
+
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map < <C-W><
+  map > <C-W>>
+endif 
+
 " ///////////// Plugins ////////////
 
 " ===================
