@@ -25,11 +25,12 @@ Install
 
 * Homebrew
   * [autojump](https://github.com/joelthelion/autojump/)
-   * zshrc enable the command if installed
+    * zshrc enable the command if installed
   * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
-   * macvim with project browser
+    * macvim with project browser
   * node
   * [ack!](http://betterthangrep.com/)
+    * better grep
 * custom installer
   * npm
     * add rbenv settings to ~/.powconfig
