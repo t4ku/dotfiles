@@ -74,6 +74,16 @@ set guioptions-=T  " hide toolbar
 set showtabline=2  " always show tablines
 set guifont=Monaco:h13
 
+" ==================
+" special chars
+" ==================
+
+set encoding=utf-8
+"set expandtab
+set tabstop=4
+set shiftwidth=4   " autoindent size
+set backspace=2    " use delete key to go back to previous line
+
 " ===================
 " misc
 " ===================
@@ -97,10 +107,8 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
-set encoding=utf-8
-"set expandtab
-set tabstop=4
-set shiftwidth=4   " autoindent size
+
+
 
 " ==================== 
 " tagbar
