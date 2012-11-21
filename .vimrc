@@ -20,8 +20,10 @@ colorscheme railscasts
 set number
 
 	
-"set list
-set listchars=eol:¬,tab:>-
+set list
+" set listchars=eol:¬,tab:▻⠂
+set listchars=eol:¬,tab:▸⠂
+"set listchars=eol:¬,tab:▹⠂
 
 " ===================
 " syntax, indent
