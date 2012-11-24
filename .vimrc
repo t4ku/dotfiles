@@ -20,8 +20,10 @@ colorscheme railscasts
 set number
 
 	
-"set list
-set listchars=eol:¬,tab:>-
+set list
+" set listchars=eol:¬,tab:▻⠂
+set listchars=eol:¬,tab:▸⠂
+"set listchars=eol:¬,tab:▹⠂
 
 " ===================
 " syntax, indent
@@ -92,6 +94,12 @@ if bufwinnr(1)
   map < <C-W><
   map > <C-W>>
 endif 
+
+" ===================
+" misc
+" ===================
+
+set noswapfile     " disable swap file creation
 
 " ///////////// Plugins ////////////
 
