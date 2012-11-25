@@ -32,6 +32,8 @@ Install
   * [ack!](http://betterthangrep.com/)
     * better grep
 * custom installer
+  * iterm2
+    * set "Left option key act as +esc" to use Meta Keys(M-) in tmux
   * npm
     * add rbenv settings to ~/.powconfig
     * export PATH=/usr/local/Cellar/rbenv/0.3.0/shims:/Users/:/usr/local/Cellar/rbenv/0.3.0/bin:$PATH
