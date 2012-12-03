@@ -25,6 +25,8 @@ set list
 set listchars=eol:¬,tab:▸⠂
 "set listchars=eol:¬,tab:▹⠂
 
+set incsearch
+
 " ===================
 " syntax, indent
 " ===================
@@ -79,7 +81,7 @@ set guifont=Monaco:h13
 " ==================
 
 set encoding=utf-8
-"set expandtab
+set expandtab
 set tabstop=4
 set shiftwidth=4   " autoindent size
 set backspace=2    " use delete key to go back to previous line
