@@ -24,6 +24,10 @@ Install
 ### additional stuff
 
 * Homebrew
+  * tig
+    * terminal git log viewer
+  * zsh 5.0
+    * better zsh completion on large git repos
   * [autojump](https://github.com/joelthelion/autojump/)
     * zshrc enable the command if installed
   * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
@@ -39,7 +43,6 @@ Install
     * export PATH=/usr/local/Cellar/rbenv/0.3.0/shims:/Users/:/usr/local/Cellar/rbenv/0.3.0/bin:$PATH
   * pow
     * depends on node/npm
-
 
 Notes
 -----
@@ -58,6 +61,13 @@ git commit
 
 ```
 hi Normal          ctermfg=252 ctermbg=none
+```
+
+#### railscasts
+
+```
+-call s:highlight("SpecialKey", "NONE", 13, "NONE")
++call s:highlight("SpecialKey", 8, "NONE", "NONE")
 ```
 
 ### clilpboard support macvim from inside tmux
