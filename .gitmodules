@@ -94,3 +94,9 @@
 [submodule ".vim/bundle/textile"]
 	path = .vim/bundle/textile
 	url = https://github.com/timcharper/textile.vim.git
+[submodule ".vim/bundle/vim-signature"]
+	path = .vim/bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature.git
+[submodule ".vim/bundle/ctrlp-mark"]
+	path = .vim/bundle/ctrlp-mark
+	url = https://github.com/mattn/ctrlp-mark.git
