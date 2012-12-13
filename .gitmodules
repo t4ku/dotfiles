@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/ctrlp-mark"]
 	path = .vim/bundle/ctrlp-mark
 	url = https://github.com/mattn/ctrlp-mark.git
+[submodule ".vim/bundle/smarty.vim"]
+	path = .vim/bundle/smarty.vim
+	url = https://github.com/blueyed/smarty.vim.git
