@@ -103,3 +103,6 @@
 [submodule ".vim/bundle/smarty.vim"]
 	path = .vim/bundle/smarty.vim
 	url = https://github.com/blueyed/smarty.vim.git
+[submodule ".vim/bundle/Align"]
+	path = .vim/bundle/Align
+	url = https://github.com/vim-scripts/Align.git
