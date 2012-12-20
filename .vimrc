@@ -47,6 +47,8 @@ let mapleader = ","
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
+nnoremap / /\v
+
 " ===================
 " mouse, clipboard
 " ===================
