@@ -84,7 +84,8 @@ set guifont=Monaco:h13
 " ==================
 
 set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fencs=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fenc=utf-8
 
 autocmd FileType gitcommit setlocal fenc=utf-8
 
@@ -176,12 +177,13 @@ let g:tagbar_type_php  = {
 " ctrl-p
 " ===================
 
-let g:ctrlp_map = '<Leader>c' 
+let g:ctrlp_map                 = '<Leader>c'
 
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_height = 30
-let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_switch_buffer = 2
+let g:ctrlp_working_path_mode   = 0
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_height          = 30
+let g:ctrlp_extensions          = ['tag', 'buffertag']
+let g:ctrlp_switch_buffer       = 2
 
 nnoremap <Leader>b :CtrlPBufTag<CR> 
 nnoremap <Leader>B :CtrlPBuffer<CR> 
