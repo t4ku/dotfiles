@@ -201,6 +201,11 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 " https://github.com/kien/ctrlp.vim/issues/78
 let g:ctrlp_reuse_window = 'NERD_tree_2'
 
+" sync nerdtree in everytab
+" http://stackoverflow.com/questions/1979520/auto-open-nerdtree-in-every-tab
+" autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
+
 " ///////////// Misc ////////////
 
 " =====================
