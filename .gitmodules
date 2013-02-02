@@ -109,3 +109,12 @@
 [submodule ".vim/bundle/vim-rails"]
 	path = .vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "resources/Hemisu-Light-iTerm2"]
+	path = resources/Hemisu-Light-iTerm2
+	url = https://github.com/wozozo/Hemisu-Light-iTerm2.git
+[submodule ".vim/bundle/vim-colors-hemisu"]
+	path = .vim/bundle/vim-colors-hemisu
+	url = https://github.com/noahfrederick/Hemisu.git
+[submodule "resources/Hemisu-Termianl-Theme"]
+	path = resources/Hemisu-Termianl-Theme
+	url = https://github.com/noahfrederick/Hemisu-Terminal-app.git
