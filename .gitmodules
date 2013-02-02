@@ -118,3 +118,6 @@
 [submodule "resources/Hemisu-Termianl-Theme"]
 	path = resources/Hemisu-Termianl-Theme
 	url = https://github.com/noahfrederick/Hemisu-Terminal-app.git
+[submodule ".vim/bundle/vim-colors-github-editor"]
+	path = .vim/bundle/vim-colors-github-editor
+	url = https://github.com/t4ku/github_editor_theme.git
