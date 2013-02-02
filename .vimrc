@@ -6,19 +6,29 @@ call pathogen#runtime_append_all_bundles()
 " colors, appearance
 " ===================
 
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 syntax enable
+
+" if $COLORFGBG is set, switch colorscheme based on the value
+" vim defaults to dark unless it's set
+if (exists("$COLORFGBG"))
+  if  split($COLORFGBG, ";")[0] == 15
+    "set background=dark
+    colorscheme railscasts
+  else
+    "set background=light
+    colorscheme hemisu
+  endif
+else
+  colorscheme railscasts
+endif
 
 " solarized
 "set background=dark
 "let g:solarized_termtrans=1
 "colorscheme solarized
-"
-
-set background=dark
-colorscheme railscasts
 
 set number
-
 	
 set list
 " set listchars=eol:¬,tab:▻⠂
@@ -126,7 +136,6 @@ autocmd FileType ruby set commentstring=#\ %s
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
-set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
 
 
