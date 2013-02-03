@@ -37,7 +37,7 @@ ZSH_THEME="aussiegeek"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv bundler git ruby autojump)
+plugins=(bundler git rbenv autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,11 +46,11 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 
-# Customize to your needs...
-# rbenv/bind isn't necessary for brew installation
-export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+## Customize to your needs...
+## rbenv/bind isn't necessary for brew installation
+#export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # 
 if [[ -f "$HOME/dotfiles/local/local.zsh" ]];then
   source $HOME/dotfiles/local/local.zsh
