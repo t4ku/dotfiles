@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/vim-colors-github-editor"]
 	path = .vim/bundle/vim-colors-github-editor
 	url = https://github.com/t4ku/github_editor_theme.git
+[submodule ".vim/bundle/vim-HiLinkTrace"]
+	path = .vim/bundle/vim-HiLinkTrace
+	url = https://github.com/gerw/vim-HiLinkTrace.git
