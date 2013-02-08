@@ -1,0 +1,288 @@
+#!/bin/sh
+
+usage () {
+    cat <<USAGE
+
+Helper commands:
+    tags            - List all tags relevant to this trunk
+    branches        - List all branches relevant to this trunk
+    tag             - Tag a trunk or branch copy.
+    branch          - Branch a trunk or tag working copy.
+    mergebranch, mb - Merge a branch into this trunk
+    mergetrunk, mt  - Merge the trunk into this branch
+    gettrunk, trunk - Switch to the trunk
+    gettag, gt      - Switch to a given tag
+    getbranch, gb   - Switch to a given branch
+    resolve-tree    - Mark all tree-conflicts "resolved"
+    origin          - Gets the origin of this working copy or specified branch
+    stash help      - Shows the help menu for "svn stash"
+USAGE
+}
+
+stash () {
+    # NOTE 2010-08-03T16:51:16Z-0700: Can't use $# -lt 2, we quote $2
+    if [ "$1" = "" ]
+    then
+        stash "save" "`uuidgen`"
+        return 0
+    fi
+
+    case "$1" in
+        list)
+            ls -go .svn/stash | sed 's/^[^ ][^ ]* . \(.*\)\.diff$/\1/g' | tail -n +2
+            ;;
+        delete|rm|remove)
+            if [ $# -lt 2 ]
+            then
+                echo "Usage: svn stash delete <stash-name>"
+                exit 1
+            fi
+
+            stash=".svn/stash/$2.diff"
+
+            if [ -e "$stash" ]
+            then
+                rm "$stash"
+                echo "Stash \"$2\" removed."
+            else
+                echo "Error: No stash named \"$2\" exists."
+            fi
+            ;;
+        show)
+            if [ $# -lt 2 ]
+            then
+                echo "Usage: svn stash show <stash-name>"
+                exit 1
+            fi
+
+            cat ".svn/stash/$2.diff"
+            ;;
+        apply)
+            if [ $# -lt 2 ]
+            then
+                echo "Usage: svn stash apply <stash-name>"
+                exit 1
+            fi
+
+            changes=`svn status -q | wc -l`
+
+            if [ $changes -gt 0 ]
+            then
+                echo "Error: Local changes, please either revert or stash them"
+                svn status -q
+                exit 1
+            fi
+
+            echo "Unstaging stash \"$2\"."
+
+            stash=".svn/stash/$2.diff"
+
+            patch -s -p0 < "$stash"
+
+            awk '/^Index: / { print $2 }' "$stash" | xargs -r svn add -q --parents
+            awk '/^Index: / { print $2 }' "$stash" | xargs wc -l | awk '$1 == 0 { print $2 }' | xargs -r svn rm -q --force
+
+            svn status -q
+            ;;
+        pop)
+            if [ $# -lt 2 ]
+            then
+                name=`ls -c .svn/stash | head -1 | sed 's/\.diff$//'`
+            else
+                name="$2"
+            fi
+
+            echo "pop: $name"
+
+            stash apply "$name"
+            stash delete "$name"
+            ;;
+        save)
+            if [ $# -lt 2 ]
+            then
+                echo "Usage: svn stash save <stash-name>"
+                exit 1
+            fi
+
+            stash=".svn/stash/$2.diff"
+
+            if [ -e "$stash" ]
+            then
+                echo "Error: A stashed changeset named \"$2\" already exists."
+                exit 1
+            fi
+
+            svn diff > "$stash"
+            svn revert --depth=infinity .
+
+            echo "Changes stashed as: \"$2\""
+            echo "Working copy reverted to `svn info | awk '/Revision:/ { print $2 }'`"
+            ;;
+
+        help)
+            cat <<USAGE
+Usage: svn stash <command> [ <name> ]
+
+    list    - Display all stashed changesets.
+    show    - View the change-set patch.
+    save    - Save a new changeset.
+    apply   - Apply a changeset from the stash.
+    delete  - Delete a changeset from the stash.
+    pop     - Apply a changeset from the stash, and delete it.
+    help    - This message
+USAGE
+            ;;
+
+        **)
+            echo "Error: Unknown command \"$1\""
+
+            stash "help"
+            ;;
+    esac;
+}
+
+case "$1" in
+    tags)
+        url=`svn info | awk '/^URL:/ { print $2 }'`
+        base=`echo $url | sed 's/trunk$//'`
+        base=`echo $base | sed 's/tags\\/[^\\/][^\\/]*$//'`
+        base=`echo $base | sed 's/branches\\/[^\\/][^\\/]*$//'`
+        tags="$base/tags"
+
+        /usr/bin/svn ls $tags | cut -d / -f 1 | sort -V | tabulate
+    ;;
+    branches)
+        url=`svn info | awk '/^URL:/ { print $2 }'`
+        base=`echo $url | sed 's/trunk$//'`
+        base=`echo $base | sed 's/tags\\/[^\\/][^\\/]*$//'`
+        base=`echo $base | sed 's/branches\\/[^\\/][^\\/]*$//'`
+        branches="$base/branches"
+
+        /usr/bin/svn ls $branches | cut -d / -f 1 | sort | tabulate
+    ;;
+    tag)
+        if [ $# -lt 2 ]
+        then 
+            echo "Usage: svn tag <version>"
+            exit 1
+        fi
+
+        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        tags=`echo $trunk | sed -E 's/(trunk$|branches\\/[^\\/][^\\/]*$)/tags/'`
+
+        message="Tagging $trunk as $2"
+
+        echo $message
+        /usr/bin/svn cp -m "$message" $trunk $tags/$2
+        echo $tags/$2
+    ;;
+    branch)
+        if [ $# -lt 2 ]
+        then 
+            echo "Usage: svn branch <branch-name>"
+            exit 1
+        fi
+
+        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        branches=`echo $trunk | sed -E 's/(trunk$|(branches|tags)\\/[^\\/][^\\/]*$)/branches/'`
+
+        message="Creating branch $2 from $trunk"
+
+        echo $message
+        /usr/bin/svn cp -m "$message" $trunk $branches/$2
+        echo $branches/$2
+    ;;
+    mergebranch|mb)
+        if [ $# -lt 2 ]
+        then
+            echo "Usage: svn mergebranch <branch-name>"
+            exit 1
+        fi
+
+        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        branches=`echo $trunk | sed 's/trunk$/branches/'`
+
+        echo "Merging $2 into the current working copy"
+        # Temporarily disabled --reintegrate merges
+        # svn server needs updated.
+        /usr/bin/svn merge $branches/$2 .
+    ;;
+    mergetrunk|mt)
+        working=`svn info | awk '/^URL:/ { print $2 }'`
+        trunk=`echo $working | sed -E 's/(branches|tags)\/[^\/]*$/trunk/'`
+
+        echo "Merging trunk into the current working copy"
+        /usr/bin/svn merge $trunk .
+    ;;
+    gettag|gt)
+        if [ $# -lt 2 ]
+        then
+            echo "Usage: svn gettag <tag-name>"
+            exit 1
+        fi
+
+        working=`svn info | awk '/^URL:/ { print $2 }'`
+        tags=`echo $working | sed -E 's/trunk$/tags/; s/(tags|branches)\/[^\/]*$/tags/;'`
+
+        echo "Switching working copy to tag $2"
+        /usr/bin/svn switch $tags/$2 .
+    ;;
+    gettrunk|trunk)
+        working=`svn info | awk '/^URL:/ { print $2 }'`
+        trunk=`echo $working | sed -E 's/(branches|tags)\/[^\/]*$/trunk/'`
+
+        echo "Switching working copy to trunk"
+        /usr/bin/svn switch $trunk .
+    ;;
+    getbranch|gb)
+        if [ $# -lt 2 ]
+        then
+            echo "Usage: svn getbranch <branch-name>"
+            exit 1
+        fi
+
+        working=`svn info | awk '/^URL:/ { print $2 }'`
+        branches=`echo $working | sed -E 's/trunk$/branches/; s/(tags|branches)\/[^\/]*$/branches/;'`
+
+        echo "Switching working copy to branch $2"
+        /usr/bin/svn switch $branches/$2 .
+    ;;
+    resolve-tree)
+        /usr/bin/svn status | grep -E '.{6,7}C' | cut -c 9- | xargs svn resolved
+    ;;
+    origin) 
+        revsearch='/r[0-9][0-9]*/ { sub(/^r/, "", $1); firstrev = $1 } END { print firstrev }'
+
+        if [ $# -eq 2 ]
+        then
+            working=`svn info | awk '/^URL:/ { print $2 }'`
+            branches=`echo $working | sed -E 's/trunk$/branches/; s/(tags|branches)\/[^\/]*$/branches/;'`
+
+            /usr/bin/svn log -q --stop-on-copy $branches/$2 | awk $revsearch
+        else
+            /usr/bin/svn log -q --stop-on-copy | awk "$revsearch"
+        fi
+    ;;
+    stash)
+        mkdir -p .svn/stash
+
+        stash "$2" "$3"
+    ;;
+    help)
+        if [ $# -lt 2 ]
+        then
+            /usr/bin/svn help
+            usage
+        else
+            if [ $2 = "stash" ]
+            then
+                stash "help"
+            else
+                /usr/bin/svn "$@"
+            fi
+        fi
+    ;;
+    *)
+        /usr/bin/svn "$@"
+    ;;
+esac
