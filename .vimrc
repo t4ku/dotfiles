@@ -109,8 +109,8 @@ set backspace=2    " use delete key to go back to previous line
 " ==================
 
 if bufwinnr(1)
-  nmap + <C-W>+
-  nmap - <C-W>-
+  "nmap + <C-W>+
+  "nmap - <C-W>-
   nmap < <C-W><
   nmap > <C-W>>
 endif 
