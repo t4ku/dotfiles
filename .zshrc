@@ -52,10 +52,11 @@ export TERM=xterm-256color
 
 #if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # 
-if [[ -f "$HOME/dotfiles/local/local.zsh" ]];then
-  source $HOME/dotfiles/local/local.zsh
-fi
 
 # unset SSH_ASKPASS
 
 export NODE_PATH=/usr/local/lib/node_modules
+
+# Customize to your needs...
+# rbenv/bind isn't necessary for brew installation
+
