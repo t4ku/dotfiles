@@ -124,3 +124,6 @@
 [submodule ".vim/bundle/vim-HiLinkTrace"]
 	path = .vim/bundle/vim-HiLinkTrace
 	url = https://github.com/gerw/vim-HiLinkTrace.git
+[submodule ".vim/bundle/vim-hex-ghighlight"]
+	path = .vim/bundle/vim-hex-ghighlight
+	url = https://github.com/yurifury/hexHighlight.git
