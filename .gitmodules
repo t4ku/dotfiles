@@ -82,9 +82,6 @@
 [submodule "resources/iterm2/iTerm-2-Color-Themes"]
 	path = resources/iterm2/iTerm-2-Color-Themes
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
-[submodule ".vim/bundle/vim-railscasts"]
-	path = .vim/bundle/vim-railscasts
-	url = https://github.com/rickharris/vim-railscasts.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -127,3 +124,6 @@
 [submodule ".vim/bundle/vim-hex-ghighlight"]
 	path = .vim/bundle/vim-hex-ghighlight
 	url = https://github.com/yurifury/hexHighlight.git
+[submodule ".vim/bundle/vim-railscasts"]
+	path = .vim/bundle/vim-railscasts
+	url = https://github.com/t4ku/vim-railscasts.git
