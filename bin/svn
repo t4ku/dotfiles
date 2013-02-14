@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [[ -z $SVNPATH ]]; then
+    svn="/usr/bin/svn"
+else
+    svn="$SVNPATH"
+fi
+
 usage () {
     cat <<USAGE
 
@@ -64,12 +70,12 @@ stash () {
                 exit 1
             fi
 
-            changes=`svn status -q | wc -l`
+            changes=`$svn status -q | wc -l`
 
             if [ $changes -gt 0 ]
             then
                 echo "Error: Local changes, please either revert or stash them"
-                svn status -q
+                $svn status -q
                 exit 1
             fi
 
@@ -79,10 +85,10 @@ stash () {
 
             patch -s -p0 < "$stash"
 
-            awk '/^Index: / { print $2 }' "$stash" | xargs -r svn add -q --parents
-            awk '/^Index: / { print $2 }' "$stash" | xargs wc -l | awk '$1 == 0 { print $2 }' | xargs -r svn rm -q --force
+            awk '/^Index: / { print $2 }' "$stash" | xargs -r $svn add -q --parents
+            awk '/^Index: / { print $2 }' "$stash" | xargs wc -l | awk '$1 == 0 { print $2 }' | xargs -r $svn rm -q --force
 
-            svn status -q
+            $svn status -q
             ;;
         pop)
             if [ $# -lt 2 ]
@@ -112,11 +118,11 @@ stash () {
                 exit 1
             fi
 
-            svn diff > "$stash"
-            svn revert --depth=infinity .
+            $svn diff > "$stash"
+            $svn revert --depth=infinity .
 
             echo "Changes stashed as: \"$2\""
-            echo "Working copy reverted to `svn info | awk '/Revision:/ { print $2 }'`"
+            echo "Working copy reverted to `$svn info | awk '/Revision:/ { print $2 }'`"
             ;;
 
         help)
@@ -141,24 +147,25 @@ USAGE
     esac;
 }
 
+
 case "$1" in
     tags)
-        url=`svn info | awk '/^URL:/ { print $2 }'`
+        url=`$svn info | awk '/^URL:/ { print $2 }'`
         base=`echo $url | sed 's/trunk$//'`
         base=`echo $base | sed 's/tags\\/[^\\/][^\\/]*$//'`
         base=`echo $base | sed 's/branches\\/[^\\/][^\\/]*$//'`
         tags="$base/tags"
 
-        /usr/bin/svn ls $tags | cut -d / -f 1 | sort -V | tabulate
+        $svn ls $tags | cut -d / -f 1 | sort -V | tabulate
     ;;
     branches)
-        url=`svn info | awk '/^URL:/ { print $2 }'`
+        url=`$svn info | awk '/^URL:/ { print $2 }'`
         base=`echo $url | sed 's/trunk$//'`
         base=`echo $base | sed 's/tags\\/[^\\/][^\\/]*$//'`
         base=`echo $base | sed 's/branches\\/[^\\/][^\\/]*$//'`
         branches="$base/branches"
 
-        /usr/bin/svn ls $branches | cut -d / -f 1 | sort | tabulate
+        $svn ls $branches | cut -d / -f 1 | sort | tabulate
     ;;
     tag)
         if [ $# -lt 2 ]
@@ -167,13 +174,13 @@ case "$1" in
             exit 1
         fi
 
-        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        trunk=`$svn info | awk '/^URL:/ { print $2 }'`
         tags=`echo $trunk | sed -E 's/(trunk$|branches\\/[^\\/][^\\/]*$)/tags/'`
 
         message="Tagging $trunk as $2"
 
         echo $message
-        /usr/bin/svn cp -m "$message" $trunk $tags/$2
+        $svn cp -m "$message" $trunk $tags/$2
         echo $tags/$2
     ;;
     branch)
@@ -183,13 +190,13 @@ case "$1" in
             exit 1
         fi
 
-        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        trunk=`$svn info | awk '/^URL:/ { print $2 }'`
         branches=`echo $trunk | sed -E 's/(trunk$|(branches|tags)\\/[^\\/][^\\/]*$)/branches/'`
 
         message="Creating branch $2 from $trunk"
 
         echo $message
-        /usr/bin/svn cp -m "$message" $trunk $branches/$2
+        $svn cp -m "$message" $trunk $branches/$2
         echo $branches/$2
     ;;
     mergebranch|mb)
@@ -199,20 +206,20 @@ case "$1" in
             exit 1
         fi
 
-        trunk=`svn info | awk '/^URL:/ { print $2 }'`
+        trunk=`$svn info | awk '/^URL:/ { print $2 }'`
         branches=`echo $trunk | sed 's/trunk$/branches/'`
 
         echo "Merging $2 into the current working copy"
         # Temporarily disabled --reintegrate merges
         # svn server needs updated.
-        /usr/bin/svn merge $branches/$2 .
+        $svn merge $branches/$2 .
     ;;
     mergetrunk|mt)
-        working=`svn info | awk '/^URL:/ { print $2 }'`
+        working=`$svn info | awk '/^URL:/ { print $2 }'`
         trunk=`echo $working | sed -E 's/(branches|tags)\/[^\/]*$/trunk/'`
 
         echo "Merging trunk into the current working copy"
-        /usr/bin/svn merge $trunk .
+        $svn merge $trunk .
     ;;
     gettag|gt)
         if [ $# -lt 2 ]
@@ -221,18 +228,18 @@ case "$1" in
             exit 1
         fi
 
-        working=`svn info | awk '/^URL:/ { print $2 }'`
+        working=`$svn info | awk '/^URL:/ { print $2 }'`
         tags=`echo $working | sed -E 's/trunk$/tags/; s/(tags|branches)\/[^\/]*$/tags/;'`
 
         echo "Switching working copy to tag $2"
-        /usr/bin/svn switch $tags/$2 .
+        $svn switch $tags/$2 .
     ;;
     gettrunk|trunk)
-        working=`svn info | awk '/^URL:/ { print $2 }'`
+        working=`$svn info | awk '/^URL:/ { print $2 }'`
         trunk=`echo $working | sed -E 's/(branches|tags)\/[^\/]*$/trunk/'`
 
         echo "Switching working copy to trunk"
-        /usr/bin/svn switch $trunk .
+        $svn switch $trunk .
     ;;
     getbranch|gb)
         if [ $# -lt 2 ]
@@ -241,26 +248,26 @@ case "$1" in
             exit 1
         fi
 
-        working=`svn info | awk '/^URL:/ { print $2 }'`
+        working=`$svn info | awk '/^URL:/ { print $2 }'`
         branches=`echo $working | sed -E 's/trunk$/branches/; s/(tags|branches)\/[^\/]*$/branches/;'`
 
         echo "Switching working copy to branch $2"
-        /usr/bin/svn switch $branches/$2 .
+        $svn switch $branches/$2 .
     ;;
     resolve-tree)
-        /usr/bin/svn status | grep -E '.{6,7}C' | cut -c 9- | xargs svn resolved
+        $svn status | grep -E '.{6,7}C' | cut -c 9- | xargs $svn resolved
     ;;
     origin) 
         revsearch='/r[0-9][0-9]*/ { sub(/^r/, "", $1); firstrev = $1 } END { print firstrev }'
 
         if [ $# -eq 2 ]
         then
-            working=`svn info | awk '/^URL:/ { print $2 }'`
+            working=`$svn info | awk '/^URL:/ { print $2 }'`
             branches=`echo $working | sed -E 's/trunk$/branches/; s/(tags|branches)\/[^\/]*$/branches/;'`
 
-            /usr/bin/svn log -q --stop-on-copy $branches/$2 | awk $revsearch
+            $svn log -q --stop-on-copy $branches/$2 | awk $revsearch
         else
-            /usr/bin/svn log -q --stop-on-copy | awk "$revsearch"
+            $svn log -q --stop-on-copy | awk "$revsearch"
         fi
     ;;
     stash)
@@ -271,18 +278,18 @@ case "$1" in
     help)
         if [ $# -lt 2 ]
         then
-            /usr/bin/svn help
+            $svn help
             usage
         else
             if [ $2 = "stash" ]
             then
                 stash "help"
             else
-                /usr/bin/svn "$@"
+                $svn "$@"
             fi
         fi
     ;;
     *)
-        /usr/bin/svn "$@"
+        $svn "$@"
     ;;
 esac
