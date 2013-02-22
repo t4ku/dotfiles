@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/vim-railscasts"]
 	path = .vim/bundle/vim-railscasts
 	url = https://github.com/t4ku/vim-railscasts.git
+[submodule ".vim/bundle/vim-togglelist"]
+	path = .vim/bundle/vim-togglelist
+	url = https://github.com/milkypostman/vim-togglelist.git
