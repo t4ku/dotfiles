@@ -130,3 +130,9 @@
 [submodule ".vim/bundle/vim-togglelist"]
 	path = .vim/bundle/vim-togglelist
 	url = https://github.com/milkypostman/vim-togglelist.git
+[submodule ".vim/bundle/jekkybeans"]
+	path = .vim/bundle/jekkybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule ".vim/bundle/vim-hybrid"]
+	path = .vim/bundle/vim-hybrid
+	url = https://github.com/w0ng/vim-hybrid.git

@@ -23,7 +23,9 @@ if (exists("$COLORFGBG"))
     colorscheme hemisu
   endif
 else
-  colorscheme railscasts
+  "colorscheme railscasts
+  "colorscheme jellybeans
+  colorscheme hybrid
 endif
 
 " solarized
