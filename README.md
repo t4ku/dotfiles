@@ -24,6 +24,9 @@ Install
 ### additional stuff
 
 * Homebrew
+  * rbenv
+    * move /etc/zshenv to /etc/zprofile
+    * change zprofile contents to prevent it from being loaded in tmux session(see Notes)
   * tig
     * terminal git log viewer
   * zsh 5.0
@@ -74,4 +77,15 @@ hi Normal          ctermfg=252 ctermbg=none
 
 ```
 brew info reattach-to-user-namespace
+```
+### /etc/zprofile
+
+```
+# system-wide environment settings for zsh(1)
+rt RBENV_ROOT=/usr/local/opt/rbenv
+if [[ -z $TMUX ]] && [ -x /usr/libexec/path_helper ]; then
+	eval `/usr/libexec/path_helper -s`
+    # use rbenv directory in brew's installation
+	export RBENV_ROOT=/usr/local/opt/rbenv
+fi
 ```
