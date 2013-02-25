@@ -18,6 +18,11 @@ setopt multios
 # collection
 setopt correct
 
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
 # completion
 fpath=($HOME/dotfiles/zsh/completion $fpath)
 autoload -U compinit && compinit
