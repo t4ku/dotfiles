@@ -23,6 +23,11 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+autoload history-search-end
+
+bindkey ^P  history-search-backward # search backward the history with current input
+bindkey ^N  history-search-forward  # search forward the history with current input
+
 # completion
 fpath=($HOME/dotfiles/zsh/completion $fpath)
 autoload -U compinit && compinit
@@ -32,7 +37,6 @@ zstyle ':completion:*' menu select
 
 PROMPT='%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}
 >> '
-
 
 # alias
 alias g="git"
