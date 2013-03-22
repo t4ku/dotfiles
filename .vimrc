@@ -212,6 +212,9 @@ let g:ctrlp_buftag_types = {'php': '--language-force=php --php-types=cdfi'}
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
+" pls don't hijack
+let g:NERDTreeHijackNetrw = 0
+
 " https://github.com/kien/ctrlp.vim/issues/78
 let g:ctrlp_reuse_window = 'NERD_tree_2'
 
