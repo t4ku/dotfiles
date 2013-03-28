@@ -247,3 +247,8 @@ augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
+" expand current directory in command
+" http://stackoverflow.com/questions/2170340/vim-e-starting-directory
+cnoremap <Leader>e <c-r>=expand("%:h")<cr>
+
