@@ -133,3 +133,6 @@
 [submodule ".vim/bundle/vim-hybrid"]
 	path = .vim/bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
+[submodule ".vim/bundle/vim-linediff"]
+	path = .vim/bundle/vim-linediff
+	url = https://github.com/AndrewRadev/linediff.vim.git
