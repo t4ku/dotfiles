@@ -136,3 +136,6 @@
 [submodule ".vim/bundle/vim-linediff"]
 	path = .vim/bundle/vim-linediff
 	url = https://github.com/AndrewRadev/linediff.vim.git
+[submodule ".vim/bundle/vim-abolish"]
+	path = .vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
