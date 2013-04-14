@@ -45,3 +45,5 @@ alias gst="git status"
 # tools
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 [[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh
+
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
