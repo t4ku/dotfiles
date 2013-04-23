@@ -80,6 +80,9 @@ set mouse=a
 " toggole paste/nopaste
 noremap <Leader>v :set invpaste<CR>:set paste?<CR>
 
+" toggle view for pase
+noremap <Leader>p :set nonumber!<CR>:set nolist!<CR>
+
 " copy filepath to clipboard
 " from https://github.com/taku-o/vim-copypath/blob/master/plugin/copypath.vim
 noremap <Leader>yp :let @*=expand('%:p')<CR> " yank full path
