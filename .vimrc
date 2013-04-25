@@ -255,3 +255,12 @@ augroup END
 " http://stackoverflow.com/questions/2170340/vim-e-starting-directory
 cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 
+" ======================
+" Smarty
+" =====================
+
+" http://stackoverflow.com/questions/5117991/vim-insert-empty-erb-tags
+" <c-s>= to start(in terminal vim prefix with <c-g>, yss= for existing
+autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
+autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+
