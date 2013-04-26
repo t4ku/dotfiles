@@ -5,6 +5,12 @@ if [[ -z $TMUX ]]; then
 
     if [[ -f "$HOME/dotfiles/local/local.zsh" ]];then
         source $HOME/dotfiles/local/local.zsh
+        # use rbenv directory in brew's installation
+        export RBENV_ROOT=/usr/local/opt/rbenv
+        if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+        # nvm
+        source $(brew --prefix nvm)/nvm.sh
     fi
 else        
 fi
