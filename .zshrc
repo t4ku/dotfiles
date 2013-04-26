@@ -23,6 +23,7 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+setopt share_history
 autoload history-search-end
 
 bindkey ^P  history-search-backward # search backward the history with current input
