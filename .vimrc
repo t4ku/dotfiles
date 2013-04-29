@@ -166,6 +166,7 @@ if executable('marktag')
         \ 'kinds' : [
             \ 'h:header'
         \ ],
+        \ 'sort': 0,
         \ 'sro' : '.',
         \ 'kind2scope' : {
             \ 'h' : 'header'
