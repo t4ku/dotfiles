@@ -6,17 +6,24 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 # switch color option available. Linux (ls --color), or BSD (ls -G)
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 
+## Prompt
+
 # eval variable reference in prompt
 setopt prompt_subst
+# collection
+setopt correct
+
+## Directory
 
 # cd with dir name only
 setopt auto_cd
 # eval path in variable for auto_cd
 setopt cdablevars
+# pushd on cd, come back with cd -[TAB]
+setopt auto_pushd
+
 # allow multiple redirect
 setopt multios
-# collection
-setopt correct
 
 # history
 HISTFILE=$HOME/.zsh_history
