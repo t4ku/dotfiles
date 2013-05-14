@@ -59,8 +59,9 @@ filetype indent on
 
 let mapleader = ","
 
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+" this overrides jumps (CTRL-I # see :verbose map <C-i> )
+"nnoremap <Tab> gt
+"nnoremap <S-Tab> gT
 
 nnoremap / /\v
 
