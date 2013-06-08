@@ -59,9 +59,10 @@ alias gst="git status"
 # rbenv init prepends rbenv's path, so guard against tmux sub-shell
 if [[ -z $TMUX ]];then
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+    [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
 fi
 
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
-[[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh
-
-[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+# load platform specific ones
+if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
+    source "$HOME/dotfiles/.zshrc.$PLATFORM" 
+fi
