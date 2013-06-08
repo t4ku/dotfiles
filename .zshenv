@@ -1,26 +1,40 @@
 if [[ -z $TMUX ]]; then
+    # local customization function prototype
+    before_zshenv(){}
+    after_zshenv(){}
+    before_zshrc(){}
+    after_zshrc(){}
+    before_zprofile(){}
+    after_zprofile(){}
 
-## base setting for all shells (login/non-login, interactive)
-export EDITOR="vim"
-export SVN_EDITOR=$EDITOR
+    # load functions
+    if [[ -f "$HOME/dotfiles/local/local.zsh" ]]; then
+        source  "$HOME/dotfiles/local/local.zsh"
+    fi
 
-# environment variable
-export OS=`uname -s`
-export ARCH=`uname -m`
+    before_zshenv
 
-# create nicer name
-if [[ "$OS" == 'Darwin' ]];then
-    PLATFORM='osx'
-elif [[ "$OS" == 'Linux' ]];then
-    PLATFORM='linux'
-fi
+    ## base setting for all shells (login/non-login, interactive)
+    export EDITOR="vim"
+    export SVN_EDITOR=$EDITOR
 
-export PLATFORM
+    # environment variable
+    export OS=`uname -s`
+    export ARCH=`uname -m`
 
-# load platform specific ones
-if [[ -f "$HOME/dotfiles/.zshenv.$PLATFORM" ]];then
-    source "$HOME/dotfiles/.zshenv.$PLATFORM" 
-fi
+    # create nicer name
+    if [[ "$OS" == 'Darwin' ]];then
+        PLATFORM='osx'
+    elif [[ "$OS" == 'Linux' ]];then
+        PLATFORM='linux'
+    fi
 
+    export PLATFORM
 
+    # load platform specific ones
+    if [[ -f "$HOME/dotfiles/.zshenv.$PLATFORM" ]];then
+        source "$HOME/dotfiles/.zshenv.$PLATFORM" 
+    fi
+
+    after_zshenv
 fi

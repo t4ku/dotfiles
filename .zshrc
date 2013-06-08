@@ -1,3 +1,5 @@
+before_zshrc
+
 export NODE_PATH=/usr/local/lib/node_modules
 
 autoload colors; colors;
@@ -66,3 +68,5 @@ fi
 if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
     source "$HOME/dotfiles/.zshrc.$PLATFORM" 
 fi
+
+after_zshrc
