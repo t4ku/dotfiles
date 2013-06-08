@@ -35,8 +35,6 @@ Below are the tools I use which needs mannual installation or setup.
   * zshrc enable the command if installed
 * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
   * macvim with project browser
-* nvm(node.js)
-  * use nvm managed node.js
 * [ack!](http://betterthangrep.com/)
   * better grep
 
@@ -46,6 +44,8 @@ Below are the tools I use which needs mannual installation or setup.
   * set "Left option key act as +esc" to use Meta Keys(M-) in tmux
 * pow
   * depends on node/npm
+* nvm(node.js)
+  * install with install script (nvm)[https://github.com/creationix/nvm]
 
 ### fixing vim colorscheme
 
