@@ -14,51 +14,42 @@ Install
 # checkout files
 > git submodule update
 
-
+# link under home directory
 > ./setup.sh
 ```
 
-* setup shell tries to create symlink from oh-my-zsh installation path(dotfiles/oh-my-zsh) to zsh/oh-my-zsh/custom
-* put machine specific settings in zsh/local.zsh
+### Manual setup
 
-### additional stuff
+Below are the tools I use which needs mannual installation or setup.
 
-* Homebrew
-  * rbenv
-    * move /etc/zshenv to /etc/zprofile
-    * change zprofile contents to prevent it from being loaded in tmux session(see Notes)
-  * tig
-    * terminal git log viewer
-  * zsh 5.0
-    * better zsh completion on large git repos
-  * [autojump](https://github.com/joelthelion/autojump/)
-    * zshrc enable the command if installed
-  * [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
-    * macvim with project browser
-  * node
-  * [ack!](http://betterthangrep.com/)
-    * better grep
-* custom installer
-  * iterm2
-    * set "Left option key act as +esc" to use Meta Keys(M-) in tmux
-  * npm
-    * add rbenv settings to ~/.powconfig
-    * export PATH=/usr/local/Cellar/rbenv/0.3.0/shims:/Users/:/usr/local/Cellar/rbenv/0.3.0/bin:$PATH
-  * pow
-    * depends on node/npm
+#### Homebrew
 
-Notes
------
+* rbenv
+  * move /etc/zshenv to /etc/zprofile
+  * change zprofile contents to prevent it from being loaded in tmux session(see Notes)
+* tig
+  * terminal git log viewer
+* zsh 5.0
+  * better zsh completion on large git repos
+* [autojump](https://github.com/joelthelion/autojump/)
+  * zshrc enable the command if installed
+* [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
+  * macvim with project browser
+* nvm(node.js)
+  * use nvm managed node.js
+* [ack!](http://betterthangrep.com/)
+  * better grep
 
-### adding vim plugin
-----
+#### custom installer
 
-```bash
-git submodule add https://github.com/kien/ctrlp.vim.git .vim/bundle/ctrlp.vim
-git commit
-```
+* iterm2
+  * set "Left option key act as +esc" to use Meta Keys(M-) in tmux
+* pow
+  * depends on node/npm
 
 ### fixing vim colorscheme
+
+#### molokai
 
 [A patch to molokai.vim](https://gist.github.com/3351367)
 
@@ -78,14 +69,38 @@ hi Normal          ctermfg=252 ctermbg=none
 ```
 brew info reattach-to-user-namespace
 ```
-### /etc/zprofile
+
+Misc
+---------
+
+### adding vim plugin
+----
+
+```bash
+git submodule add https://github.com/kien/ctrlp.vim.git .vim/bundle/ctrlp.vim
+git commit
+```
+
+### Avoid tmux sub-shell sourcing zprofile/zshenv/zshrc
+
+Tmux starts sub-shell in opening/spliting windows/panes, sourcing zprofile/zshenv/zshrc.
+So if your scripts add environment variables(mainly PATH), they are prepended twice in 
+new windows/pane.
+
+There's no way preventing tmux from sourcing scripts AFAIK.
+I ended up adding if statement skipping export env variable 
+when called from tmux.
 
 ```
-# system-wide environment settings for zsh(1)
-rt RBENV_ROOT=/usr/local/opt/rbenv
+if [[ -z $TMUX ]]; then
+    export PATH=/some/path;"$PATH"
+fi
+```
+Since sub-shell also source /etc/zshenv or /etc/zprofile,
+you also need to edit them.
+
+```
 if [[ -z $TMUX ]] && [ -x /usr/libexec/path_helper ]; then
 	eval `/usr/libexec/path_helper -s`
-    # use rbenv directory in brew's installation
-	export RBENV_ROOT=/usr/local/opt/rbenv
 fi
 ```

@@ -55,7 +55,11 @@ alias g="git"
 alias gst="git status"
 
 # terminal tools
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# rbenv init prepends rbenv's path, so guard against tmux sub-shell
+if [[ -z $TMUX ]];then
+    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+fi
 
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 [[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh

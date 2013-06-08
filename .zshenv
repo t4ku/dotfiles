@@ -1,3 +1,5 @@
+if [[ -z $TMUX ]]; then
+
 ## base setting for all shells (login/non-login, interactive)
 export EDITOR="vim"
 export SVN_EDITOR=$EDITOR
@@ -18,4 +20,7 @@ export PLATFORM
 # load platform specific ones
 if [[ -f "$HOME/dotfiles/.zshenv.$PLATFORM" ]];then
     source "$HOME/dotfiles/.zshenv.$PLATFORM" 
+fi
+
+
 fi
