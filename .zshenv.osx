@@ -1,0 +1,6 @@
+# use system wide rbenv path installed by homebrew
+export RBENV_ROOT=/usr/local/opt/rbenv
+# init call (rbenv init -) is on .zshrc
+# for more about rbenv and zsh initialization process
+# see https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
+# Additionaly, osx uses /usr/libexec/path_helper in /etc/zshrc, which affetcs PATH variables.

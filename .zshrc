@@ -8,6 +8,10 @@ ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G
 
 ## Prompt
 
+# when $EDITOR is set to "vim", terminal shortcut keys 
+# like Ctrl-a/Ctrl-k/Ctrl-r/Ctrl-s aren't available.
+bindkey -e
+
 # eval variable reference in prompt
 setopt prompt_subst
 # collection
@@ -50,7 +54,9 @@ PROMPT='%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}
 alias g="git"
 alias gst="git status"
 
-# tools
+# terminal tools
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 [[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh
 
