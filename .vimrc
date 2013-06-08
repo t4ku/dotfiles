@@ -113,6 +113,8 @@ set tabstop=4
 set shiftwidth=4   " autoindent size
 set backspace=2    " use delete key to go back to previous line
 
+autocmd FileType make set noexpandtab
+
 " ==================
 " Window
 " ==================
