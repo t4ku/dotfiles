@@ -1,16 +1,17 @@
-if [[ -z $TMUX ]]; then
-    # local customization function prototype
-    before_zshenv(){}
-    after_zshenv(){}
-    before_zshrc(){}
-    after_zshrc(){}
-    before_zprofile(){}
-    after_zprofile(){}
+# local customization function prototype
+before_zshenv(){}
+after_zshenv(){}
+before_zshrc(){}
+after_zshrc(){}
+before_zprofile(){}
+after_zprofile(){}
 
-    # load functions
-    if [[ -f "$HOME/dotfiles/local/local.zsh" ]]; then
-        source  "$HOME/dotfiles/local/local.zsh"
-    fi
+# load functions
+if [[ -f "$HOME/dotfiles/local/local.zsh" ]]; then
+    source  "$HOME/dotfiles/local/local.zsh"
+fi
+
+if [[ -z $TMUX ]]; then
 
     before_zshenv
 
