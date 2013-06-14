@@ -1,7 +1,5 @@
 before_zshrc
 
-export NODE_PATH=/usr/local/lib/node_modules
-
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 

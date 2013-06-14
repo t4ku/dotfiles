@@ -1,3 +1,4 @@
+export PATH="/usr/local/bin:$PATH"
 # use system wide rbenv path installed by homebrew
 export RBENV_ROOT=/usr/local/opt/rbenv
 # init call (rbenv init -) is on .zshrc
