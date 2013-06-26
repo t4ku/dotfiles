@@ -236,6 +236,11 @@ command! CallMirrorNT call MirrorNT()
 
 autocmd BufEnter * CallMirrorNT
 
+" ===================
+" Align
+" ===================
+let g:Align_xstrlen=3
+
 " ///////////// Misc ////////////
 
 " =====================
