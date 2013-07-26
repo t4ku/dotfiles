@@ -103,7 +103,7 @@ set guifont=Monaco:h13
 " ==================
 
 set encoding=utf-8
-set fencs=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fencs=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fenc=utf-8
 
 autocmd FileType gitcommit setlocal fenc=utf-8
@@ -269,7 +269,8 @@ cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 " =====================
 
 " http://stackoverflow.com/questions/5117991/vim-insert-empty-erb-tags
-" <c-s>= to start(in terminal vim prefix with <c-g>, yss= for existing
+" <c-s>= to start(in terminal vim prefix with <c-g>s, yss= for existing
 autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+
 
