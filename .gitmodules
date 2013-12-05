@@ -148,3 +148,15 @@
 [submodule ".vim/bundle/gitv"]
 	path = .vim/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
+[submodule ".vim/bundle/vim-ragtag"]
+	path = .vim/bundle/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule ".vim/bundle/vim_ios"]
+	path = .vim/bundle/vim_ios
+	url = https://github.com/eraserhd/vim-ios.git
+[submodule ".vim/bundle/vim-cocoa"]
+	path = .vim/bundle/vim-cocoa
+	url = https://github.com/msanders/cocoa.vim.git
+[submodule ".vim/bundle/patchreview-vim"]
+	path = .vim/bundle/patchreview-vim
+	url = https://github.com/junkblocker/patchreview-vim.git
