@@ -5,6 +5,11 @@ call add(g:pathogen_disabled,'vim-peepopen')
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+if (exists("$GOROOT"))
+  set rtp+=$GOROOT/misc/vim
+  set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
+endif
+
 " ===================
 " colors, appearance
 " ===================
@@ -51,7 +56,7 @@ set nocompatible
 set smartindent
 "set autoindent
 
-filetype indent on
+filetype plugin indent on
 
 " ===================
 " key mapping
@@ -272,5 +277,4 @@ cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 " <c-s>= to start(in terminal vim prefix with <c-g>s, yss= for existing
 autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
-
 
