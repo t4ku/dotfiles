@@ -51,3 +51,18 @@ slate.bind('2:ctrl;alt',function(win){
     config.currentIndex = (config.currentIndex + 1 < config.operations.length) ? config.currentIndex + 1 : 0;
     win.doOperation(operation);
 });
+
+slate.bind('g:ctrl;alt;shift',function(win){
+    win.doOperation(slate.operation('grid',{ 
+        'grids' : {
+            '0' : {
+                'width'  : 6,
+                'height' : 6
+            },
+            '1' : {
+                'width'  : 6,
+                'height' : 6
+            }
+        }
+    }));
+});
