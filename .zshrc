@@ -6,6 +6,7 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 # switch color option available. Linux (ls --color), or BSD (ls -G)
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 
+
 ## Prompt
 
 # when $EDITOR is set to "vim", terminal shortcut keys 
@@ -53,6 +54,7 @@ PROMPT='%{$fg[yellow]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}
 # alias
 alias g="git"
 alias gst="git status"
+alias gco="git checkout"
 
 # terminal tools
 
@@ -60,6 +62,8 @@ alias gst="git status"
 if [[ -z $TMUX ]];then
     if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
     [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+    if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 fi
 
 # load platform specific ones
@@ -68,3 +72,6 @@ if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
 fi
 
 after_zshrc
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
