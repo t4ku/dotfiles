@@ -277,4 +277,3 @@ cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 " <c-s>= to start(in terminal vim prefix with <c-g>s, yss= for existing
 autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
-

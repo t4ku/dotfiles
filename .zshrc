@@ -41,6 +41,13 @@ autoload history-search-end
 bindkey ^P  history-search-backward # search backward the history with current input
 bindkey ^N  history-search-forward  # search forward the history with current input
 
+# zle
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey ^x^e edit-command-line
+#bindkey -M vicmd v edit-command-line
+
 # completion
 fpath=($HOME/dotfiles/zsh/completion $fpath)
 autoload -U compinit && compinit
