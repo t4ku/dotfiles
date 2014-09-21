@@ -8,6 +8,9 @@
   tool = vimdiff
 [alias]
   s = status
+  c = commit
+  ca = commit --amend
+  p = push
   # lol = log --graph --decorate --pretty="%h%an%ad%s" --abbrev-commit
   lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
   # diff
