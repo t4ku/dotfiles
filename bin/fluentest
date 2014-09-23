@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+# gem install fluentd --no-ri --no-rdoc
+#
+require 'fluent/config'
+require 'fluent/parser'
+require 'fluent/engine'
+
+require 'optparse'
+
+opt = OptionParser.new
+limit=10
+time_format=''
+
+opt.on('-l VAL') { |v| limit = v.to_i }
+opt.on('-t VAL') { |v| time_format = time_format }
+opt.parse!(ARGV)
+
+log_path,regexp = ARGV
+
+regexp = Regexp.new(regexp)
+parser = Fluent::TextParser::RegexpParser.new(regexp, 'time_format' => time_format)
+
+log_file = File.open(log_path)
+log_file.each_line do |line|
+    ret = parser.call(line)
+    p ret
+    break if log_file.lineno >= limit
+end
