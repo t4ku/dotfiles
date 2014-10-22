@@ -48,6 +48,22 @@ set listchars=eol:¬,tab:▸⠂
 set incsearch
 set hlsearch
 
+" Syntastic style
+
+"    SyntasticErrorSign - For syntax errors, links to 'error' by default
+"    SyntasticWarningSign - For syntax warnings, links to 'todo' by default
+"    SyntasticStyleErrorSign - For style errors, links to 'SyntasticErrorSign'
+"                              by default
+"    SyntasticStyleWarningSign - For style warnings, links to
+"                                'SyntasticWarningSign' by default
+"
+"Example: >
+"    highlight SyntasticErrorSign guifg=white guibg=red
+
+highlight error guifg=red ctermfg=red
+highlight todo  guifg=yellow ctermfg=yellow
+
+
 " ===================
 " syntax, indent
 " ===================
@@ -65,8 +81,10 @@ filetype plugin indent on
 let mapleader = ","
 
 " this overrides jumps (CTRL-I # see :verbose map <C-i> )
-"nnoremap <Tab> gt
-"nnoremap <S-Tab> gT
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+nnoremap gl :Gitv!<cr>
 
 nnoremap / /\v
 
@@ -277,3 +295,11 @@ cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 " <c-s>= to start(in terminal vim prefix with <c-g>s, yss= for existing
 autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+
+" svn
+command! SVNDiff :execute s:SVNDiff()
+
+function! s:SVNDiff() abort
+    :vnew | exe "%!svn cat " . expand("#:p")
+    :diffthis
+endfunction
