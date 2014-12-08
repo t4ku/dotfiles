@@ -48,20 +48,6 @@ set listchars=eol:¬,tab:▸⠂
 set incsearch
 set hlsearch
 
-" Syntastic style
-
-"    SyntasticErrorSign - For syntax errors, links to 'error' by default
-"    SyntasticWarningSign - For syntax warnings, links to 'todo' by default
-"    SyntasticStyleErrorSign - For style errors, links to 'SyntasticErrorSign'
-"                              by default
-"    SyntasticStyleWarningSign - For style warnings, links to
-"                                'SyntasticWarningSign' by default
-"
-"Example: >
-"    highlight SyntasticErrorSign guifg=white guibg=red
-
-highlight error guifg=red ctermfg=red
-highlight todo  guifg=yellow ctermfg=yellow
 
 
 " ===================
@@ -303,3 +289,24 @@ function! s:SVNDiff() abort
     :vnew | exe "%!svn cat " . expand("#:p")
     :diffthis
 endfunction
+
+" =====================
+" Syntastic
+" =====================
+
+" Syntastic style
+
+"    SyntasticErrorSign - For syntax errors, links to 'error' by default
+"    SyntasticWarningSign - For syntax warnings, links to 'todo' by default
+"    SyntasticStyleErrorSign - For style errors, links to 'SyntasticErrorSign'
+"                              by default
+"    SyntasticStyleWarningSign - For style warnings, links to
+"                                'SyntasticWarningSign' by default
+"
+"Example: >
+"    highlight SyntasticErrorSign guifg=white guibg=red
+
+"highlight error guifg=red ctermfg=red
+"highlight todo  guifg=yellow ctermfg=yellow
+
+let g:syntastic_ruby_checkers = ['rubocop']
