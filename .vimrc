@@ -250,6 +250,12 @@ autocmd BufEnter * CallMirrorNT
 " ===================
 let g:Align_xstrlen=3
 
+" ===================
+" Gitv
+" ===================
+
+let g:Gitv_TruncateCommitSubjects = 1
+
 " ///////////// Misc ////////////
 
 " =====================
@@ -283,10 +289,14 @@ autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
 
 " svn
-command! SVNDiff :execute s:SVNDiff()
-
-function! s:SVNDiff() abort
-    :vnew | exe "%!svn cat " . expand("#:p")
+command! -nargs=? SVNDiff :execute s:SVNDiff(<f-args>)
+function! s:SVNDiff(...)
+    let revision = ''
+    if a:0 >= 1
+        let revision = a:1
+    endif
+    let diffcmd = "%!svn cat " . revision . " " . expand("%:p")
+    :vnew | exe diffcmd
     :diffthis
 endfunction
 
