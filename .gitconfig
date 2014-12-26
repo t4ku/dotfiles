@@ -12,6 +12,7 @@
   ca = commit --amend
   p = push
   # lol = log --graph --decorate --pretty="%h%an%ad%s" --abbrev-commit
+  lo = log --oneline
   lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
   # diff
   d  = diff
@@ -19,7 +20,8 @@
   # reset
   rh = reset HEAD
   # list changed files of commits which have certain keywords in commit log
-  cf = "!f() { git whatchanged --grep=$1 --oneline --name-only --no-commit-id | sort | uniq ;}; f"
+  lwc = "!f() { git log $* --oneline --name-only --no-commit-id -m | grep -Ev '^[0-9a-z]{7} ' | sort | uniq ;}; f"
+  la = "!f() { git config --list | grep alias;}; f"
 [core]
   precomposeunicode = true
   editor = vim
