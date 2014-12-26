@@ -37,5 +37,11 @@ if [[ -z $TMUX ]]; then
         source "$HOME/dotfiles/.zshenv.$PLATFORM" 
     fi
 
+
     after_zshenv
 fi
+
+# terminal vimrc dark
+export COLORFGBG='15:0'
+# terminal vimrc light
+#export COLORFGBG='0:15'
