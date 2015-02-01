@@ -245,6 +245,9 @@ command! CallMirrorNT call MirrorNT()
 
 autocmd BufEnter * CallMirrorNT
 
+" show current file in finder
+map <leader>r :NERDTreeFind<cr>
+
 " ===================
 " Align
 " ===================
@@ -320,3 +323,9 @@ endfunction
 "highlight todo  guifg=yellow ctermfg=yellow
 
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" =====================
+" File specific setting
+" =====================
+
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
