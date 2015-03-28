@@ -143,6 +143,9 @@ endif
 
 set noswapfile     " disable swap file creation
 
+set visualbell     " disable beeping
+
+
 " ///////////// Plugins ////////////
 
 " ===================
