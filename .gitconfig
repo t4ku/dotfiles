@@ -9,6 +9,7 @@
 [alias]
   s = status
   c = commit
+  co = checkout
   ca = commit --amend
   p = push
   # lol = log --graph --decorate --pretty="%h%an%ad%s" --abbrev-commit
@@ -29,3 +30,9 @@
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[init]
+	templatedir = /Users/okawa/.git-templates

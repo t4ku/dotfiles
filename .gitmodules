@@ -178,3 +178,6 @@
 [submodule ".vim/bundle/vim-bundler"]
 	path = .vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git
+[submodule ".vim/bundle/seoul256"]
+	path = .vim/bundle/seoul256
+	url = https://github.com/junegunn/seoul256.vim.git
