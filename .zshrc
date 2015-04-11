@@ -71,6 +71,7 @@ if [[ -z $TMUX ]];then
     [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
     if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
     if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
 # load platform specific ones
