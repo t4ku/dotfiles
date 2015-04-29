@@ -1,7 +1,6 @@
-export PATH="/usr/local/bin:$PATH"
-# use system wide rbenv path installed by homebrew
-export RBENV_ROOT=/usr/local/opt/rbenv
-# init call (rbenv init -) is on .zshrc
-# for more about rbenv and zsh initialization process
-# see https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
-# Additionaly, osx uses /usr/libexec/path_helper in /etc/zshrc, which affetcs PATH variables.
+# use zsh with --disable-etcdir and skip path_helper
+# manually define osx paths 
+# /etc/paths
+MAC_DEFAULT_PATHS=/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="/usr/local/bin:$MAC_DEFAULT_PATHS"
+export PATH="$HOME/.rbenv/bin:$PATH"
