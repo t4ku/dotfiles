@@ -76,6 +76,9 @@ nnoremap gl :Gitv!<cr>
 
 nnoremap / /\v
 
+nmap <Leader><C-w> :tabclose<cr>
+
+
 " ===================
 " mouse, clipboard
 " ===================
@@ -327,10 +330,35 @@ endfunction
 "highlight error guifg=red ctermfg=red
 "highlight todo  guifg=yellow ctermfg=yellow
 
+"let g:syntastic_ruby_rubocop_exec = expand('~/.rbenv/shims/rubocop')
+"let g:syntastic_ruby_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/shims/ruby /usr/local/Cellar/rbenv/HEAD/shims/rubocop'
+"/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby
+"let g:syntastic_ruby_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby /usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/rubocop'
+"let g:syntastic_ruby_rubocop_exec = '/Users/okawa.rbenv/versions/2.2.1/bin/ruby /Users/okawa/.rbenv/versions/2.2.1/bin/rubocop'
+let g:syntastic_ruby_rubocop_exec = '/Users/okawa/bin/rubocop-syntastic'
+"let g:syntastic_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby /usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/rubocop'
+let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby','javascript'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_aggregate_errors = 0
+"let g:syntastic_debug = 1
+"let g:syntastic_debug_file = './syntastic.log'
+
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_javascript_checkers = ['jshint','jscs']
+
+" =====================
+" VCSCommand
+" =====================
+let mapleader = ','
+ 
+nnoremap [VCS] <Nop>
+nmap <Leader>v [VCS]
+let g:VCSCommandMapPrefix = '[VCS]'
+
 
 " =====================
 " File specific setting
 " =====================
 
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
+

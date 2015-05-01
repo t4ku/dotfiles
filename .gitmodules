@@ -181,3 +181,6 @@
 [submodule ".vim/bundle/seoul256"]
 	path = .vim/bundle/seoul256
 	url = https://github.com/junegunn/seoul256.vim.git
+[submodule ".vim/bundle/vim-vcscommand"]
+	path = .vim/bundle/vim-vcscommand
+	url = https://github.com/vim-scripts/vcscommand.vim.git
