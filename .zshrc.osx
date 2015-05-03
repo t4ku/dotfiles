@@ -1,6 +1,8 @@
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 [[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh
 
+[[ -s `brew --prefix`/etc/profile.d/z.sh ]]  && source `brew --prefix`/etc/profile.d/z.sh
+
 #export GOROOT=/usr/local/Cellar/go/1.2/libexec
 export GOPATH=$HOME/gopackage/1.4.1
 export PATH=$PATH:$GOPATH/bin

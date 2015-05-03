@@ -19,16 +19,6 @@ Install
 
 Below are the tools I use which needs mannual installation or setup.
 
-#### Homebrew
-
-* rbenv
-  * move /etc/zshenv to /etc/zprofile
-  * change zprofile contents to prevent it from being loaded in tmux session(see Notes)
-* [autojump](https://github.com/joelthelion/autojump/)
-  * zshrc enable the command if installed
-* [homebrew-macvim](https://github.com/ryuk/homebrew-macvim)
-  * macvim with project browser
-
 #### custom installer
 
 * iterm2
@@ -57,11 +47,17 @@ hi Normal          ctermfg=252 ctermbg=none
 brew info reattach-to-user-namespace
 ```
 
-Misc
+Notes
 ---------
 
+### install additional components
+
+```
+# programming languages
+brew bundle --file Brewfile.langs
+```
+
 ### adding vim plugin
-----
 
 ```bash
 git submodule add https://github.com/kien/ctrlp.vim.git .vim/bundle/ctrlp.vim
