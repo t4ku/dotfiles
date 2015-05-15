@@ -20,9 +20,8 @@ if [[ $? > 0 ]]; then
     brew tap Homebrew/bundle
 fi
 
-if [[ -d '/usr/local/Library/Taps/homebrew/homebrew-bundle' ]] ; then
-    brew bundle
-fi
+brew tap Homebrew/bundle
+brew bundle
 
 which rbenv &> /dev/null
 if [[ $? > 0 ]]; then
