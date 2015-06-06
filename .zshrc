@@ -63,6 +63,8 @@ alias g="git"
 alias gst="git status"
 alias gco="git checkout"
 
+alias jxa="osascript -l JavaScript"
+
 # terminal tools
 
 # rbenv init prepends rbenv's path, so guard against tmux sub-shell

@@ -1,1 +1,2 @@
 brew 'gauche'
+brew 'elixir'

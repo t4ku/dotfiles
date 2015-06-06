@@ -4,3 +4,4 @@ brew 'reattach-to-user-namespace'
 brew 'macvim', args: ['--override-system-vim']
 brew 'peco'
 brew 'z'
+brew 'git'
