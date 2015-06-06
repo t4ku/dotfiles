@@ -36,3 +36,5 @@
 	required = true
 [init]
 	templatedir = /Users/okawa/.git-templates
+[push]
+	default = simple
