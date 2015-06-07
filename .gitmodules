@@ -184,3 +184,9 @@
 [submodule "resources/iTerm2-Color-Schemes"]
 	path = resources/iTerm2-Color-Schemes
 	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
+[submodule ".vim/bundle/summerfruit256.vim"]
+	path = .vim/bundle/summerfruit256.vim
+	url = https://github.com/t4ku/summerfruit256.vim.git
+[submodule ".vim/bundle/vim-colorscheme-primary"]
+	path = .vim/bundle/vim-colorscheme-primary
+	url = https://github.com/t4ku/vim-colorscheme-primary.git
