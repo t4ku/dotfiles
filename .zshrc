@@ -65,6 +65,8 @@ alias gco="git checkout"
 
 alias jxa="osascript -l JavaScript"
 
+alias -g GB='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+
 # terminal tools
 
 # rbenv init prepends rbenv's path, so guard against tmux sub-shell
