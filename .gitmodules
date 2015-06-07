@@ -106,9 +106,6 @@
 [submodule "resources/Hemisu-Termianl-Theme"]
 	path = resources/Hemisu-Termianl-Theme
 	url = https://github.com/noahfrederick/Hemisu-Terminal-app.git
-[submodule ".vim/bundle/vim-colors-github-editor"]
-	path = .vim/bundle/vim-colors-github-editor
-	url = https://github.com/t4ku/github_editor_theme.git
 [submodule ".vim/bundle/vim-HiLinkTrace"]
 	path = .vim/bundle/vim-HiLinkTrace
 	url = https://github.com/gerw/vim-HiLinkTrace.git
@@ -190,3 +187,6 @@
 [submodule ".vim/bundle/vim-colorscheme-primary"]
 	path = .vim/bundle/vim-colorscheme-primary
 	url = https://github.com/t4ku/vim-colorscheme-primary.git
+[submodule ".vim/bundle/vim-github-colorscheme"]
+	path = .vim/bundle/vim-github-colorscheme
+	url = https://github.com/t4ku/vim-github-colorscheme.git
