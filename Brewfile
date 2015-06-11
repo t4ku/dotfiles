@@ -5,3 +5,7 @@ brew 'macvim', args: ['--override-system-vim']
 brew 'peco'
 brew 'z'
 brew 'git'
+
+brew 'caskroom/cask/brew-cask'
+
+cask 'easysimbl'
