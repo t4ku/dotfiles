@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+while getopts ":t:" GETOPTS
+do
+    case $GETOPTS in
+        t) PANES="$OPTARG"
+            ;;
+        *) MISC="$OPTARG"
+            ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+
+COMMAND="$@"
+
+IFS=':'
+set -- $PANES
+
+for i in $@
+do
+    tmux send-keys -t $i "$COMMAND" C-m
+done
+
