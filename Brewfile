@@ -5,7 +5,11 @@ brew 'macvim', args: ['--override-system-vim']
 brew 'peco'
 brew 'z'
 brew 'git'
+brew 'mercurial'
+brew 'the_silver_searcher'
+brew 'postgresql'
 
 brew 'caskroom/cask/brew-cask'
+brew 'pyenv'
 
 cask 'easysimbl'
