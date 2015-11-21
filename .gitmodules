@@ -184,3 +184,9 @@
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim.git
+[submodule ".vim/bundle/vim-ultisnips"]
+	path = .vim/bundle/vim-ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/vim-ultisnips-snippets"]
+	path = .vim/bundle/vim-ultisnips-snippets
+	url = https://github.com/honza/vim-snippets.git
