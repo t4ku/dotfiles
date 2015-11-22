@@ -25,7 +25,8 @@ if (exists("$COLORFGBG"))
     colorscheme railscasts
   else
     "set background=light
-    colorscheme hemisu
+    "colorscheme hemisu
+    colorscheme github
   endif
 else
   "colorscheme railscasts
