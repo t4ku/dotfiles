@@ -41,7 +41,7 @@ endif
 
 set number
 	
-set list
+"set list
 " set listchars=eol:¬,tab:▻⠂
 set listchars=eol:¬,tab:▸⠂
 "set listchars=eol:¬,tab:▹⠂
