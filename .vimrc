@@ -123,8 +123,8 @@ set fenc=utf-8
 autocmd FileType gitcommit setlocal fenc=utf-8
 
 set expandtab
-set tabstop=4
-set shiftwidth=4   " autoindent size
+set tabstop=2
+set shiftwidth=2   " autoindent size
 set backspace=2    " use delete key to go back to previous line
 
 autocmd FileType make set noexpandtab
