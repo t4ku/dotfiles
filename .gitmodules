@@ -190,3 +190,6 @@
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vdebug-joonty"]
+	path = .vim/bundle/vdebug-joonty
+	url = https://github.com/joonty/vdebug.git
