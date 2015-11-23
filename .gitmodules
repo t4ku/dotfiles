@@ -166,9 +166,6 @@
 [submodule ".vim/bundle/vim-vcscommand"]
 	path = .vim/bundle/vim-vcscommand
 	url = https://github.com/vim-scripts/vcscommand.vim.git
-[submodule ".vim/bundle/vdebug"]
-	path = .vim/bundle/vdebug
-	url = https://github.com/joonty/vdebug.git
 [submodule "resources/iTerm2-Color-Schemes"]
 	path = resources/iTerm2-Color-Schemes
 	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
