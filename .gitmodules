@@ -190,3 +190,6 @@
 [submodule ".vim/bundle/vim-ultisnips-snippets"]
 	path = .vim/bundle/vim-ultisnips-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
