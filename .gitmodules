@@ -193,3 +193,6 @@
 [submodule ".vim/bundle/vdebug-joonty"]
 	path = .vim/bundle/vdebug-joonty
 	url = https://github.com/joonty/vdebug.git
+[submodule ".vim/bundle/emmet-vim"]
+	path = .vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
