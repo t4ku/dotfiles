@@ -11,8 +11,12 @@ brew 'the_silver_searcher'
 brew 'postgresql'
 brew 'hub'
 
+brew 'docker'
+brew 'docker-machine'
+
 brew 'caskroom/cask/brew-cask'
 brew 'pyenv'
 
 cask 'easysimbl'
 cask 'google-cloud-sdk'
+cask 'java'
