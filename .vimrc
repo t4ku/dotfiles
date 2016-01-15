@@ -336,7 +336,7 @@ endfunction
 "/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby
 "let g:syntastic_ruby_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby /usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/rubocop'
 "let g:syntastic_ruby_rubocop_exec = '/Users/okawa.rbenv/versions/2.2.1/bin/ruby /Users/okawa/.rbenv/versions/2.2.1/bin/rubocop'
-let g:syntastic_ruby_rubocop_exec = '/Users/okawa/bin/rubocop-syntastic'
+let g:syntastic_ruby_rubocop_exec = expand('~//dotfiles/bin/rubocop-syntastic')
 "let g:syntastic_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby /usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/rubocop'
 let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby','javascript'] }
 let g:syntastic_ruby_checkers = ['rubocop']
