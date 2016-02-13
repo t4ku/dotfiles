@@ -14,7 +14,8 @@
   p = push
   # lol = log --graph --decorate --pretty="%h%an%ad%s" --abbrev-commit
   lo = log --oneline
-  lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
+  lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an(%ar)%Creset'
+  lold = "!f() { TZ=UTC git log --pretty=format:"%h%x09%ad%x09%s" --date=local --merges;}; f"
   # diff
   d  = diff
   dc = diff --cached
