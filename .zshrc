@@ -76,6 +76,7 @@ if [[ -z $TMUX ]];then
     if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
     if which plenv > /dev/null; then eval "$(plenv init -)"; fi
     export PATH=$HOME/.nodebrew/current/bin:$PATH
+    eval "$(fasd --init auto)"
 fi
 
 # load platform specific ones
