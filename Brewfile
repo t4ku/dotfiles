@@ -9,9 +9,11 @@ brew 'tig'
 brew 'mercurial'
 brew 'the_silver_searcher'
 brew 'postgresql'
+brew 'mysql'
 brew 'hub'
 brew 'dotjs'
 brew 'ctags'
+brew 'cmake'
 
 cask 'karabiner'
 cask 'seil'
@@ -27,6 +29,10 @@ brew 'docker-machine'
 
 brew 'caskroom/cask/brew-cask'
 brew 'pyenv'
+
+brew 'v8'
+brew 'openssl'
+brew 'redis'
 
 cask 'easysimbl'
 cask 'google-cloud-sdk'
