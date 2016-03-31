@@ -34,3 +34,6 @@ fi
 if [[ $SHELL != '/usr/local/bin/zsh' && -f '/usr/local/bin/zsh' ]]; then
     chsh -s /usr/local/bin/zsh
 fi
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install

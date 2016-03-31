@@ -88,3 +88,8 @@ after_zshrc
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+if [ -f ~/.fzf.zsh ]; then
+   source ~/.fzf.zsh
+   source ~/dotfiles/.fzf.zsh
+fi
