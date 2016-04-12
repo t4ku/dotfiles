@@ -1,3 +1,8 @@
+brew tap homebrew/versions
+brew 'qt55'
+# run 'brew link --force qt55'
+# https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
+
 brew 'zsh', args: ['--disable-etcdir']
 brew 'tmux'
 brew 'reattach-to-user-namespace'
