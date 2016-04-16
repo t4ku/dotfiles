@@ -33,17 +33,17 @@ fv() {
 
 
 # http://blog.b4b4r07.com/entry/2015/11/08/013526
-export ONELINER_FILE=$HOME/dotfiles/onliner.txt
+export ONELINER_FILE=$HOME/dotfiles/oneliner.txt
 
 exec-oneliner() {
     local oneliner_f
-    oneliner_f="${ONELINER_FILE:-~/.commnad.list}"
+    oneliner_f="$HOME/.command.list"
 
     [[ ! -f $oneliner_f || ! -s $oneliner_f ]] && return
 
     local cmd q k res accept
     while accept=0; cmd="$(
-        cat <$oneliner_f \
+        cat $oneliner_f $ONELINER_FILE \
             | sed -e '/^#/d;/^$/d' \
             | perl -pe 's/^(\[.*?\]) (.*)$/$1\t$2/' \
             | perl -pe 's/(\[.*?\])/\033[31m$1\033[m/' \
