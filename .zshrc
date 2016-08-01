@@ -77,8 +77,11 @@ if [[ -z $TMUX ]];then
     if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
     if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
     if which plenv > /dev/null; then eval "$(plenv init -)"; fi
-    export PATH=$HOME/.nodebrew/current/bin:$PATH
     eval "$(fasd --init auto)"
+
+    # ndenv
+    export PATH="$HOME/.ndenv/bin:$PATH"
+    eval "$(ndenv init -)"
 fi
 
 # load platform specific ones
