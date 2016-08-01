@@ -71,19 +71,14 @@ So if your scripts add environment variables(mainly PATH), they are prepended tw
 new windows/pane.
 
 There's no way preventing tmux from sourcing scripts AFAIK.
-I ended up adding if statement skipping export env variable 
-when called from tmux.
+But, the following fix worked for me.
+
+https://github.com/rbenv/rbenv/issues/369#issuecomment-22200587
 
 ```
-if [[ -z $TMUX ]]; then
-    export PATH=/some/path;"$PATH"
-fi
-```
-Since sub-shell also source /etc/zshenv or /etc/zprofile,
-you also need to edit them.
-
-```
-if [[ -z $TMUX ]] && [ -x /usr/libexec/path_helper ]; then
-	eval `/usr/libexec/path_helper -s`
+# /etc/zshenv
+if [ -x /usr/libexec/path_helper ]; then
+  PATH="" # Add this line
+  eval `/usr/libexec/path_helper -s`
 fi
 ```

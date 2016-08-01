@@ -70,19 +70,16 @@ alias -g GB='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "
 
 # terminal tools
 
-# rbenv init prepends rbenv's path, so guard against tmux sub-shell
-if [[ -z $TMUX ]];then
-    if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-    [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
-    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-    if which plenv > /dev/null; then eval "$(plenv init -)"; fi
-    eval "$(fasd --init auto)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+eval "$(fasd --init auto)"
 
-    # ndenv
-    export PATH="$HOME/.ndenv/bin:$PATH"
-    eval "$(ndenv init -)"
-fi
+# ndenv
+export PATH="$HOME/.ndenv/bin:$PATH"
+eval "$(ndenv init -)"
 
 # load platform specific ones
 if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
