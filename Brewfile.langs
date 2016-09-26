@@ -1,2 +1,8 @@
 brew 'gauche'
 brew 'elixir'
+
+cask 'xquartz'
+cask 'aquaterm'
+
+tap 'homebrew/science'
+brew 'octave'

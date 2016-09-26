@@ -35,6 +35,7 @@ brew 'docker-machine'
 
 brew 'caskroom/cask/brew-cask'
 brew 'pyenv'
+brew 'pyenv-virtualenv'
 
 brew 'v8'
 brew 'openssl'
