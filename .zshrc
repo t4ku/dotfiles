@@ -47,6 +47,9 @@ bindkey ^N  history-search-forward  # search forward the history with current in
 autoload edit-command-line
 zle -N edit-command-line
 bindkey ^x^e edit-command-line
+# turn off zle bracketed paste to prevent tmux commands from being messed up
+# http://stackoverflow.com/questions/33452870/tmux-bracketed-paste-mode-issue-at-command-prompt-in-zsh-shell
+(( $+TMUX )) && unset zle_bracketed_paste
 #bindkey -M vicmd v edit-command-line
 
 # completion
