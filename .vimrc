@@ -363,3 +363,4 @@ let g:VCSCommandMapPrefix = '[VCS]'
 
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
+"set spell spelllang=en_us
