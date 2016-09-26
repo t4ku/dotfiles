@@ -21,9 +21,15 @@
   dc = diff --cached
   # reset
   rh = reset HEAD
+  # list changed files
+  cf = show --pretty="format:" --name-only
   # list changed files of commits which have certain keywords in commit log
   lwc = "!f() { git log $* --oneline --name-only --no-commit-id -m | grep -Ev '^[0-9a-z]{7} ' | sort | uniq ;}; f"
   la = "!f() { git config --list | grep alias;}; f"
+  # name/search stach
+  # http://stackoverflow.com/questions/11269256/how-to-name-and-retrieve-a-stash-by-name-in-git#answer-11688523
+  sshow = "!f() { git stash show stash^{/$*} -p; }; f"
+  sapply = "!f() { git stash apply stash^{/$*}; }; f"
 [core]
   precomposeunicode = true
   editor = vim
