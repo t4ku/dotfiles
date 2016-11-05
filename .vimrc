@@ -345,7 +345,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 "let g:syntastic_debug_file = './syntastic.log'
 
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_javascript_checkers = ['jshint','jscs']
+let g:syntastic_javascript_checkers = ['eslint','jscs']
 
 " =====================
 " VCSCommand
