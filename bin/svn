@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [[ -z $SVNPATH ]]; then
-    svn="/usr/bin/svn"
+    svn="/usr/local/bin/svn"
 else
     svn="$SVNPATH"
 fi
