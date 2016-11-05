@@ -356,6 +356,15 @@ nnoremap [VCS] <Nop>
 nmap <Leader>v [VCS]
 let g:VCSCommandMapPrefix = '[VCS]'
 
+" =====================
+" vim-rspec
+" =====================
+
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " =====================
 " File specific setting
