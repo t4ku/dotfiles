@@ -72,7 +72,7 @@ alias jxa="osascript -l JavaScript"
 alias -g GB='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
 # terminal tools
-
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
