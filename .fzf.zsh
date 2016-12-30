@@ -1,3 +1,21 @@
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */Users/okawa/.fzf/bin* ]]; then
+  export PATH="$PATH:/Users/okawa/.fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/Users/okawa/.fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+source "/Users/okawa/.fzf/shell/key-bindings.zsh"
+
+# Customization
+# -----------
+#
+
 export FZF_DEFAULT_OPTS='--color light'
 fd() {
   local dir
