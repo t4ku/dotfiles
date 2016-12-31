@@ -175,9 +175,6 @@
 [submodule ".vim/bundle/vim-colorscheme-primary"]
 	path = .vim/bundle/vim-colorscheme-primary
 	url = https://github.com/t4ku/vim-colorscheme-primary.git
-[submodule ".vim/bundle/vim-github-colorscheme"]
-	path = .vim/bundle/vim-github-colorscheme
-	url = https://github.com/t4ku/vim-github-colorscheme.git
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim.git
