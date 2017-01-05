@@ -1,9 +1,4 @@
-
-let g:pathogen_disabled = []
-call add(g:pathogen_disabled,'vim-peepopen')
-
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 if (exists("$GOROOT"))
   set rtp+=$GOROOT/misc/vim
