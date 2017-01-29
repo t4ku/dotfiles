@@ -1,3 +1,4 @@
 .vim/bundle/vim-peepopen
 .vim/netrwhist
 .vim/.netrwhist
+.emacs.d/spacemacs
