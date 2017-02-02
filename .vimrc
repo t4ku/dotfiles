@@ -1,5 +1,9 @@
 execute pathogen#infect()
 
+if has("termguicolors")
+  set termguicolors
+endif
+
 if (exists("$GOROOT"))
   set rtp+=$GOROOT/misc/vim
   set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
@@ -83,7 +87,9 @@ nmap <Leader><C-w> :tabclose<cr>
 " Fix Vim + Tmux yank/paste on unnamed register
 " http://stackoverflow.com/questions/11404800/fix-vim-tmux-yank-paste-on-unnamed-register
 "if $TMUX== ""
-  set clipboard=unnamed,autoselect
+  if !has("nvim")
+    set clipboard=unnamed,autoselect
+  endif
 "endif
 
 set mouse=a
