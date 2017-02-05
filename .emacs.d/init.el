@@ -42,6 +42,26 @@
 ;;(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 ;;(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
+;; set correct path in emacs shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; set python path in pyenv
+(pyenv-mode)
+
+;; reload inline imge
+;; http://emacs.stackexchange.com/questions/13107/replace-plantuml-source-with-generated-image-in-org-mode
+(add-hook 'org-babel-after-execute-hook
+          (lambda ()
+            (when org-inline-image-overlays
+              (org-redisplay-inline-images))))
+
+(org-babel-do-load-languages
+'org-babel-load-languages
+'((emacs-lisp . t)
+  (ipython . t)
+  (org . t)
+  (sh . t)))
 
 ;;Font設定
 ;;(set-face-attribute 'default nil :family "monaco" :height 110)
