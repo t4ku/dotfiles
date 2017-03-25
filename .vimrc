@@ -89,6 +89,8 @@ nmap <Leader><C-w> :tabclose<cr>
 "if $TMUX== ""
   if !has("nvim")
     set clipboard=unnamed,autoselect
+  else
+    set clipboard=unnamed
   endif
 "endif
 
