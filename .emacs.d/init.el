@@ -50,6 +50,11 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+;;;;;;;;;;;;;;;;;;;;;
+;; plugins
+;;;;;;;;;;;;;;;;;;;;;
+
 (require 'helm-config)
 (helm-mode 1)
 ;; helm
@@ -86,7 +91,39 @@
 '((emacs-lisp . t)
   (ipython . t)
   (org . t)
+  (sql . t)
+  (latex . t)
   (sh . t)))
+
+;;org-agenda
+(define-key org-mode-map (kbd "C-c C-a") 'org-agenda-execute)
+(define-key org-mode-map (kbd "C-c s") 'org-schedule)
+(define-key org-mode-map (kbd "C-c d") 'org-deadlinxe)
+
+(setq org-agenda-custom-commands '(
+  ("1" "Events" agenda "display deadlines and exclude scheduled" (
+    (org-agenda-span 'month)
+    (org-agenda-time-grid nil)
+    (org-agenda-show-all-dates nil)
+    (org-agenda-entry-types '(:deadline :scheduled)) ;; this entry excludes :scheduled
+    (org-agenda-skip-scheduled-delay-if-deadline nil)
+    (org-scheduled-delay-days 0)
+    (org-scheduled-past-days 2)
+    (org-deadline-warning-days 0) ))
+    ))
+
+
+;;org-goto
+(setq org-goto-interface 'outline-path-completion
+      org-goto-max-level 10)
+(setq org-outline-path-complete-in-steps nil)
+
+(setq org-agenda-files (list "~/Dropbox/Docs/org"))
+
+;;org-todo
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
 
 ;;Font設定
 ;;(set-face-attribute 'default nil :family "monaco" :height 110)
@@ -152,3 +189,8 @@
 ;;      (dolist (character characters)
 ;;        (set-fontset-font name character font-spec))
 ;;      (add-to-list 'face-font-rescale-alist (cons jp-font-family 1.3)))))
+
+
+
+;; auto-complete
+(ac-config-default)
