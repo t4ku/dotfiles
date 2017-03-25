@@ -28,6 +28,9 @@ cask 'slate'
 cask 'virtualbox'
 cask 'vagrant'
 
+# cask 'mactex'
+# sudo tlmgr install dvipng
+
 
 brew 'docker'
 brew 'docker-machine'
