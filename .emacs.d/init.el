@@ -20,7 +20,9 @@
 (load custom-file)
 
 ;; theme
-(load-theme 'flatui t)
+;;(load-theme 'flatui t)
+;;(load-theme 'leuven t)
+(load-theme 'material-light t)
 
 ;; key bind
 (global-set-key (kbd "M-x") 'helm-M-x)

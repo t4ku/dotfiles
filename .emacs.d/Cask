@@ -30,3 +30,6 @@
 (depends-on "ob-ipython")
 (depends-on "pyenv-mode")
 (depends-on "exec-path-from-shell")
+(depends-on "auto-complete")
+(depends-on "github-theme")
+(depends-on "material-theme")
