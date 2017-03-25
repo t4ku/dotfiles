@@ -27,6 +27,29 @@
 ;; key bind
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;;;;;;;;;;;;;;;;;;;;;
+;; emacs
+;;;;;;;;;;;;;;;;;;;;
+
+;; mouse scroll
+(global-set-key [wheel-right] 'scroll-left)
+(global-set-key [wheel-left] 'scroll-right)
+
+(global-set-key [tripple-wheel-right] 'scroll-left)
+(global-set-key [tripple-wheel-left] 'scroll-right)
+(put 'scroll-left 'disabled nil)
+
+;; appearance
+(tool-bar-mode -1)
+
+;; backup
+;; http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
 (require 'helm-config)
 (helm-mode 1)
 ;; helm
