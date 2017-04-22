@@ -91,6 +91,9 @@ nmap <Leader><C-w> :tabclose<cr>
     set clipboard=unnamed,autoselect
   else
     set clipboard=unnamed
+
+    let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+    let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
   endif
 "endif
 
