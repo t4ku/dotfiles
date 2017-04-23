@@ -94,6 +94,8 @@ nmap <Leader><C-w> :tabclose<cr>
 
     let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
     let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+    "let g:python_host_prog = expand('~/.pyenv/shims/python')
+    "let g:python3_host_prog = expand('~/.pyenv/shims/python')
   endif
 "endif
 
@@ -344,7 +346,7 @@ endfunction
 "let g:syntastic_ruby_rubocop_exec = '/Users/okawa.rbenv/versions/2.2.1/bin/ruby /Users/okawa/.rbenv/versions/2.2.1/bin/rubocop'
 let g:syntastic_ruby_rubocop_exec = expand('~/dotfiles/bin/rubocop-syntastic')
 "let g:syntastic_rubocop_exec = '/usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/ruby /usr/local/Cellar/rbenv/HEAD/versions/2.1.5/bin/rubocop'
-let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby','javascript'] }
+let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby','javascript','python'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 "let g:syntastic_aggregate_errors = 0
 "let g:syntastic_debug = 1
@@ -352,6 +354,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['eslint','jscs']
+
+let g:syntastic_python_checkers = ['pep8','flake8']
+let g:syntastic_python_pep8_exec = expand('~/dotfiles/bin/pep8-syntastic')
+let g:syntastic_python_flake8_exec = expand('~/.pyenv/versions/neovim3/bin/flake8')
 
 " =====================
 " VCSCommand
