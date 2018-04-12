@@ -95,7 +95,7 @@ nmap <Leader><C-w> :tabclose<cr>
     let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
     let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
     "let g:python_host_prog = expand('~/.pyenv/shims/python')
-    "let g:python3_host_prog = expand('~/.pyenv/shims/python')
+    "let g:python3_host_prog = expand('~/.pyenv/shims/python3')
   endif
 "endif
 
@@ -231,6 +231,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_height          = 30
 let g:ctrlp_extensions          = ['tag', 'buffertag']
 let g:ctrlp_switch_buffer       = 2
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 nnoremap <Leader>b :CtrlPBufTag<CR> 
 nnoremap <Leader>B :CtrlPBuffer<CR> 
@@ -353,11 +354,13 @@ let g:syntastic_ruby_checkers = ['rubocop']
 "let g:syntastic_debug_file = './syntastic.log'
 
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_javascript_checkers = ['eslint','jscs']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
 let g:syntastic_python_checkers = ['pep8','flake8']
 let g:syntastic_python_pep8_exec = expand('~/dotfiles/bin/pep8-syntastic')
 let g:syntastic_python_flake8_exec = expand('~/.pyenv/versions/neovim3/bin/flake8')
+let g:syntastic_python_flake8_args='--ignore=F821,E302,E501'
 
 " =====================
 " VCSCommand
