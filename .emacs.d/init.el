@@ -21,8 +21,8 @@
 
 ;; theme
 ;;(load-theme 'flatui t)
-;;(load-theme 'leuven t)
-(load-theme 'material-light t)
+(load-theme 'leuven t)
+;;(load-theme 'material-light t)
 
 ;; key bind
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -118,12 +118,30 @@
       org-goto-max-level 10)
 (setq org-outline-path-complete-in-steps nil)
 
-(setq org-agenda-files (list "~/Dropbox/Docs/org"))
+(setq org-agenda-files (list "~/Dropbox/Docs/org/Agenda"))
 
 ;;org-todo
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
+
+
+(setq org-src-fontify-natively t)
+
+(defface org-block-begin-line
+  '((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the begin of source blocks.")
+
+(defface org-block-background
+  '((t (:background "#FFFFEA")))
+  "Face used for the source block background.")
+
+(defface org-block-end-line
+  '((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  "Face used for the line delimiting the end of source blocks.")
+
+;;neotree
+(global-set-key [f8] 'neotree-toggle)
 
 ;;Font設定
 ;;(set-face-attribute 'default nil :family "monaco" :height 110)
