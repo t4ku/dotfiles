@@ -98,7 +98,45 @@
 ;;org-agenda
 (define-key org-mode-map (kbd "C-c C-a") 'org-agenda-execute)
 (define-key org-mode-map (kbd "C-c s") 'org-schedule)
-(define-key org-mode-map (kbd "C-c d") 'org-deadlinxe)
+(define-key org-mode-map (kbd "C-c d") 'org-deadline)
+
+;; org link
+;; https://emacs.stackexchange.com/questions/19598/org-mode-link-to-heading-in-other-org-file
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+;; open link
+
+(require 'org)
+
+(defun my-find-file-fn (file)
+"If the filename extension of FILE ends in `.txt' or `.el' or `.png', then use
+`find-file-other-frame'; otherwise, use `find-file-other-window'.  The three file
+extensions txt/el/png are hard-coded into the let-bound variable `regex'."
+  (let* (
+      ;; regexp-matchp-fn from:  https://github.com/kentaro/auto-save-buffers-enhanced
+      ;; regexp-matchp-fn modified by @sds:  http://stackoverflow.com/a/20343715/2112489
+      (regexp-matchp-fn
+        (lambda (regexps string)
+          (and string
+             (catch 'matched
+               (let ((inhibit-changing-match-data t))
+                 (dolist (regexp regexps)
+                   (when (string-match regexp string)
+                     (throw 'matched t))))))))
+      (ext (file-name-extension file))
+      (regex '("txt" "el" "png")))
+    (if (funcall regexp-matchp-fn regex ext)
+      (find-file-other-frame file)
+      ;;(find-file-other-window file))))
+      (find-file file))))
+
+(setq org-link-frame-setup '(
+  (vm . vm-visit-folder-other-frame)
+  (vm-imap . vm-visit-imap-folder-other-frame)
+  (gnus . org-gnus-no-new-news)
+  (file . my-find-file-fn)
+  (wl . wl-other-frame)))
 
 (setq org-agenda-custom-commands '(
   ("1" "Events" agenda "display deadlines and exclude scheduled" (
