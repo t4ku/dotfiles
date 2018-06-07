@@ -26,6 +26,8 @@
 
 ;; key bind
 (global-set-key (kbd "M-x") 'helm-M-x)
+;; map Cmd-f1 to change gui window(emacs frames)
+(global-set-key (kbd "<s-f1>") 'other-frame)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; emacs
