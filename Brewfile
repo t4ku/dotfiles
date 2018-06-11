@@ -19,6 +19,7 @@ brew 'hub'
 brew 'ctags'
 brew 'cmake'
 brew 'ag'
+brew 'mitmproxy'
 
 #cask 'karabiner'
 #cask 'seil'

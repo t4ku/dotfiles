@@ -37,3 +37,15 @@ fi
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+
+# mitmproxy
+# > mitmdump
+# Ctrl-C
+# # check cert is created
+# > file ~/.mitmproxy/mitmproxy-ca-cert.pem
+# # add keychain(login)
+# > open ~/.mitmproxy/mitmproxy-ca-cert.pem
+# # add pac file and set it in proxy(see proxy.pac.example)
+# # make sure the file path scheme(file:///)
+# > mitumdump
