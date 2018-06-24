@@ -33,3 +33,5 @@
 (depends-on "auto-complete")
 (depends-on "github-theme")
 (depends-on "material-theme")
+(depends-on "csv-mode")
+(depends-on "neotree")
