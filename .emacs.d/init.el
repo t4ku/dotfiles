@@ -26,7 +26,10 @@
 (load-theme 'leuven t)
 ;;(load-theme 'material-light t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; key bind
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; helm
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; map Cmd-f1 to change gui window(emacs frames)
 (global-set-key (kbd "<s-f1>") 'other-frame)
@@ -167,7 +170,56 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; smartparens
 ;; -------------
 
+;; example
+;; https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
+
 (smartparens-global-mode t)
+(add-hook 'minibuffer-setup-hook 'turn-on-smartparens-strict-mode)
+
+;; guide - navigation-functions / manupulation-functions
+;; https://github.com/Fuco1/smartparens/wiki/Working-with-expressions#navigation-functions
+;; https://github.com/Fuco1/smartparens/wiki/Working-with-expressions#manipulation-functions
+
+(define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
+(define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-d") 'sp-down-sexp)
+(define-key smartparens-mode-map (kbd "C-M-a") 'sp-backward-down-sexp)
+(define-key smartparens-mode-map (kbd "C-S-d") 'sp-beginning-of-sexp)
+(define-key smartparens-mode-map (kbd "C-S-a") 'sp-end-of-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-e") 'sp-up-sexp)
+(define-key smartparens-mode-map (kbd "C-M-u") 'sp-backward-up-sexp)
+(define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-n") 'sp-forward-hybrid-sexp)
+(define-key smartparens-mode-map (kbd "C-M-p") 'sp-backward-hybrid-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
+(define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
+
+(define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
+(define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
+
+(define-key smartparens-mode-map (kbd "C-<right>") 'sp-forward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "C-<left>") 'sp-forward-barf-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<left>") 'sp-backward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<right>") 'sp-backward-barf-sexp)
+
+(define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
+(define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
+(define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
+
+(define-key smartparens-mode-map (kbd "C-]") 'sp-select-next-thing-exchange)
+(define-key smartparens-mode-map (kbd "C-<left_bracket>") 'sp-select-previous-thing)
+(define-key smartparens-mode-map (kbd "C-M-]") 'sp-select-next-thing)
+
+(define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
+(define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
+
+(define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
+
 
 ;; -------------
 ;; pyenv
