@@ -447,7 +447,9 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
   (file . my-find-file-fn)
   (wl . wl-other-frame)))
 
-
+;; capture template
+(setq capture-template-load-file "~/Dropbox/Docs/org/Templates/capture_template.el")
+(load capture-template-load-file)
 
 ;; custome agenda view
 (setq org-agenda-custom-commands '(
