@@ -59,6 +59,9 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; appearance
 (tool-bar-mode -1)
 
+;;
+(transient-mark-mode 0)
+
 ;; backup
 ;; http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -79,6 +82,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;;(set-face-attribute 'default nil :family "Source Han Code JP" :height 90)
 
 (set-face-font 'default "Source Han Code JP")
+
+
 
 ;;(set-face-font 'default "Source Code Pro")
 ;;(set-fontset-font
