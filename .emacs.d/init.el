@@ -464,6 +464,22 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
     (org-deadline-warning-days 0) ))
     ))
 
+;; custom agenda view format
+(setq org-agenda-prefix-format '(
+	 (agenda .
+		 ;;" %i %-12:c%?-12t% s")
+	       " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+		 ;;" %i %-12:c%?-12t% s %b")		 
+         (timeline . 
+               ;;"  % s")
+               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+         (todo .
+               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+         (tags .
+               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+         (search . " %i %-12:c"))
+      )
+
 
 ;;org-goto
 (setq org-goto-interface 'outline-path-completion
