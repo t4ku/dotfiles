@@ -1,16 +1,16 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */Users/okawa/.fzf/bin* ]]; then
-  export PATH="$PATH:/Users/okawa/.fzf/bin"
+if [[ ! "$PATH" == */Users/takuokawa/.fzf/bin* ]]; then
+  export PATH="$PATH:/Users/takuokawa/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/Users/okawa/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/Users/takuokawa/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/Users/okawa/.fzf/shell/key-bindings.zsh"
+source "/Users/takuokawa/.fzf/shell/key-bindings.zsh"
 
 # Customization
 # -----------
