@@ -413,6 +413,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; C-c C-u (original keymap) was overritten by pymode-env set
 ;; add similar keymap
 (global-set-key (kbd "C-c u") 'outline-up-heading)
+(define-key org-mode-map (kbd "M-s-<up>") 'org-previous-block)
+(define-key org-mode-map (kbd "M-s-<down>") 'org-next-block)
 
 ;; open link
 
