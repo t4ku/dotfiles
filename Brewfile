@@ -35,7 +35,6 @@ cask 'vagrant'
 # cask 'mactex'
 # sudo tlmgr install dvipng
 
-tap homebrew/science
 brew 'r'
 
 # https://www.docker.com/docker-mac
