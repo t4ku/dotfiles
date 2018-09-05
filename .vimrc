@@ -90,7 +90,8 @@ nmap <Leader><C-w> :tabclose<cr>
   if !has("nvim")
     set clipboard=unnamed,autoselect
   else
-    set clipboard=unnamed
+    "set clipboard=unnamed
+    set clipboard+=unnamedplus
 
     let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
     let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
@@ -241,6 +242,15 @@ nnoremap <Leader>t :CtrlPTag<CR>
 let g:ctrlp_buftag_types = {'php': '--language-force=php --php-types=cdfi'}
 
 " ===================
+" fzf
+" ====================
+set rtp+=~/.fzf
+nnoremap <C-p> :FZFFileList<CR>
+command! FZFFileList call fzf#run({
+            \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
+            \ 'sink': 'e'})
+
+" ===================
 " NERDTree
 " ===================
 
@@ -286,6 +296,12 @@ let g:Gitv_TruncateCommitSubjects = 1
 if filereadable(expand('~/dotfiles/local/.vimrc.local'))
     source ~/dotfiles/local/.vimrc.local
 endif
+
+" Project Specific .vimrc files
+" https://andrew.stwrt.ca/posts/project-specific-vimrc/
+
+set exrc
+set secure
 
 " ======================
 " reload vimrc on change
@@ -370,6 +386,16 @@ let mapleader = ','
 nnoremap [VCS] <Nop>
 nmap <Leader>v [VCS]
 let g:VCSCommandMapPrefix = '[VCS]'
+
+" =====================
+" VCSCommand
+" =====================
+
+if !exists('g:vdebug_options')
+    let g:vdebug_options = {}
+endif
+
+let g:vdebug_options.path_maps =  { "/home/vagrant/nfs_sync_dir/php_apps" : "/Users/takuokawa/Dropbox/Code/enigmo/bm_dev_chef/nfs_sync_dir/php_apps" }
 
 " =====================
 " vim-rspec
