@@ -4,6 +4,7 @@ autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export TERM=xterm-256color
 
+
 # switch color option available. Linux (ls --color), or BSD (ls -G)
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 
@@ -72,6 +73,7 @@ alias jxa="osascript -l JavaScript"
 alias -g GB='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
 alias npm-exec='PATH=$(npm bin):$PATH'
+echo 'zshrc'
 
 # terminal tools
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -86,6 +88,8 @@ eval "$(fasd --init auto)"
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
+export PATH="$HOME/.embulk/bin:$PATH"
+
 # load platform specific ones
 if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
     source "$HOME/dotfiles/.zshrc.$PLATFORM" 
@@ -97,6 +101,13 @@ after_zshrc
 export PATH="/usr/local/heroku/bin:$PATH"
 
 if [ -f ~/.fzf.zsh ]; then
-   source ~/.fzf.zsh
+   #source ~/.fzf.zsh
    source ~/dotfiles/.fzf.zsh
 fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

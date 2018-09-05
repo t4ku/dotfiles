@@ -11,7 +11,7 @@ if [[ -f "$HOME/dotfiles/local/local.zsh" ]]; then
     source  "$HOME/dotfiles/local/local.zsh"
 fi
 
-if [[ -z $TMUX ]]; then
+#if [[ -z $TMUX ]]; then
 
     before_zshenv
 
@@ -39,7 +39,7 @@ if [[ -z $TMUX ]]; then
 
 
     after_zshenv
-fi
+#fi
 
 # terminal vimrc dark
 export COLORFGBG='15:0'
