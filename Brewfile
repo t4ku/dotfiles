@@ -10,6 +10,7 @@ brew 'macvim', args: ['--override-system-vim']
 brew 'fasd'
 # brew 'z'
 brew 'git'
+brew 'git-lfs'
 brew 'tig'
 brew 'mercurial'
 brew 'the_silver_searcher'
@@ -19,6 +20,8 @@ brew 'hub'
 brew 'ctags'
 brew 'cmake'
 brew 'ag'
+brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
+brew 'watchman'
 brew 'mitmproxy'
 
 #cask 'karabiner'
@@ -32,9 +35,13 @@ cask 'vagrant'
 # cask 'mactex'
 # sudo tlmgr install dvipng
 
+tap homebrew/science
+brew 'r'
 
-brew 'docker'
-brew 'docker-machine'
+# https://www.docker.com/docker-mac
+#brew 'docker'
+#brew 'docker-machine'
+#brew 'docker-compose'
 
 brew 'pyenv'
 brew 'pyenv-virtualenv'

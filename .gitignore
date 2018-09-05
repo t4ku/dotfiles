@@ -2,3 +2,5 @@
 .vim/netrwhist
 .vim/.netrwhist
 .emacs.d/spacemacs
+.mitmproxy/mitmproxy-ca*
+.mitmproxy/mitmproxy-dhparam*

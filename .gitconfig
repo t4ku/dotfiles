@@ -21,22 +21,29 @@
   dc = diff --cached
   # reset
   rh = reset HEAD
+  ru = !$abc = git branch
   # list changed files
   cf = show --pretty="format:" --name-only
   # list changed files of commits which have certain keywords in commit log
   lwc = "!f() { git log $* --oneline --name-only --no-commit-id -m | grep -Ev '^[0-9a-z]{7} ' | sort | uniq ;}; f"
+  lwcm = "!f() { git show --pretty=''  --name-only $* | sort -u ; }; f"
   la = "!f() { git config --list | grep alias;}; f"
   # name/search stach
   # http://stackoverflow.com/questions/11269256/how-to-name-and-retrieve-a-stash-by-name-in-git#answer-11688523
   sshow = "!f() { git stash show stash^{/$*} -p; }; f"
   sapply = "!f() { git stash apply stash^{/$*}; }; f"
+  lbmr = "!f() { open http://gitlab.enigmo.co.jp:8888/buyma/bm_on_rails_3/merge_requests/; }; f"
+  lbh = "!f() { open http://gitlab.enigmo.co.jp:8888/buyma/bm_on_rails_3/; }; f"
+  # save MR/PR url with 'git config <branch>.mr http://example.com/mr/123'
+  browse-custom = "!f() { url=$(git config branch.`git rev-parse --abbrev-ref HEAD`.mr); open $url; }; f"
+	push-by-delete = "!f() { git push -d $@; git push $@; }; f"
 [core]
   precomposeunicode = true
   editor = vim
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
-  diff = diff-highlight | less
+  #diff = diff-highlight | less
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
@@ -49,3 +56,9 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[browse-remote "gitlab.enigmo.co.jp"]
+	top = http://{host}:8888/{path}
+	ref = http://{host}:8888/{path}/tree/{short_ref}
+	rev = http://{host}:8888/{path}/commit/{commit}
+	pr = https://{host}:8888/{path}/merge_requests/{short_ref}
+	file = "https://{host}:8888/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
