@@ -49,7 +49,7 @@ brew 'v8'
 brew 'openssl'
 brew 'redis'
 
-cask 'easysimbl'
+#cask 'easysimbl'
 cask 'google-cloud-sdk'
 cask 'java'
 brew 'maven'
