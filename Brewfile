@@ -32,6 +32,16 @@ cask 'slate'
 cask 'virtualbox'
 cask 'vagrant'
 
+# older
+#brew 'emacs', args: ['--with-modules', '--with-cocoa', '--with-gnutls', '--with-librsvg', '--with-mailutils', '--with-imagemagick@6']
+# brew linkapps
+# brew pin imagemagick@6
+#
+
+# new
+cask 'emacs'
+brew 'cask'
+
 # cask 'mactex'
 # sudo tlmgr install dvipng
 

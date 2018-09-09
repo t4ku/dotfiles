@@ -5,3 +5,8 @@
 .mitmproxy/mitmproxy-ca*
 .mitmproxy/mitmproxy-dhparam*
 nvim/plugged/*
+
+.emacs.d/.cask
+.emacs.d/auto-save-list
+.emacs.d/recentf
+.emacs.d/ac-comphist.dat
