@@ -4,3 +4,4 @@
 .emacs.d/spacemacs
 .mitmproxy/mitmproxy-ca*
 .mitmproxy/mitmproxy-dhparam*
+nvim/plugged/*

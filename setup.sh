@@ -13,6 +13,8 @@ do
        fi
 done
 
+ln -Ffs "$HOME/.config/nvim" "$HOME/dotfiles/nvim"
+
 which brew &> /dev/null
 if [[ $? > 0 ]]; then 
     echo 'installing homebrew'
