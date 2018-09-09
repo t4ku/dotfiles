@@ -371,11 +371,11 @@ Repeated invocations toggle between the two most recently open buffers."
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((emacs-lisp . t)
-  (ipython . t)
+;  (ipython . t)
   (org . t)
   (sql . t)
   (latex . t)
-  (sh . t)))
+  (shell . t)))
 
 ;;org-protocol
 (require 'org-protocol)

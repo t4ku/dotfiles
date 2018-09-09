@@ -31,6 +31,7 @@
 (depends-on "yasnippet")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "ob-ipython")
+(depends-on "ob-sh")
 (depends-on "pyenv-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "auto-complete")
