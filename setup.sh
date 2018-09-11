@@ -5,6 +5,8 @@ if [[ `grep submodule .git/config | wc -l` == 0 ]] ; then
     git submodule init --update
 fi
 
+# dotfiles
+#
 cd $(dirname $0)
 for dotfile in .?* 
 do
@@ -13,6 +15,7 @@ do
        fi
 done
 
+# config
 ln -Ffs "$HOME/.config/nvim" "$HOME/dotfiles/nvim"
 
 which brew &> /dev/null
