@@ -400,6 +400,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (define-key org-mode-map (kbd "C-c s") 'org-schedule)
 (define-key org-mode-map (kbd "C-c d") 'org-deadline)
 
+;;org-clock
+(setq org-log-into-drawer t)  ; Save state changes into LOGBOOK drawer instead of in the body
+
 ;; org link
 ;; https://emacs.stackexchange.com/questions/19598/org-mode-link-to-heading-in-other-org-file
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -454,23 +457,45 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 (load capture-template-load-file)
 
 ;; custome agenda view
-(setq org-agenda-custom-commands '(
-  ("1" "Events" agenda "display deadlines and exclude scheduled" (
-    (org-agenda-span 'month)
-    (org-agenda-time-grid nil)
-    (org-agenda-show-all-dates nil)
-    (org-agenda-entry-types '(:deadline :scheduled)) ;; this entry excludes :scheduled
-    (org-agenda-skip-scheduled-delay-if-deadline nil)
-    (org-scheduled-delay-days 0)
-    (org-scheduled-past-days 2)
-    (org-deadline-warning-days 0) ))
-    ))
+
+(setq org-agenda-custom-commands
+      '(("d" "deadlines" agenda ""
+	 ((org-agenda-entry-types '(:deadline)))
+	 (org-agenda-skip-function '(org-agenda-skip-entry-if 'notdeadline))
+	 (org-deadline-warning-days 10)
+	 (org-agenda-overriding-columns-format "%20ITEM %DEADLINE")
+	 )
+	("S" "Agenda by states"
+	 (;;(agenda "" nil)
+	  (tags-todo  "Ops/!-DONE"
+		      ((org-agenda-overriding-header "Ops")
+		       (org-agenda-block-separator nil)))
+	  (tags-todo  "/NEXT"
+		      ((org-agenda-overriding-header "Next")
+		       (org-tags-match-list-sublevels t)
+		       (org-agenda-block-separator nil)
+		       (org-agenda-sorting-strategy '(todo-state-down effort-up category-keep)))
+		      ))
+	 )
+        ("G" "Agenda by Goals"
+         ((tags-todo "Ops")
+          (tags-todo "G@2018_request")
+	  (tags-todo "G@2018_ml")
+	  (tags-todo "G@2018_product")	  
+          (tags-todo "errands"))
+         nil                      ;; i.e., no local settings
+         ("~/next-actions.html")) ;; exports block to this file with C-c a e
+       ;; ..other commands here
+        ))
 
 ;; custom agenda view format
 (setq org-agenda-prefix-format '(
 	 (agenda .
 		 ;;" %i %-12:c%?-12t% s")
-	       " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+		 ;;  work:        [ Learning ] TODO Pandas cookbook      :G@2018_ml: 
+	         ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+		 ;; -[] TODO Pandas Cookbook
+		 "- [ ] ")
 		 ;;" %i %-12:c%?-12t% s %b")		 
          (timeline . 
                ;;"  % s")
@@ -478,7 +503,8 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
          (todo .
                " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
          (tags .
-               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+               ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+	       "- [ ] ")
          (search . " %i %-12:c"))
       )
 
@@ -491,9 +517,9 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 (setq org-agenda-files (list "~/Dropbox/Docs/org/Agenda"))
 
 ;;org-todo
-(setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
+;;(setq org-todo-keywords
+;;      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+;;              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
 
 
 (setq org-src-fontify-natively t)
