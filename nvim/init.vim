@@ -92,6 +92,11 @@ call plug#end()
 
 let mapleader = ","
 
+nnoremap gl :Gitv!<cr>
+
+" this overrides jumps (CTRL-I # see :verbose map <C-i> )
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
 " ===================
 " ctrl-p
