@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/gem-ctags'
 Plug 'tpope/vim-bundler'
 Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 
@@ -43,10 +44,7 @@ Plug 'ervandew/supertab'
 
 " Align
 "ZoomWin
-"ack
-"ag.vim
 "ctrlp.vim
-"emmet-vim
 "fzf.vim
 "gtags.vim
 "jedi-vim
