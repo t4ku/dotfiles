@@ -9,13 +9,19 @@ call plug#begin()
 
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/gem-ctags'
 Plug 'tpope/vim-bundler'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+
+autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
+autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+
+autocmd FileType eruby let b:surround_{char2nr('=')} = "<%= \r %>"
+autocmd FileType eruby let b:surround_{char2nr('-')} = "<% \r %>"
+
 Plug 'mattn/emmet-vim'
 
 Plug 'w0rp/ale'
@@ -29,14 +35,13 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 
-"Plug 'junegunn/fzf.vim'
-"set rtp+=~/.fzf
+Plug 'junegunn/fzf.vim'
+set rtp+=~/.fzf
 
-autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
-autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+nnoremap <Leader>c :Files<CR>
+nnoremap <Leader>B :Buffers<CR>
+nnoremap <Leader>b :BTags<CR>
 
-autocmd FileType eruby let b:surround_{char2nr('=')} = "<%= \r %>"
-autocmd FileType eruby let b:surround_{char2nr('-')} = "<% \r %>"
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'jgdavey/tslime.vim'
@@ -44,7 +49,6 @@ Plug 'ervandew/supertab'
 
 " Align
 "ZoomWin
-"ctrlp.vim
 "fzf.vim
 "gtags.vim
 "jedi-vim
@@ -119,23 +123,6 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
 nnoremap <leader>q :copen<cr>
-" ===================
-" ctrl-p
-" ===================
-
-
-let g:ctrlp_map                 = '<Leader>c'
-
-let g:ctrlp_working_path_mode   = 0
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_height          = 30
-let g:ctrlp_extensions          = ['tag', 'buffertag']
-let g:ctrlp_switch_buffer       = 2
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
-nnoremap <Leader>b :CtrlPBufTag<CR> 
-nnoremap <Leader>B :CtrlPBuffer<CR> 
-nnoremap <Leader>t :CtrlPTag<CR> 
 
 " ===================
 " NERDTree
