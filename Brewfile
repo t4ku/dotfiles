@@ -12,17 +12,21 @@ brew 'fasd'
 brew 'git'
 brew 'git-lfs'
 brew 'tig'
+brew 'wget'
 brew 'mercurial'
 brew 'the_silver_searcher'
+brew 'ripgrep'
 brew 'postgresql'
 brew 'mysql'
 brew 'hub'
-brew 'ctags'
+#brew 'ctags'
+brew 'ctags-exuberant'
 brew 'cmake'
 brew 'ag'
 brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
 brew 'watchman'
 brew 'mitmproxy'
+brew 'just'
 
 #cask 'karabiner'
 #cask 'seil'
@@ -32,6 +36,11 @@ cask 'slate'
 cask 'virtualbox'
 cask 'vagrant'
 
+brew 'sshrc'
+# brew 'sshpass'
+# brew install http://git.io/sshpass.rb
+brew 'mosh'
+
 # older
 #brew 'emacs', args: ['--with-modules', '--with-cocoa', '--with-gnutls', '--with-librsvg', '--with-mailutils', '--with-imagemagick@6']
 # brew linkapps
@@ -39,8 +48,12 @@ cask 'vagrant'
 #
 
 # new
-cask 'emacs'
-brew 'cask'
+# cask 'emacs'
+# brew 'cask'
+
+# emacs-plus
+tap 'd12frosted/emacs-plus'
+brew 'emacs-plus'
 
 # cask 'mactex'
 # sudo tlmgr install dvipng
