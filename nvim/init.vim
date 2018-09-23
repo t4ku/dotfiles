@@ -88,6 +88,13 @@ Plug 'jacoborus/tender.vim'
 call plug#end()
 
 " ===================
+" key mapping
+" ===================
+
+let mapleader = ","
+
+
+" ===================
 " ctrl-p
 " ===================
 
@@ -121,14 +128,6 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-
-" ===================
-" key mapping
-" ===================
-
-let mapleader = ","
-
-nnoremap gl :Gitv!<cr>
 
 " ==========
 " clipboard
