@@ -15,9 +15,31 @@ Plug 'tpope/gem-ctags'
 Plug 'tpope/vim-bundler'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+
+Plug 'w0rp/ale'
+
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\   'javascript': [
+\       'prettier-eslint',
+\   ],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_set_quickfix = 1
+
+"Plug 'junegunn/fzf.vim'
+"set rtp+=~/.fzf
+
+autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
+autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
+
+autocmd FileType eruby let b:surround_{char2nr('=')} = "<%= \r %>"
+autocmd FileType eruby let b:surround_{char2nr('-')} = "<% \r %>"
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'jgdavey/tslime.vim'
+Plug 'ervandew/supertab'
 
 " Align
 "ZoomWin
@@ -98,6 +120,7 @@ nnoremap gl :Gitv!<cr>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
+nnoremap <leader>q :copen<cr>
 " ===================
 " ctrl-p
 " ===================
