@@ -1,5 +1,6 @@
 set termguicolors
 
+let mapleader = ","
 
 " ===================
 " PlugIns
@@ -40,6 +41,7 @@ set rtp+=~/.fzf
 
 nnoremap <Leader>c :Files<CR>
 nnoremap <Leader>B :Buffers<CR>
+nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :BTags<CR>
 
 Plug 'vim-ruby/vim-ruby'
@@ -114,7 +116,6 @@ call plug#end()
 " key mapping
 " ===================
 
-let mapleader = ","
 
 nnoremap gl :Gitv!<cr>
 
