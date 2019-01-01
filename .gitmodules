@@ -214,3 +214,6 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "resources/atom-one-dark-terminal"]
+	path = resources/atom-one-dark-terminal
+	url = https://github.com/nathanbuchar/atom-one-dark-terminal.git
