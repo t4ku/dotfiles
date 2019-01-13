@@ -35,6 +35,8 @@
   lbmr = "!f() { open http://gitlab.enigmo.co.jp:8888/buyma/bm_on_rails_3/merge_requests/; }; f"
   lbh = "!f() { open http://gitlab.enigmo.co.jp:8888/buyma/bm_on_rails_3/; }; f"
   # save MR/PR url with 'git config <branch>.mr http://example.com/mr/123'
+  save-mr-url = "!f() { git config branch.`git rev-parse --abbrev-ref HEAD`.mr $1; }; f"
+  browse-mr= "!f() { url=$(git config branch.`git rev-parse --abbrev-ref HEAD`.mr); open $url; }; f"
   browse-custom = "!f() { url=$(git config branch.`git rev-parse --abbrev-ref HEAD`.mr); open $url; }; f"
 	push-by-delete = "!f() { git push -d $@; git push $@; }; f"
 [core]
