@@ -1,3 +1,7 @@
+let $RUBYHOME=$HOME."/.rbenv/versions/2.5.1"
+set rubydll=$HOME/.rbenv/versions/2.5.1/lib/libruby.2.5.1.dylib
+
+
 execute pathogen#infect()
 
 if has("termguicolors")
