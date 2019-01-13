@@ -360,6 +360,10 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; org-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; archive subtree as it is
+;; https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
+(load-file "~/dotfiles/.emacs.d/org-archive-subtree.el")
+
 ;; reload inline imge
 ;; http://emacs.stackexchange.com/questions/13107/replace-plantuml-source-with-generated-image-in-org-mode
 (add-hook 'org-babel-after-execute-hook
