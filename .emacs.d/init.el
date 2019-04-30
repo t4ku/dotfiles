@@ -356,6 +356,14 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; -------------
 (ac-config-default)
 
+;; -------------
+;; auto-complete
+;; -------------
+
+(require 'rg)
+(rg-enable-default-bindings)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -493,24 +501,24 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
         ))
 
 ;; custom agenda view format
-(setq org-agenda-prefix-format '(
-	 (agenda .
-		 ;;" %i %-12:c%?-12t% s")
-		 ;;  work:        [ Learning ] TODO Pandas cookbook      :G@2018_ml: 
-	         ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-		 ;; -[] TODO Pandas Cookbook
-		 "- [ ] ")
-		 ;;" %i %-12:c%?-12t% s %b")		 
-         (timeline . 
-               ;;"  % s")
-               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-         (todo .
-               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-         (tags .
-               ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-	       "- [ ] ")
-         (search . " %i %-12:c"))
-      )
+;;(setq org-agenda-prefix-format '(
+;;	 (agenda .
+;;		 ;;" %i %-12:c%?-12t% s")
+;;		 ;;  work:        [ Learning ] TODO Pandas cookbook      :G@2018_ml: 
+;;	         ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+;;		 ;; -[] TODO Pandas Cookbook
+;;		 "- [ ] ")
+;;		 ;;" %i %-12:c%?-12t% s %b")		 
+;;         (timeline . 
+;;               ;;"  % s")
+;;               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+;;         (todo .
+;;               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+;;         (tags .
+;;               ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+;;	       "- [ ] ")
+;;         (search . " %i %-12:c"))
+;;      )
 
 
 ;;org-goto
@@ -541,3 +549,25 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
   "Face used for the line delimiting the end of source blocks.")
 
 
+;;org-sync
+(add-to-list 'load-path "~/.emacs.d/src/org-sync")
+(mapc 'load
+      '("org-sync" "org-sync-bb" "org-sync-github" "org-sync-redmine"))
+
+;; riary
+(setq diary-file "~/Dropbox/Docs/org/Inbox/diary.txt")
+(setq org-agenda-include-diary t)
+;;(setq org-agenda-diary-file  "~/Dropbox/Docs/org/Inbox/test.org")
+
+;; refile
+(setq org-refile-targets '((nil :maxlevel . 9)
+                                (org-agenda-files :maxlevel . 9)))
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+;; --------------
+;; ox-hugo
+;; --------------
+
+(use-package ox-hugo
+  :after ox)
