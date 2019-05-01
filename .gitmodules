@@ -220,3 +220,6 @@
 [submodule ".emacs.d/src/org-sync"]
 	path = .emacs.d/src/org-sync
 	url = https://github.com/arbox/org-sync.git
+[submodule ".emacs.d/scimax"]
+	path = .emacs.d/scimax
+	url = https://github.com/jkitchin/scimax.git
