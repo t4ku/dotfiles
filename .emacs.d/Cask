@@ -12,6 +12,7 @@
 (depends-on "expand-region")
 (depends-on "helm")
 (depends-on "f")
+(depends-on "company")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "htmlize")
