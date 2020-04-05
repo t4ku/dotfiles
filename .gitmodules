@@ -223,3 +223,6 @@
 [submodule ".emacs.d/scimax"]
 	path = .emacs.d/scimax
 	url = https://github.com/jkitchin/scimax.git
+[submodule ".emacs.d/src/ox-ipynb"]
+	path = .emacs.d/src/ox-ipynb
+	url = https://github.com/jkitchin/ox-ipynb
