@@ -397,7 +397,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'org-protocol)
 ;; start emacs server so that emacsclient can connect
 ;; when using org-protocol
-;;(server-start)
+(server-start)
 
 ;;org-capture
 (define-key global-map "\C-cc" 'org-capture)
@@ -581,6 +581,13 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 
 (use-package ox-hugo
   :after ox)
+
+;; --------------
+;; ox-ipynb
+;; https://github.com/jkitchin/ox-ipynb
+;; --------------
+
+(add-to-list 'load-path "~/.emacs.d/src/ox-ipynb")
 
 ;; ---------------
 ;; company-mode
