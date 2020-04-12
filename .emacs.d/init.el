@@ -10,6 +10,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+;;(setq package-enable-at-startup nil) 
 (package-initialize)
 
 
@@ -379,15 +380,18 @@ Repeated invocations toggle between the two most recently open buffers."
             (when org-inline-image-overlays
               (org-redisplay-inline-images))))
 
+(pyenv-mode-set "3.6.5")
+
 ;; org language
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((emacs-lisp . t)
-;  (ipython . t)
-  (org . t)
-  (sql . t)
-  (latex . t)
-  (shell . t)))
+  ;;(ipython . t)
+    (org . t)
+    (sql . t)
+    (latex . t)
+    (shell . t)
+    (jupyter . t)))
 
 ;;org-protocol
 (require 'org-protocol)
@@ -564,6 +568,12 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
                                 (org-agenda-files :maxlevel . 9)))
 (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
 (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+;; org-select
+;; https://emacs.stackexchange.com/questions/40571/how-to-set-a-short-cut-for-begin-src-end-src/47370#47370
+
+(add-to-list 'org-structure-template-alist '("j" . "src jupyter-python :session py :display plain
+"))
 
 ;; --------------
 ;; ox-hugo
