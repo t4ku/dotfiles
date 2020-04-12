@@ -126,6 +126,8 @@ Plug 'ervandew/supertab'
 
 Plug 'lighttiger2505/gtags.vim'
 
+Plug 'MattesGroeger/vim-bookmarks'
+
 
 " Align
 "ZoomWin
