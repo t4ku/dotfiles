@@ -399,7 +399,7 @@ if !exists('g:vdebug_options')
     let g:vdebug_options = {}
 endif
 
-let g:vdebug_options.path_maps =  { "/home/vagrant/nfs_sync_dir/php_apps" : "/Users/takuokawa/Dropbox/Code/enigmo/bm_dev_chef/nfs_sync_dir/php_apps" }
+let g:vdebug_options.path_maps =  { "/home/vagrant/nfs_sync_dir/bm_php" : "/Users/takuokawa/Code/enigmo/buyma/jp/bm_dev_chef/nfs_sync_dir/php_apps" }
 
 " =====================
 " vim-rspec

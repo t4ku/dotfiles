@@ -10,7 +10,11 @@ set noswapfile
 "let g:ruby_host_prog = "$HOME/.rbenv/shims/neovim-ruby-host"
 let g:ruby_host_prog = expand('~/.rbenv/versions/2.2.10/bin/ruby')
 " https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c
-let g:python3_host_prog = expand('~/.pyenv/versions/bin/python')
+let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+"let g:node_host_prog = expand('~/.ndenv/versions/v10.13.0/bin/node')
+"let g:node_host_prog = expand('~/.ndenv/shims/neovim-node-host')
+let g:node_host_prog = expand('~/.ndenv/versions/v10.13.0/lib/node_modules/neovim/bin/cli.js')
 
 
 " ===================
@@ -24,33 +28,73 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/gem-ctags'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rhubarb'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'othree/yajs.vim'
 Plug 'slim-template/vim-slim'
+Plug 'hashivim/vim-terraform'
+Plug 'ayu-theme/ayu-vim'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'elmcast/elm-vim'
+Plug 'evanleck/vim-svelte'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'AndrewRadev/linediff.vim'
+Plug 'vim-vdebug/vdebug'
+" Plug 'vdebug-joonty'
 
+let g:vdebug_options = {
+\  'path_maps' : { '/home/vagrant/nfs_sync_dir/bm_php' : '/Users/takuokawa/Code/enigmo/buyma/jp/bm_dev_chef/nfs_sync_dir/bm_php' }
+\  }
+
+
+" http://stackoverflow.com/questions/5117991/vim-insert-empty-erb-tags
+" <c-s>= to start(in terminal vim prefix with <c-g>s, yss= for existing
 autocmd FileType smarty let b:surround_{char2nr('=')} = "{? \r ?}"
 autocmd FileType smarty let b:surround_{char2nr('-')} = "{?* \r *?}"
 
 autocmd FileType eruby let b:surround_{char2nr('=')} = "<%= \r %>"
 autocmd FileType eruby let b:surround_{char2nr('-')} = "<% \r %>"
 
+autocmd BufEnter */fixtures/*.rb ALEDisable
+
 Plug 'mattn/emmet-vim'
+Plug 'majutsushi/tagbar'
+
+let g:tagbar_type_php  = {
+  \ 'ctagstype' : 'php',
+  \ 'kinds'     : [
+      \ 'i:interfaces',
+      \ 'c:classes',
+      \ 'd:constant definitions',
+      \ 'f:functions',
+      \ 'j:javascript functions:1'
+  \ ]
+\ }
+
+
+let g:tagbar_show_linenumbers = 1
+let g:tagbar_autoshowtag = 1
+
+" tagbar status update is too slow · Issue #413 · majutsushi/tagbar
+" https://github.com/majutsushi/tagbar/issues/413
+set updatetime=500
 
 Plug 'w0rp/ale'
 
 let g:ale_linters = {
-\ 'python': ['flake8']
+\ 'python': ['flake8'],
+\ 'javascript': ['prettier', 'flow']
 \}
 
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
-\   'python': ['autopep8', 'black', 'isort'],
-\   'javascript': ['prettier', 'eslint']
+\   'python': ['autopep8','black','isort'],
+\   'javascript': ['prettier']
 \}
 let g:ale_enabled = 1
-"let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 
 let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
@@ -61,9 +105,11 @@ let g:ale_python_autopep8_executable = expand('~/.pyenv/versions/neovim3/bin/aut
 let g:ale_python_isort_executable = expand('~/.pyenv/versions/neovim3/bin/isort')
 let g:ale_python_black_executable = expand('~/.pyenv/versions/neovim3/bin/black')
 
-let g:ale_javascript_prettier_eslint_excutable = expand('./node_modules/.bin/prettier-eslint')
-let g:ale_javascript_prettier_excutable = expand('./node_modules/.bin/prettier')
-let g:ale_javascript_eslint_excutable = expand('./node_modules/.bin/eslint')
+
+"let g:ale_javascript_prettier_eslint_excutable = expand('./node_modules/.bin/prettier-eslint')
+"let g:ale_javascript_prettier_excutable = expand('./node_modules/.bin/prettier')
+"let g:ale_javascript_eslint_excutable = expand('./node_modules/.bin/eslint')
+"let g:ale_javascript_flow_excutable = expand('./node_modules/.bin/flow')
 
 Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf
