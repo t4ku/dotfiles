@@ -612,3 +612,22 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
   (setq company-ispell-dictionary (file-truename "~/.emacs.d/misc/english-words.txt")))
 
 (add-hook 'text-mode-hook 'text-mode-hook-setup)
+
+;; -------------
+;; pngpaste
+;; -------------
+
+(defun my-org-screenshot ()
+  "Save a clipboard's screenshot into a time stamped unique-named file
+   in a specified directory and insert a link to this file."
+  (interactive)
+  (setq filename
+        (concat
+         (make-temp-name
+          (concat "/Users/takuokawa/Dropbox/Docs/org/Attachments/images/"
+                  (buffer-name)
+                  "_"
+                  (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+  (call-process "pngpaste" nil nil nil filename)
+  (insert (concat "[[" filename "]]"))
+  (org-display-inline-images))
