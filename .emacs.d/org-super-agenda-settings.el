@@ -29,21 +29,26 @@
 ;;        ))
 
 
+(setq org-agenda-block-separator nil)
+(setq org-agenda-compact-blocks t)
+;; doesn't take effect
 
 (setq org-agenda-custom-commands
       '(
 	("c" "Super Agenda"
 	 ((agenda "" (
-             (org-agenda-overriding-header "THIS WEEK")
+             ;;(org-agenda-overriding-header "THIS WEEK")
              (org-agenda-span 'day)
-             (org-agenda-scheduled-leaders '("   " "%2dx"))
+             ;;(org-agenda-scheduled-leaders '("   " "%2dx"))
+	     (org-agenda-block-separator nil)
+	     ;; this doesn't take effect either
 	     (org-super-agenda-mode)
              )))
        ((org-super-agenda-groups
 	 '(;; Each group has an implicit boolean OR operator between its selectors.
          (:name "Today"  ; Optionally specify section name
                 ;;:time-grid t  ; Items that appear on the time grid
-		:auto-outline-path t
+	 	:auto-outline-path t
                 :todo "NEXT")  ; Items that have this TODO keyword
          ;;(:name "Important"
          ;;       ;; Single arguments given alone
