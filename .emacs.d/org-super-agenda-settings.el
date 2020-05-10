@@ -33,6 +33,10 @@
 ;; https://github.com/alphapapa/org-super-agenda/issues/20#issuecomment-333365815
 
 (setq org-agenda-span 1)
+(setq org-agenda-include-deadlines nil)
+;; or, hit ! manually
+;;(org-agenda-toggle-deadlines)
+
 
 (setq org-agenda-custom-commands
       '(("c" "Super Agenda" agenda
@@ -46,5 +50,3 @@
          )))
          (org-agenda nil "a"))))
 
-;; hit ! manually
-;;(org-agenda-toggle-deadlines)
