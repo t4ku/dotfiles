@@ -31,14 +31,8 @@
 
 
 (setq org-agenda-custom-commands
-      '(
-	("c" "Super Agenda"
-	 ((agenda "" (
-             (org-agenda-overriding-header "THIS WEEK")
-             (org-agenda-span 'day)
-             (org-agenda-scheduled-leaders '("   " "%2dx"))
-	     (org-super-agenda-mode)
-             )))
+      '(("c" "Super Agenda" agenda
+       (org-super-agenda-mode)	
        ((org-super-agenda-groups
 	 '(;; Each group has an implicit boolean OR operator between its selectors.
          (:name "Today"  ; Optionally specify section name
@@ -84,5 +78,4 @@
          ;; match any of these groups, with the default order position of 99
          )))
          (org-agenda nil "a"))))
-
 
