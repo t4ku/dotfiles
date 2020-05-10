@@ -474,55 +474,11 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 
 ;; custome agenda view
 
-(setq org-agenda-custom-commands
-      '(("d" "deadlines" agenda ""
-	 ((org-agenda-entry-types '(:deadline)))
-	 (org-agenda-skip-function '(org-agenda-skip-entry-if 'notdeadline))
-	 (org-deadline-warning-days 10)
-	 (org-agenda-overriding-columns-format "%20ITEM %DEADLINE")
-	 )
-	("S" "Agenda by states"
-	 (;;(agenda "" nil)
-	  (tags-todo  "Ops/!-DONE"
-		      ((org-agenda-overriding-header "Ops")
-		       (org-agenda-block-separator nil)))
-	  (tags-todo  "/NEXT"
-		      ((org-agenda-overriding-header "Next")
-		       (org-tags-match-list-sublevels t)
-		       (org-agenda-block-separator nil)
-		       (org-agenda-sorting-strategy '(todo-state-down effort-up category-keep)))
-		      ))
-	 )
-        ("G" "Agenda by Goals"
-         ((tags-todo "Ops")
-          (tags-todo "G@2018_request")
-	  (tags-todo "G@2018_ml")
-	  (tags-todo "G@2018_product")	  
-          (tags-todo "errands"))
-         nil                      ;; i.e., no local settings
-         ("~/next-actions.html")) ;; exports block to this file with C-c a e
-       ;; ..other commands here
-        ))
+;; ------------------
+;; org-super-agenda
+;; ------------------
 
-;; custom agenda view format
-;;(setq org-agenda-prefix-format '(
-;;	 (agenda .
-;;		 ;;" %i %-12:c%?-12t% s")
-;;		 ;;  work:        [ Learning ] TODO Pandas cookbook      :G@2018_ml: 
-;;	         ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-;;		 ;; -[] TODO Pandas Cookbook
-;;		 "- [ ] ")
-;;		 ;;" %i %-12:c%?-12t% s %b")		 
-;;         (timeline . 
-;;               ;;"  % s")
-;;               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-;;         (todo .
-;;               " %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-;;         (tags .
-;;               ;;" %i %-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-;;	       "- [ ] ")
-;;         (search . " %i %-12:c"))
-;;      )
+(add-to-list 'load-path "~/.emacs.d/org-super-agenda-settings.el")
 
 
 ;;org-goto
@@ -631,3 +587,4 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
   (call-process "pngpaste" nil nil nil filename)
   (insert (concat "[[" filename "]]"))
   (org-display-inline-images))
+

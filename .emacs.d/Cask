@@ -43,3 +43,4 @@
 ;;(depends-on "ob-ipython" :git "https://github.com/gregsexton/ob-ipython.git")
 (depends-on "jupyter")
 ;;(depends-on "ox-ipynb")
+(depends-on "org-super-agenda")
