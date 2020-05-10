@@ -478,7 +478,7 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 ;; org-super-agenda
 ;; ------------------
 
-(add-to-list 'load-path "~/.emacs.d/org-super-agenda-settings.el")
+(load "~/.emacs.d/org-super-agenda-settings.el")
 
 
 ;;org-goto
