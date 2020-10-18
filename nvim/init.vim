@@ -39,7 +39,7 @@ Plug 'ayu-theme/ayu-vim'
 "Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'elmcast/elm-vim'
 Plug 'evanleck/vim-svelte'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' }
 "Plug 'autozimu/LanguageClient-neovim', {
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
