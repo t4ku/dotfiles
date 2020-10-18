@@ -36,10 +36,24 @@ Plug 'othree/yajs.vim'
 Plug 'slim-template/vim-slim'
 Plug 'hashivim/vim-terraform'
 Plug 'ayu-theme/ayu-vim'
-Plug 'shumphrey/fugitive-gitlab.vim'
+"Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'elmcast/elm-vim'
 Plug 'evanleck/vim-svelte'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'mattn/vim-goimports'
+
 Plug 'AndrewRadev/linediff.vim'
 Plug 'vim-vdebug/vdebug'
 " Plug 'vdebug-joonty'
@@ -81,6 +95,17 @@ let g:tagbar_autoshowtag = 1
 " https://github.com/majutsushi/tagbar/issues/413
 set updatetime=500
 
+
+" lsp(LanguageClient-neovim)
+"
+"" Launch gopls when Go files are in use
+"let g:LanguageClient_serverCommands = {
+"       \ 'go': ['gopls']
+"       \ }
+"" Run gofmt on save
+"autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+"
+
 Plug 'w0rp/ale'
 
 let g:ale_linters = {
@@ -93,8 +118,9 @@ let g:ale_fixers = {
 \   'python': ['autopep8','black','isort'],
 \   'javascript': ['prettier']
 \}
+let g:ale_pattern_options = { 'schema.rb': { 'ale_enabled': 0 }}
 let g:ale_enabled = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_set_quickfix = 1
 
 let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
@@ -119,7 +145,7 @@ nnoremap <Leader>B :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :BTags<CR>
 
-Plug 'vim-ruby/vim-ruby'
+"Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'jgdavey/tslime.vim'
 Plug 'ervandew/supertab'
