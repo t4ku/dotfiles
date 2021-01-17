@@ -79,17 +79,24 @@ echo 'zshrc'
 export GTAGSLABEL=pygments
 
 # terminal tools
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+# for installing ruby < 2.4, you need to install openssl@1.0
+# https://github.com/rbenv/ruby-build/wiki#openssl-version-compatibility
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+#if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+
 eval "$(fasd --init auto)"
 
-# ndenv
-export PATH="$HOME/.ndenv/bin:$PATH"
-eval "$(ndenv init -)"
+## ndenv
+#export PATH="$HOME/.ndenv/bin:$PATH"
+#eval "$(ndenv init -)"
 
 export PATH="$HOME/.embulk/bin:$PATH"
 
@@ -114,3 +121,8 @@ fi
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# direnv
+eval "$(direnv hook bash)"
+export PATH="$HOME/.buyma_utils/bin:$PATH"
+

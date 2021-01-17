@@ -27,6 +27,8 @@ brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
 brew 'watchman'
 brew 'mitmproxy'
 brew 'just'
+brew 'kubectx'
+brew 'anyenv'
 
 #cask 'karabiner'
 #cask 'seil'
