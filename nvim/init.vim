@@ -6,6 +6,9 @@ let mapleader = ","
 
 set noswapfile
 
+set expandtab
+set tabstop=2
+
 " Script
 "let g:ruby_host_prog = "$HOME/.rbenv/shims/neovim-ruby-host"
 let g:ruby_host_prog = expand('~/.rbenv/versions/2.2.10/bin/ruby')
@@ -120,10 +123,11 @@ let g:ale_fixers = {
 \}
 let g:ale_pattern_options = { 'schema.rb': { 'ale_enabled': 0 }}
 let g:ale_enabled = 1
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 
 let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
+"let g:ale_ruby_rubocop_executable = 'bundle'
 
 " python
 let g:ale_python_flake8_executable = expand('~/.pyenv/versions/neovim3/bin/flake8')
@@ -154,6 +158,10 @@ Plug 'lighttiger2505/gtags.vim'
 
 Plug 'MattesGroeger/vim-bookmarks'
 
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Align
 "ZoomWin
@@ -298,6 +306,7 @@ set smartindent
 " ===================
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd Filetype typescriptreact setlocal shiftwidth=2 tabstop=2
 
 " ===================
 " misc
