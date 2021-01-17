@@ -259,7 +259,6 @@ Repeated invocations toggle between the two most recently open buffers."
 ;;      (add-to-list 'face-font-rescale-alist (cons jp-font-family 1.3)))))
 
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; plugins
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -293,6 +292,7 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
 
 (smartparens-global-mode t)
+(add-to-list 'sp-ignore-modes-list 'emacs-lisp-mode)
 (add-hook 'minibuffer-setup-hook 'turn-on-smartparens-strict-mode)
 
 ;; guide - navigation-functions / manupulation-functions
@@ -371,7 +371,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;; archive subtree as it is
 ;; https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
-(load-file "~/dotfiles/.emacs.d/org-archive-subtree.el")
+;;(load-file "~/dotfiles/.emacs.d/org-archive-subtree.el")
 
 ;; reload inline imge
 ;; http://emacs.stackexchange.com/questions/13107/replace-plantuml-source-with-generated-image-in-org-mode
@@ -387,10 +387,12 @@ Repeated invocations toggle between the two most recently open buffers."
 'org-babel-load-languages
 '((emacs-lisp . t)
   ;;(ipython . t)
+    (http . t)
     (org . t)
     (sql . t)
     (latex . t)
     (shell . t)
+    (ruby . t)
     (jupyter . t)))
 
 ;;org-protocol
