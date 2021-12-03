@@ -10,7 +10,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-;;(setq package-enable-at-startup nil) 
+;;(setq package-enable-at-startup nil)
+
+(setq warning-suppress-log-types '((package reinitialization)))
 (package-initialize)
 
 
@@ -83,7 +85,7 @@ Repeated invocations toggle between the two most recently open buffers."
 ;;(set-face-attribute 'default nil :family "Source Han Code JP" :height 90)
 
 ;;(set-face-font 'default "Source Han Code JP")
-(set-face-font 'default "Noto Sans Mono CJK JP")
+;;(set-face-font 'default "Noto Sans Mono CJK JP")
 
 ;; 結局1:2の等幅フォントを使ったほうが良さげ
 ;; http://extra-vision.blogspot.com/2016/07/emacs.html
@@ -512,9 +514,9 @@ extensions txt/el/png are hard-coded into the let-bound variable `regex'."
 
 
 ;;org-sync
-(add-to-list 'load-path "~/.emacs.d/src/org-sync")
-(mapc 'load
-      '("org-sync" "org-sync-bb" "org-sync-github" "org-sync-redmine"))
+;;(add-to-list 'load-path "~/.emacs.d/src/org-sync")
+;;(mapc 'load
+;;      '("org-sync" "org-sync-bb" "org-sync-github" "org-sync-redmine"))
 
 ;; riary
 (setq diary-file "~/Dropbox/Docs/org/Inbox/diary.txt")
