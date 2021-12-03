@@ -225,6 +225,28 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 Plug 'rakr/vim-one'
 Plug 'jacoborus/tender.vim'
 
+Plug 'janko/vim-test'
+"Plug 'janko/tslime.vim'
+
+" https://github.com/vim-test/vim-test
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+let test#strategy = "tslime"
+
+let g:test#preserve_screen = 1
+let g:test#echo_command = 0
+
+let g:test#ruby#rspec#executable = 'docker-compose exec spring bin/rspec'
+" unlet g:test#ruby#rspec#executable 
+
+" https://github.com/jgdavey/tslime.vim
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
 call plug#end()
 
 
