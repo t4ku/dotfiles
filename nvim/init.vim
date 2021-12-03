@@ -142,8 +142,8 @@ let g:ale_python_black_executable = expand('~/.pyenv/versions/neovim3/bin/black'
 "let g:ale_javascript_eslint_excutable = expand('./node_modules/.bin/eslint')
 "let g:ale_javascript_flow_excutable = expand('./node_modules/.bin/flow')
 
-Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf
+Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 
 nnoremap <Leader>c :Files<CR>
 nnoremap <Leader>B :Buffers<CR>
