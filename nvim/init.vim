@@ -126,7 +126,7 @@ let g:ale_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_set_quickfix = 1
 
-let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
+"let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
 "let g:ale_ruby_rubocop_executable = 'bundle'
 
 " python
