@@ -6,6 +6,8 @@ brew 'zsh' #, args: ['--disable-etcdir']
 brew 'tmux'
 #brew 'reattach-to-user-namespace'
 #brew 'macvim', args: ['--override-system-vim']
+brew 'neovim'
+cask 'iterm2'
 # brew 'peco'
 #brew 'fasd'
 # brew 'z'
