@@ -28,20 +28,6 @@ fi
 brew tap Homebrew/bundle
 brew bundle
 
-which rbenv &> /dev/null
-if [[ $? > 0 ]]; then
-    echo 'installing rbenv'
-    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    exec $SHELL -l
-    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-fi
-
-which ndenv &> /dev/null
-if [[ $? > 0 ]]; then
-    echo 'installing ndenv'
-    git clone https://github.com/riywo/ndenv ~/.ndenv
-    exec $SHELL -l
-fi
 
 if [[ $SHELL != '/usr/local/bin/zsh' && -f '/usr/local/bin/zsh' ]]; then
     chsh -s /usr/local/bin/zsh
@@ -49,7 +35,6 @@ fi
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-
 
 # mitmproxy
 # > mitmdump

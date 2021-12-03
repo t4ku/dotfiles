@@ -29,11 +29,13 @@ brew 'mitmproxy'
 brew 'just'
 brew 'kubectx'
 brew 'anyenv'
+brew 'direnv'
 
 #cask 'karabiner'
 #cask 'seil'
 
-cask 'slate'
+#cask 'slate'
+cask 'hammerspoon'
 
 cask 'virtualbox'
 cask 'vagrant'
@@ -67,12 +69,12 @@ brew 'r'
 #brew 'docker-machine'
 #brew 'docker-compose'
 
-brew 'pyenv'
-brew 'pyenv-virtualenv'
+#brew 'pyenv'
+#brew 'pyenv-virtualenv'
 
-brew 'v8'
-brew 'openssl'
-brew 'redis'
+#brew 'v8'
+#brew 'openssl'
+#brew 'redis'
 
 #cask 'easysimbl'
 cask 'google-cloud-sdk'
