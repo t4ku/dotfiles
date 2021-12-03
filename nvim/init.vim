@@ -26,7 +26,7 @@ let g:node_host_prog = expand('~/.ndenv/versions/v10.13.0/lib/node_modules/neovi
 
 call plug#begin()
 
-Plug 'gregsexton/gitv', {'on': ['Gitv']}
+Plug 'buggo/gitv', {'on': ['Gitv']}
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/gem-ctags'
