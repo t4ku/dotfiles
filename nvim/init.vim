@@ -39,7 +39,8 @@ Plug 'othree/yajs.vim'
 Plug 'slim-template/vim-slim'
 Plug 'hashivim/vim-terraform'
 Plug 'ayu-theme/ayu-vim'
-"Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['https://gitlab.enigmo.co.jp']
 Plug 'elmcast/elm-vim'
 Plug 'evanleck/vim-svelte'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' }
