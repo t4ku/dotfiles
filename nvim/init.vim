@@ -1,5 +1,4 @@
-
-set shell=$HOME/dotfiles/nvim/wrapper.sh
+"set shell=$HOME/dotfiles/nvim/wrapper.sh
 
 let mapleader = ","
 
