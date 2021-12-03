@@ -1,28 +1,28 @@
-brew 'qt55'
+# brew 'qt55'
 # run 'brew link --force qt55'
 # https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
 
-brew 'zsh', args: ['--disable-etcdir']
+brew 'zsh' #, args: ['--disable-etcdir']
 brew 'tmux'
-brew 'reattach-to-user-namespace'
-brew 'macvim', args: ['--override-system-vim']
+#brew 'reattach-to-user-namespace'
+#brew 'macvim', args: ['--override-system-vim']
 # brew 'peco'
-brew 'fasd'
+#brew 'fasd'
 # brew 'z'
 brew 'git'
 brew 'git-lfs'
 brew 'tig'
 brew 'wget'
 brew 'mercurial'
-brew 'the_silver_searcher'
+#brew 'the_silver_searcher'
 brew 'ripgrep'
-brew 'postgresql'
-brew 'mysql'
+#brew 'postgresql'
+#brew 'mysql'
 brew 'hub'
 #brew 'ctags'
 brew 'ctags-exuberant'
 brew 'cmake'
-brew 'ag'
+#brew 'ag'
 brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
 brew 'watchman'
 brew 'mitmproxy'
@@ -53,11 +53,11 @@ brew 'mosh'
 
 # new
 # cask 'emacs'
-# brew 'cask'
 
 # emacs-plus
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'
+brew 'cask'
 
 # cask 'mactex'
 # sudo tlmgr install dvipng
@@ -65,7 +65,7 @@ brew 'emacs-plus'
 brew 'r'
 
 # https://www.docker.com/docker-mac
-#brew 'docker'
+brew 'docker'
 #brew 'docker-machine'
 #brew 'docker-compose'
 
@@ -77,7 +77,7 @@ brew 'r'
 #brew 'redis'
 
 #cask 'easysimbl'
-cask 'google-cloud-sdk'
-cask 'java'
-brew 'maven'
+#cask 'google-cloud-sdk'
+#cask 'java'
+#brew 'maven'
 brew 'pngpaste'
