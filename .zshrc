@@ -123,6 +123,5 @@ fi
 [[ -f /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/takuokawa/.ndenv/versions/v6.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 # direnv
-eval "$(direnv hook bash)"
+eval "$(direnv hook zsh)"
 export PATH="$HOME/.buyma_utils/bin:$PATH"
-
