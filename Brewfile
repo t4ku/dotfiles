@@ -3,6 +3,7 @@
 # https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
 
 brew 'zsh' #, args: ['--disable-etcdir']
+brew 'jq'
 brew 'tmux'
 #brew 'reattach-to-user-namespace'
 #brew 'macvim', args: ['--override-system-vim']
@@ -25,7 +26,7 @@ brew 'hub'
 brew 'ctags-exuberant'
 brew 'cmake'
 #brew 'ag'
-brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
+#brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
 brew 'watchman'
 brew 'mitmproxy'
 brew 'just'
@@ -42,7 +43,7 @@ cask 'hammerspoon'
 cask 'virtualbox'
 cask 'vagrant'
 
-brew 'sshrc'
+# brew 'sshrc'
 # brew 'sshpass'
 # brew install http://git.io/sshpass.rb
 brew 'mosh'
@@ -83,3 +84,6 @@ brew 'docker'
 #cask 'java'
 #brew 'maven'
 brew 'pngpaste'
+
+brew 'koekeishiya/formulae/yabai', args: ['--HEAD']
+brew 'koekeishiya/formulae/skhd'

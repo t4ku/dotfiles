@@ -1,4 +1,6 @@
 #!/bin/zsh
+# exit imediately on error
+set -e
 
 # git submodule status is slow...
 if [[ `grep submodule .git/config | wc -l` == 0 ]] ; then
@@ -30,7 +32,6 @@ if [[ $? > 0 ]]; then
     brew tap Homebrew/bundle
 fi
 
-brew tap Homebrew/bundle
 brew bundle
 
 
@@ -44,6 +45,13 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 anyenv install pyenv
 anyenv install nodenv
 anyenv install rbenv
+
+if [[ ! -f '/usr/local/bin/limelight' ]]; then 
+  git clone https://github.com/koekeishiya/limelight ~/.limelight
+  cd ~/.limelight
+  make
+  ln -s ./bin/limelight /usr/local/bin/limelight 
+fi
 
 
 # mitmproxy
