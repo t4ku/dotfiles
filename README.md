@@ -82,3 +82,12 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
 ```
+
+### Hammerspoons
+
+```
+hs ./script.lua
+```
+
+- scripts needs to starts with './' or safe prefix
+- add `-i` options to stay within hs prompt

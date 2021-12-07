@@ -53,6 +53,14 @@ if [[ ! -f '/usr/local/bin/limelight' ]]; then
   ln -s ./bin/limelight /usr/local/bin/limelight 
 fi
 
+echo 'stackline'
+if [[ ! -f '~/.hammerspoon/stackline' ]]; then
+  git clone https://github.com/AdamWagner/stackline.git ~/.hammerspoon/stackline
+  cd ~/.hammerspoon
+  echo 'stackline = require "stackline"' >> init.lua
+  echo 'stackline:init()' >> init.lua
+fi
+
 
 # mitmproxy
 # > mitmdump
