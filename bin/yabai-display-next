@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# issues
+# - rotate with prev&next(determin display index)
+# - Switching focus from a "bsp" type display to a "stack" doesn't move propely
+#   - https://github.com/koekeishiya/yabai/issues/1027
+
+read -r currentdisplay <<< $(echo $(yabai -m query --displays --display | jq '.index'))
+IFS=' ' read -r -a displays <<< $(yabai -m query --displays | jq -r 'map(.index) | join(" ")')
+sorteddisplays=( $( printf "%s\n" "${displays[@]}" | sort ) )
+
+
+findNextIndex(){
+  last=1
+  first=1
+
+  for i in "${sorteddisplays[@]}"
+  do
+    if [ $i -gt $last ] ; then
+      last=$i
+    fi
+    if [ $i -gt $currentdisplay ] ; then
+      echo $i
+      return
+    fi
+  done
+
+  echo $first
+}
+
+nextindex=`findNextIndex`
+# yabai -m display --focus $nextindex
+
+# determine the layout type of destination space in target display
+destlayout=$(yabai -m query --spaces | jq -r ".[]|select(.["'"has-focus"'"]==true and .display==$nextindex)|.type")
+destwindow=$(yabai -m query --spaces | jq -r ".[]|select(.["'"has-focus"'"]==true and .display==$nextindex)|.["'"first-window"'"]")
+
+case $destlayout in
+  stack) yabai -m window --focus $destwindow ;;
+      *) yabai -m display --focus $nextindex ;;
+esac

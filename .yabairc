@@ -11,23 +11,43 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 #
 # layout
-yabai -m config window_gap 6
+yabai -m config window_gap 4
 
+#yabai -m config window_border on
+#yabai -m config window_border_width 4
+#yabai -m config window_border_radius -1.0
+
+#yabai -m config active_window_border_color 0xff24ccaa
+#yabai -m config normal_window_border_color 0xff555555
 
 # Mouse
 yabai -m config mouse_modifier               ctrl
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          autoraise
 
+#yabai -m config active_window_border_color 0xff775759
+#yabai -m config normal_window_border_color 0xff555555
+
 # Rules
-yabai -m rule --add app="^Calendar$"           manage=off
-yabai -m rule --add app="^Dictionary$"         manage=off
-yabai -m rule --add app="^Disk Utility$"       manage=off
-yabai -m rule --add app="^Postlab$"            manage=off
-yabai -m rule --add app="^Simulator$"          manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^システム環境設定$" manage=off
-yabai -m rule --add app="^Electron$"           manage=off
+yabai -m rule --add app="*"               manage=off
+
+yabai -m rule --add app="^iTerm2$"          manage=on
+yabai -m rule --add app="^Emacs$"           manage=on
+yabai -m rule --add app="^ターミナル$"      manage=on
+yabai -m rule --add app="^Google Chrome$"   manage=on
+#yabai -m rule --add app="^Dictionary$"         manage=off
+#yabai -m rule --add app="^Disk Utility$"       manage=off
+#yabai -m rule --add app="^Postlab$"            manage=off
+#yabai -m rule --add app="^Simulator$"          manage=off
+#yabai -m rule --add app="^System Preferences$" manage=off
+#yabai -m rule --add app="^システム環境設定$" manage=off
+#yabai -m rule --add app="^Electron$"           manage=off
+#yabai -m rule --add app="^LINE$" manage=off
+#yabai -m rule --add app="^zoom" manage=off
+#yabai -m rule --add app="^Finder" manage=off
+#yabai -m rule --add app="^App Store$" manage=off
+#yabai -m rule --add app="^Emacs$" manage=on
+#yabai -m rule --add app="^Hammerspoon$"        manage=off
 
 
 # kill any existing limelight process if one exists, before we launch a new one

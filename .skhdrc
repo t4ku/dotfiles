@@ -1,10 +1,17 @@
+# 
+# refs.
+#
+# hyper + alt/cmd/ctrl/shift
+# https://github.com/koekeishiya/yabai/issues/843
+# - use lshift or lalt(still it lost control over lesser mod - key...)
+
 ###########################################################
 # Layout
 ###########################################################
 
-alt - f : yabai -m space --layout float
+# hyper - f : yabai -m space --layout float
 # Toggle between bsp and stack
-alt + shift - space : [ "$(yabai -m query --spaces --space | jq -r '.type')" = bsp ] \
+hyper + shift - space : [ "$(yabai -m query --spaces --space | jq -r '.type')" = bsp ] \
     && yabai -m space --layout stack \
     || yabai -m space --layout bsp
 
@@ -13,73 +20,80 @@ alt + shift - space : [ "$(yabai -m query --spaces --space | jq -r '.type')" = b
 ###########################################################
 
 # insert mode
-alt - i : yabai -m window --insert east
-alt + shift - i : yabai -m window --insert south
+hyper - i : yabai -m window --insert east
+hyper + shift - i : yabai -m window --insert south
 
 # Applications
-# alt - return : alacritty --working-directory $HOME/projects/github.com/JunichiSugiura
-alt - return : open /Applications/Alacritty.app
-alt - 0 : open -n /Applications/Brave\ Browser.app
-alt + shift - n : open /Applications/Notion.app
+# hyper - return : alacritty --working-directory $HOME/projects/github.com/JunichiSugiura
+#hyper - return : open /Applications/Alacritty.app
+#hyper - 0 : open -n /Applications/Brave\ Browser.app
+#hyper + shift - n : open /Applications/Notion.app
 
 # close
-alt - c : yabai -m window --close
+hyper - c : yabai -m window --close
 
 # navigate
-alt - k : yabai -m window --focus stack.prev \
+hyper - k : yabai -m window --focus stack.prev \
     || yabai -m window --focus prev
-alt - j : yabai -m window --focus stack.next \
+hyper - j : yabai -m window --focus stack.next \
     || yabai -m window --focus next
-alt - tab : yabai -m window --focus stack.recent \
+hyper - tab : yabai -m window --focus stack.recent \
+    || yabai -m window --focus recent
+# hyper - ;
+hyper - 0x29: yabai -m window --focus stack.recent \
     || yabai -m window --focus recent
 
 # mirror
-alt - m : yabai -m space --mirror y-axis \
-    && yabai -m window --focus first
+#hyper - m : yabai -m space --mirror y-axis \
+#    && yabai -m window --focus first
+#
 
 # rotate
-alt - r : yabai -m space --rotate 270
+hyper - r : yabai -m space --rotate 270
 
 # warp
-alt + shift - k : yabai -m window --warp prev
-alt + shift - j : yabai -m window --warp next
+hyper + shift - k : yabai -m window --warp prev
+hyper + shift - j : yabai -m window --warp next
 
 # full screen
-#alt - space : yabai -m window --toggle zoom-fullscreen
+hyper - space : yabai -m window --toggle zoom-fullscreen
+
+# float
+#hyper + lalt - f : yabai -m window --toggle float
+hyper + lalt - f : ~/dotfiles/bin/yabai-float-toggle
 
 # resize
-alt + shift - 0x21 : yabai -m window --resize left:-40:0 \
-    || yabai -m window --resize right:-40:0
-alt + shift - 0x1E : yabai -m window --resize right:40:0 \
-    || yabai -m window --resize left:40:0
+hyper + shift - 0x21 : yabai -m window --resize left:-40:0 || yabai -m window --resize right:-40:0
+hyper + shift - 0x1E : yabai -m window --resize right:40:0 || yabai -m window --resize left:40:0
 
 ###########################################################
 # Display
 ###########################################################
 
 # navigate
-alt - 0x2B : yabai -m display --focus prev \
-    && yabai -m display --focus stack.prev
-alt - 0x2F : yabai -m display --focus next \
-    && yabai -m display --focus stack.next
+#hyper - 0x2B : yabai -m display --focus prev && yabai -m display --focus stack.prev
+#hyper - 0x2F : yabai -m display --focus next && yabai -m display --focus stack.next
+hyper - 0x2F : ~/dotfiles/bin/yabai-display-next
 
 ###########################################################
 # Space
 ###########################################################
 
+# This is done by hammerspoon(window-management.lua)
+# hyper(ctrl + cmd + alt + shift) - n : moveWindowToNextScreen()
+
 # send window
-shift + alt - 0x2B : yabai -m window --display prev \
-    && yabai -m display --focus prev
-shift + alt - 0x2F : yabai -m window --display next \
-    && yabai -m display --focus next
+# shift + hyper - 0x2B : yabai -m window --display prev  && yabai -m display --focus prev # ,
+# shift + hyper - 0x2F : yabai -m window --display next  && yabai -m display --focus next # .
 
 # toggle mission control
-shift + alt - m : yabai -m space --toggle mission-control
+hyper - m : yabai -m space --toggle mission-control
 
 # reset split balance
-shift + alt - e : yabai -m space --balance
+hyper - e : yabai -m space --balance
 
 ###########################################################
 # Stackline
 ###########################################################
-# shift + alt - b : hs -c 'stackline.config:toggle("appearance.showIcons")'
+# shift + hyper - b : hs -c 'stackline.config:toggle("appearance.showIcons")'
+#
