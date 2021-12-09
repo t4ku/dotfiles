@@ -42,6 +42,6 @@ fi
 #fi
 
 # terminal vimrc dark
-export COLORFGBG='15:0'
+#export COLORFGBG='15;0'
 # terminal vimrc light
-#export COLORFGBG='0:15'
+#export COLORFGBG='0;15'

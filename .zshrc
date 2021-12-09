@@ -73,7 +73,6 @@ alias jxa="osascript -l JavaScript"
 alias -g GB='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
 alias npm-exec='PATH=$(npm bin):$PATH'
-echo 'zshrc'
 
 # global/gtags
 export GTAGSLABEL=pygments
@@ -98,7 +97,7 @@ eval "$(fasd --init auto)"
 #export PATH="$HOME/.ndenv/bin:$PATH"
 #eval "$(ndenv init -)"
 
-export PATH="$HOME/.embulk/bin:$PATH"
+#export PATH="$HOME/.embulk/bin:$PATH"
 
 # load platform specific ones
 if [[ -f "$HOME/dotfiles/.zshrc.$PLATFORM" ]];then
@@ -124,4 +123,3 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
-export PATH="$HOME/.buyma_utils/bin:$PATH"
