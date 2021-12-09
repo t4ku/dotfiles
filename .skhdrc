@@ -73,7 +73,7 @@ hyper + shift - 0x1E : yabai -m window --resize right:40:0 || yabai -m window --
 # navigate
 #hyper - 0x2B : yabai -m display --focus prev && yabai -m display --focus stack.prev
 #hyper - 0x2F : yabai -m display --focus next && yabai -m display --focus stack.next
-hyper - 0x2F : ~/dotfiles/bin/yabai-display-next
+hyper - d : ~/dotfiles/bin/yabai-display-next
 
 ###########################################################
 # Space
