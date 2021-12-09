@@ -8,7 +8,9 @@ nvim/plugged/*
 
 .emacs.d/.cask
 .emacs.d/auto-save-list
+.emacs.d/elpa
+.emacs.d/transient
 .emacs.d/recentf
 .emacs.d/ac-comphist.dat
 
-.hammperspoon/stackline
+.hammerspoon/stackline
