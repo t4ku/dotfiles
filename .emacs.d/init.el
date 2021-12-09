@@ -85,7 +85,7 @@ Repeated invocations toggle between the two most recently open buffers."
 ;;(set-face-attribute 'default nil :family "Source Han Code JP" :height 90)
 
 ;;(set-face-font 'default "Source Han Code JP")
-;;(set-face-font 'default "Noto Sans Mono CJK JP")
+(set-face-font 'default "Noto Sans Mono CJK JP")
 
 ;; 結局1:2の等幅フォントを使ったほうが良さげ
 ;; http://extra-vision.blogspot.com/2016/07/emacs.html

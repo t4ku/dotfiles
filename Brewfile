@@ -91,3 +91,6 @@ brew 'pngpaste'
 
 brew 'koekeishiya/formulae/yabai', args: ['--HEAD']
 brew 'koekeishiya/formulae/skhd'
+
+# this includes NotoSansMonoCJKjp-Regular.otf
+cask 'homebrew/cask-fonts/font-noto-sans-cjk-jp'
