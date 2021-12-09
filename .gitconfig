@@ -14,8 +14,8 @@
   p = push
   # lol = log --graph --decorate --pretty="%h%an%ad%s" --abbrev-commit
   lo = log --oneline
-  lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an(%ar)%Creset'
-  lold = "!f() { TZ=UTC git log --pretty=format:"%h%x09%ad%x09%s" --date=local --merges;}; f"
+  lol = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(red bold)%an%Cgreen (%ar)%Creset'
+  lold = log --graph --pretty='format:%cd %C(yellow)%h%Cblue%d%Creset %s %C(red bold)%an%Cgreen (%ar)%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
   # diff
   d  = diff
   dc = diff --cached
@@ -64,3 +64,5 @@
 #	rev = http://{host}:8888/{path}/commit/{commit}
 #	pr = https://{host}:8888/{path}/merge_requests/{short_ref}
 #	file = "https://{host}:8888/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
+[url "git@github.com:"]
+	insteadOf = https://github.com/
