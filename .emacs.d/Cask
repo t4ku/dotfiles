@@ -1,8 +1,11 @@
 (source gnu)
 (source melpa)
-(source org)
+(source nongnu)
+;; https://www.reddit.com/r/emacs/comments/r11nqd/how_to_install_orgmode_now_that_org_emacs_lisp/
+;;(source org)
 
-(depends-on "org-plus-contrib")
+(depends-on "org")
+(depends-on "elpa-org-plus-contrib")
 
 (depends-on "bind-key")
 (depends-on "cask")

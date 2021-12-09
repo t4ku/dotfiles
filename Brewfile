@@ -43,6 +43,8 @@ cask 'hammerspoon'
 cask 'virtualbox'
 cask 'vagrant'
 
+cask 'google-japanese-ime'
+
 # brew 'sshrc'
 # brew 'sshpass'
 # brew install http://git.io/sshpass.rb
@@ -60,7 +62,9 @@ brew 'mosh'
 # emacs-plus
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'
-brew 'cask'
+# brew 'cask'
+# TODO: https://github.com/cask/cask
+# install manually
 
 # cask 'mactex'
 # sudo tlmgr install dvipng

@@ -19,15 +19,16 @@ Install
 
 Below are the tools I use which needs mannual installation or setup.
 
-#### custom installer
-
-* iterm2
-  * set "Left option key act as +esc" to use Meta Keys(M-) in tmux
-
-#### Colorschemes
-
-- https://github.com/mbadolato/iTerm2-Color-Schemes
-- https://github.com/sonph/onehalf
+- iterm2
+  - set "Left option key act as +esc" to use Meta Keys(M-) in tmux
+- Colorschemes
+  - https://github.com/mbadolato/iTerm2-Color-Schemes
+  - https://github.com/sonph/onehalf
+    - Italic comment in tmux
+      - https://github.com/sonph/onehalf/pull/101
+- Cask
+  - https://github.com/cask/cask
+  - cask.el resides in ~/.emacs.d/elpa/xx.x/cask/cask.el
 
 Notes
 ---------
