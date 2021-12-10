@@ -32,6 +32,12 @@ if [[ $? > 0 ]]; then
     brew tap Homebrew/bundle
 fi
 
+which cask &> /dev/null
+if [[ $? > 0 ]]; then
+    echo 'installing csk'
+    git clone https://github.com/cask/cask ~/.cask
+    # echo 'PATH=$HOME/.cask/bin:$PATH' >> .bashrc
+fi
 brew bundle
 
 

@@ -18,7 +18,7 @@
 
 
 ;; Cask
-(require 'cask "~/.emacs.d/elpa/cask-0.8.8pre/cask.el")
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
 (setq custom-file "~/.emacs.d/custom.el")

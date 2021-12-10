@@ -62,9 +62,6 @@ brew 'mosh'
 # emacs-plus
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'
-# brew 'cask'
-# TODO: https://github.com/cask/cask
-# install manually
 
 # cask 'mactex'
 # sudo tlmgr install dvipng
