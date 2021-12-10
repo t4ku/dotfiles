@@ -86,8 +86,9 @@ brew 'docker'
 #brew 'maven'
 brew 'pngpaste'
 
-brew 'koekeishiya/formulae/yabai', args: ['--HEAD']
-brew 'koekeishiya/formulae/skhd'
+tap "koekeishiya/formulae"
+brew 'yabai', args: ['HEAD']
+brew 'skhd'
 
 # this includes NotoSansMonoCJKjp-Regular.otf
 cask 'homebrew/cask-fonts/font-noto-sans-cjk-jp'
