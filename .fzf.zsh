@@ -15,7 +15,20 @@ source "${HOME}/.fzf/shell/key-bindings.zsh"
 # -----------
 #
 
-export FZF_DEFAULT_OPTS='--color light'
+fzfopts() {
+  if [ "$COLORFGBG" = "0;15" ]; then
+    export FZF_DEFAULT_OPTS='--color light'
+  else
+    export FZF_DEFAULT_OPTS='--color dark'
+  fi
+}
+#export FZF_DEFAULT_OPTS='--color light'
+#export FZF_DEFAULT_OPTS='--color dark'
+## dark(onehalfdark)
+#export FZF_DEFAULT_OPTS='--color=bg+:#313640,bg:#282c34,border:#dcdfe4,spinner:#c678dd,hl:#5c6370,fg:#dcdfe4,header:#5c6370,info:#e5c07b,pointer:#c678dd,marker:#e06c75,fg+:#dcdfe4,preview-bg:#282c34,prompt:#c678dd,hl+:#c678dd'
+## light(onehalflight)
+#export FZF_DEFAULT_OPTS='--color=bg+:#f0f0f0,bg:#fafafa,border:#383a42,spinner:#a626a4,hl:#a0a1a7,fg:#383a42,header:#a0a1a7,info:#c18401,pointer:#a626a4,marker:#e45649,fg+:#383a42,preview-bg:#fafafa,prompt:#a626a4,hl+:#a626a4'
+
 fd() {
   local dir
   dir=$(find ${1:-*} -path '*/\.*' -prune \

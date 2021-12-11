@@ -22,7 +22,7 @@ Below are the tools I use which needs mannual installation or setup.
 - iterm2
   - set "Left option key act as +esc" to use Meta Keys(M-) in tmux
   - startup command for light/dark
-    - `export COLORFGBG='0;15'`
+    - `export COLORFGBG='0;15'; fzfopts`
 - Colorschemes
   - https://github.com/mbadolato/iTerm2-Color-Schemes
   - https://github.com/sonph/onehalf

@@ -359,3 +359,22 @@ cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 " from https://github.com/taku-o/vim-copypath/blob/master/plugin/copypath.vim
 noremap <Leader>yp :let @*=expand('%:p')<CR> " yank full path
 noremap <Leader>yf :let @*=expand('%:t')<CR> " yank file name
+
+
+" generating fzf color from fzf-vim
+" https://github.com/junegunn/fzf/blob/master/ADVANCED.md#color-themes
+" let g:fzf_colors =
+" \ { 'fg':         ['fg', 'Normal'],
+"   \ 'bg':         ['bg', 'Normal'],
+"   \ 'preview-bg': ['bg', 'Normal'],
+"   \ 'hl':         ['fg', 'Comment'],
+"   \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':        ['fg', 'Statement'],
+"   \ 'info':       ['fg', 'PreProc'],
+"   \ 'border':     ['fg', 'Ignore'],
+"   \ 'prompt':     ['fg', 'Conditional'],
+"   \ 'pointer':    ['fg', 'Exception'],
+"   \ 'marker':     ['fg', 'Keyword'],
+"   \ 'spinner':    ['fg', 'Label'],
+"   \ 'header':     ['fg', 'Comment'] }
