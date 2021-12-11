@@ -91,7 +91,7 @@ eval "$(anyenv init -)"
 #if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 
 
-#eval "$(fasd --init auto)"
+eval "$(fasd --init auto)"
 
 ## ndenv
 #export PATH="$HOME/.ndenv/bin:$PATH"

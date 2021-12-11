@@ -10,7 +10,10 @@ brew 'tmux'
 brew 'neovim'
 cask 'iterm2'
 # brew 'peco'
-#brew 'fasd'
+brew 'fasd'
+# brew 'zplug'
+# TODO: install zinit and prompt themes(powerlevel/pure/starship)
+# https://github.com/zdharma-continuum/zinit#plugins-and-snippets
 # brew 'z'
 brew 'git'
 brew 'git-lfs'
