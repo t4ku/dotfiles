@@ -1,6 +1,6 @@
 #!/bin/zsh
-# exit imediately on error
-set -e
+# # exit imediately on error
+# set -e
 
 # git submodule status is slow...
 if [[ `grep submodule .git/config | wc -l` == 0 ]] ; then
@@ -28,7 +28,7 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 which brew &> /dev/null
 if [[ $? > 0 ]]; then 
     echo 'installing homebrew'
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap Homebrew/bundle
 fi
 
@@ -38,6 +38,8 @@ if [[ $? > 0 ]]; then
     git clone https://github.com/cask/cask ~/.cask
     # echo 'PATH=$HOME/.cask/bin:$PATH' >> .bashrc
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle
 
 

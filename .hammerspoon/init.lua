@@ -13,3 +13,5 @@ if not cliInstalled then
 end
 
 wm = require "window-management"
+stackline = require "stackline"
+stackline:init()

@@ -79,7 +79,7 @@ export GTAGSLABEL=pygments
 
 # terminal tools
 
-export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$HOME/.anyenv/bin:$HOME/.cask/bin:$PATH"
 eval "$(anyenv init -)"
 # for installing ruby < 2.4, you need to install openssl@1.0
 # https://github.com/rbenv/ruby-build/wiki#openssl-version-compatibility
@@ -91,7 +91,7 @@ eval "$(anyenv init -)"
 #if which plenv > /dev/null; then eval "$(plenv init -)"; fi
 
 
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 
 ## ndenv
 #export PATH="$HOME/.ndenv/bin:$PATH"

@@ -40,7 +40,7 @@ brew 'direnv'
 #cask 'slate'
 cask 'hammerspoon'
 
-cask 'virtualbox'
+# cask 'virtualbox'
 cask 'vagrant'
 
 cask 'google-japanese-ime'
@@ -61,7 +61,12 @@ brew 'mosh'
 
 # emacs-plus
 tap 'd12frosted/emacs-plus'
-brew 'emacs-plus'
+
+# Getting Emacs to tile #86
+# https://github.com/koekeishiya/yabai/issues/86#issuecomment-529935058
+# (menu-bar-mode t)
+# brew 'emacs-plus', args: ['with-no-titlebar', 'with-modern-icon','head']
+brew 'emacs-plus', args: ['with-modern-icon','head']
 
 # cask 'mactex'
 # sudo tlmgr install dvipng
@@ -87,8 +92,10 @@ brew 'docker'
 brew 'pngpaste'
 
 tap "koekeishiya/formulae"
+# you need self cert(yabai-cert)
+# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)
 brew 'yabai', args: ['HEAD']
-brew 'skhd'
+brew 'skhd', args: ['with-logging']
 
 # this includes NotoSansMonoCJKjp-Regular.otf
 cask 'homebrew/cask-fonts/font-noto-sans-cjk-jp'
