@@ -1,5 +1,3 @@
-"set shell=$HOME/dotfiles/nvim/wrapper.sh
-
 let mapleader = ","
 
 set noswapfile
@@ -8,14 +6,10 @@ set expandtab
 set tabstop=2
 
 " Script
-"let g:ruby_host_prog = "$HOME/.rbenv/shims/neovim-ruby-host"
-let g:ruby_host_prog = expand('~/.rbenv/versions/2.2.10/bin/ruby')
-" https://qiita.com/lighttiger2505/items/9a36c5b4035dd469134c
-let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
-let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
-"let g:node_host_prog = expand('~/.ndenv/versions/v10.13.0/bin/node')
-"let g:node_host_prog = expand('~/.ndenv/shims/neovim-node-host')
-let g:node_host_prog = expand('~/.ndenv/versions/v10.13.0/lib/node_modules/neovim/bin/cli.js')
+let g:ruby_host_prog = expand('~/.anyenv/envs/rbenv/shims/neovim-ruby-host')
+let g:python_host_prog = expand('~/anyenv/envs/pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.anyenv/envs/pyenv/versions/neovim3/bin/python')
+let g:node_host_prog = expand('~/.anyenv/envs/nodenv/versions/16.13.1/bin/neovim-node-host')
 
 
 " ===================
