@@ -1,3 +1,5 @@
+"set shell=$HOME/dotfiles/nvim/wrapper.sh
+
 let mapleader = ","
 
 set noswapfile
@@ -41,12 +43,35 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' }
 "    \ 'do': 'bash install.sh',
 "    \ }
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" https://github.com/neoclide/coc.nvim
+" TODO: CocInstall coc-json coc-tsserver or CocConfig
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" 
+" Plug 'prabirshrestha/vim-lsp'
+" " TODO: https://github.com/neovim/nvim-lspconfig
+" " or https://eitoball.hatenablog.com/entry/2019/12/02/033349
+" Plug 'mattn/vim-lsp-settings'
+" 
+" if executable('solargraph')
+"     " gem install solargraph
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'solargraph',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+"         \ 'initialization_options': {"diagnostics": "true"},
+"         \ 'whitelist': ['ruby'],
+"         \ })
+" endif
+
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ asyncomplete#force_refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 Plug 'mattn/vim-goimports'
 
@@ -92,15 +117,6 @@ let g:tagbar_autoshowtag = 1
 set updatetime=500
 
 
-" lsp(LanguageClient-neovim)
-"
-"" Launch gopls when Go files are in use
-"let g:LanguageClient_serverCommands = {
-"       \ 'go': ['gopls']
-"       \ }
-"" Run gofmt on save
-"autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-"
 
 Plug 'w0rp/ale'
 

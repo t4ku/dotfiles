@@ -1,6 +1,4 @@
 #!/bin/zsh
-# # exit imediately on error
-# set -e
 
 # git submodule status is slow...
 if [[ `grep submodule .git/config | wc -l` == 0 ]] ; then
@@ -56,11 +54,20 @@ anyenv install pyenv
 anyenv install nodenv
 anyenv install rbenv
 
+eval "$(anyenv init -)"
+
+which pyenv virtualenv $> /dev/null
+if [[ $? > 0 ]]; then
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+    # TODO:
+    # https://alpacat.com/blog/neovim-mac-pyenv
+fi
+
 if [[ ! -f '/usr/local/bin/limelight' ]]; then 
   git clone https://github.com/koekeishiya/limelight ~/.limelight
   cd ~/.limelight
   make
-  ln -s ./bin/limelight /usr/local/bin/limelight 
+  sudo ln -s ./bin/limelight /usr/local/bin/limelight 
 fi
 
 echo 'stackline'
