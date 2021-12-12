@@ -47,6 +47,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' }
 " https://github.com/neoclide/coc.nvim
 " TODO: CocInstall coc-json coc-tsserver or CocConfig
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+source $HOME/dotfiles/nvim/coc-settings.vim
 
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/asyncomplete.vim'
