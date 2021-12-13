@@ -28,6 +28,7 @@ brew 'hub'
 #brew 'ctags'
 brew 'ctags-exuberant'
 brew 'cmake'
+brew 'automake'
 #brew 'ag'
 #brew 'global', args: ['--with-exuberant-ctags', '--with-pygments']
 brew 'watchman'
