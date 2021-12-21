@@ -87,6 +87,8 @@ brew 'docker'
 
 #brew 'v8'
 #brew 'openssl'
+# For installing older ruby(that needs openssl 1.0) < 2.4
+# https://qiita.com/Nakapon1214/items/64144b34166ed1017050
 #brew 'redis'
 
 #cask 'easysimbl'
@@ -103,3 +105,19 @@ brew 'skhd', args: ['with-logging']
 
 # this includes NotoSansMonoCJKjp-Regular.otf
 cask 'homebrew/cask-fonts/font-noto-sans-cjk-jp'
+
+brew 'awscli'
+
+# rails dependencies
+# https://qiita.com/asip2k25/items/c019c766a53f4b28df6d
+brew 'libxml2'
+brew 'libxslt'
+brew 'libiconv'
+brew 'imagemagick'
+brew 'mysql'
+
+tap 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font'
+
+tap 'sanemat/font'
+brew 'ricty', args: ['with-powerline']

@@ -236,6 +236,11 @@ Plug 'joshdick/onedark.vim'
 Plug 't4ku/onehalf', { 'rtp': 'vim/', 'branch': 'personal_fixes' }
 Plug 'jacoborus/tender.vim'
 
+Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts=1
+
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'janko/vim-test'
 "Plug 'janko/tslime.vim'
 
