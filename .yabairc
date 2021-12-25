@@ -23,7 +23,7 @@ yabai -m config window_gap 4
 # Mouse
 yabai -m config mouse_modifier               ctrl
 yabai -m config mouse_follows_focus          on
-yabai -m config focus_follows_mouse          autoraise
+#yabai -m config focus_follows_mouse          autoraise
 
 #yabai -m config active_window_border_color 0xff775759
 #yabai -m config normal_window_border_color 0xff555555

@@ -1,0 +1,30 @@
+#!/bin/bash
+# rotate floating window in n cols
+read -r id floating <<< $(echo $(yabai -m query --windows --window | jq '.id, ."is-floating"'))
+read -r win_x win_y win_w win_h <<< $(echo $(yabai -m query --windows --window | jq '.frame.x,.frame.y,.frame.w,.frame.h'))
+read -r disp_x disp_y disp_w disp_h <<< $(echo $(yabai -m query --displays --display | jq '.frame.x,.frame.y,.frame.w,.frame.h'))
+
+let split_col=$1
+let split_row=$2
+
+let x=$win_x-$disp_x
+let y=$win_y-$disp_y
+
+let split_w=$disp_w/$split_col
+let split_h=$disp_h
+
+let grid_x=0
+
+if [ $win_w -eq $split_w ]; then
+    for i in `seq 0 $(($split_col-1))` ; do
+        let start_x=$split_w*$i
+        if [ $start_x -gt $x ]; then
+          echo $start_x $x
+          grid_x=$i
+          break
+        fi
+    done
+fi
+
+echo "$split_row:$split_col:$grid_x:$split_col:$split_row:$split_col"
+yabai -m window --grid $split_row:$split_col:$grid_x:$split_col:$split_row:$split_col

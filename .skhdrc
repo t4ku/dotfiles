@@ -99,6 +99,12 @@ hyper + lalt - f : ~/dotfiles/bin/yabai-float-toggle
 hyper + shift - 0x21 : yabai -m window --resize left:-40:0 || yabai -m window --resize right:-40:0
 hyper + shift - 0x1E : yabai -m window --resize right:40:0 || yabai -m window --resize left:40:0
 
+# https://github.com/koekeishiya/yabai/issues/658#issuecomment-981585916
+hyper - 1 : ~/dotfiles/bin/yabai-rotate-grid 1 1
+hyper - 2 : ~/dotfiles/bin/yabai-rotate-grid 2 1
+hyper - 3 : ~/dotfiles/bin/yabai-rotate-grid 3 1
+
+
 ###########################################################
 # Display
 ###########################################################
