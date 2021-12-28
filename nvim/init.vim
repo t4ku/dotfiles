@@ -170,6 +170,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
@@ -265,7 +266,18 @@ let g:tslime_always_current_window = 1
 
 call plug#end()
 
-
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {
+      'toml',
+      'c_sharp',
+      'vue',
+    }
+  }
+}
+EOF
 
 " ===================
 " key mapping
