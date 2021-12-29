@@ -121,3 +121,4 @@ cask 'font-hack-nerd-font'
 
 tap 'sanemat/font'
 brew 'ricty', args: ['with-powerline']
+brew 'lazygit'
