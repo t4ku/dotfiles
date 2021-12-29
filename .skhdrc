@@ -89,7 +89,7 @@ hyper + shift - k : yabai -m window --warp prev
 hyper + shift - j : yabai -m window --warp next
 
 # full screen
-hyper - space : yabai -m window --toggle zoom-fullscreen
+hyper - z: yabai -m window --toggle zoom-fullscreen
 
 # float
 #hyper + lalt - f : yabai -m window --toggle float

@@ -28,6 +28,8 @@ yabai -m config mouse_follows_focus          on
 #yabai -m config active_window_border_color 0xff775759
 #yabai -m config normal_window_border_color 0xff555555
 
+yabai -m signal --add event=application_activated action="~/dotfiles/bin/yabai-application-activated"
+
 # Rules
 
 yabai -m rule --add app="^.*$"              manage=off
@@ -38,5 +40,6 @@ yabai -m rule --add app="^ターミナル$"      manage=on
 yabai -m rule --add app="^Google Chrome$"   manage=on
 
 # kill any existing limelight process if one exists, before we launch a new one
-killall limelight &> /dev/null
-limelight &> /dev/null &
+#killall limelight &> /dev/null
+#~/dotfiles/bin/limelight &> /dev/null &
+~/dotfiles/bin/yabai-application-activated
