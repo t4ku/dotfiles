@@ -151,13 +151,24 @@ let g:ale_python_black_executable = expand('~/.pyenv/versions/neovim3/bin/black'
 "let g:ale_javascript_eslint_excutable = expand('./node_modules/.bin/eslint')
 "let g:ale_javascript_flow_excutable = expand('./node_modules/.bin/flow')
 
-set rtp+=~/.fzf
-Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+"set rtp+=~/.fzf
+"Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+"
+"nnoremap <Leader>c :Files<CR>
+"nnoremap <Leader>B :Buffers<CR>
+"nnoremap <Leader>h :History<CR>
+"nnoremap <Leader>b :BTags<CR>
 
-nnoremap <Leader>c :Files<CR>
-nnoremap <Leader>B :Buffers<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>b :BTags<CR>
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'cljoly/telescope-repo.nvim'
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 Plug 'voldikss/vim-floaterm'
 let g:floaterm_autoclose = 1
 
@@ -172,6 +183,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+
+
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
@@ -277,6 +290,32 @@ require'nvim-treesitter.configs'.setup {
       'c_sharp',
       'vue',
     }
+  }
+}
+EOF
+
+lua <<EOF
+require'telescope'.setup {
+  -- https://github.com/nvim-telescope/telescope.nvim#customization
+  defaults = {
+  },
+  pickers = {
+    -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#change-directory
+    oldfiles = {
+      mappings = {
+        n = {
+          ["cd"] = function(prompt_bufnr)
+              local selection = require("telescope.actions.state").get_selected_entry()
+              local dir = vim.fn.fnamemodify(selection.path, ":p:h")
+              require("telescope.actions").close(prompt_bufnr)
+              -- Depending on what you want put `cd`, `lcd`, `tcd`
+              vim.cmd(string.format("tcd %s", dir))
+          end
+        }
+      }
+    }
+  },
+  extensions = {
   }
 }
 EOF
