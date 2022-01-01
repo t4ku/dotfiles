@@ -85,8 +85,8 @@ hyper - h : yabai -m window --focus "$(yabai -m query --windows --space | jq -re
 hyper - r : yabai -m space --rotate 270
 
 # warp
-hyper + shift - k : yabai -m window --warp prev
-hyper + shift - j : yabai -m window --warp next
+hyper - w : yabai -m window --warp prev
+hyper - q : yabai -m window --warp next
 
 # full screen
 hyper - z: yabai -m window --toggle zoom-fullscreen
