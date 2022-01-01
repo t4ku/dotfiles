@@ -334,6 +334,18 @@ nnoremap <S-Tab> gT
 
 nnoremap <leader>q :copen<cr>
 
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+cnoremap <C-r> Telescope command_history<cr>
+
 " ===================
 " NERDTree
 " ===================
