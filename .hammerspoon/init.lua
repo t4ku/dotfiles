@@ -9,7 +9,11 @@ require("hs.ipc")
 local cliInstalled = hs.ipc.cliStatus()
 if not cliInstalled then
         log.i('installing cli..')
-        hs.ipc.cliInstall()
+        local ret = hs.ipc.cliInstall("/opt/homebrew")
+        log.i(ret)
+        if not ret then
+                hs.ipc.cliUninstall()
+        end
 end
 
 wm = require "window-management"
