@@ -59,8 +59,7 @@ hyper - c : yabai -m window --close
 hyper - tab : yabai -m window --focus stack.recent \
     || yabai -m window --focus recent
 # hyper - ;
-hyper - 0x29: yabai -m window --focus stack.recent \
-    || yabai -m window --focus recent
+hyper - 0x29: yabai -m window --focus recent
 
 # Focus/cycle through floating windows
 # https://github.com/koekeishiya/yabai/issues/113
