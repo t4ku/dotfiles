@@ -94,6 +94,7 @@ hyper - z: yabai -m window --toggle zoom-fullscreen
 # float
 #hyper + lalt - f : yabai -m window --toggle float
 hyper + lalt - f : ~/dotfiles/bin/yabai-float-toggle
+hyper + lalt - f : ~/dotfiles/bin/yabai-float-toggle && ~/dotfiles/bin/yabai-application-activated
 
 # resize
 hyper + shift - 0x21 : yabai -m window --resize left:-40:0 || yabai -m window --resize right:-40:0
