@@ -39,8 +39,8 @@ hyper + shift - space : [ "$(yabai -m query --spaces --space | jq -r '.type')" =
 ###########################################################
 
 # insert mode
-hyper - i : yabai -m window --insert east
-hyper + shift - i : yabai -m window --insert south
+hyper - o : yabai -m window --insert east
+hyper - p : yabai -m window --insert south
 
 # Applications
 # hyper - return : alacritty --working-directory $HOME/projects/github.com/JunichiSugiura
