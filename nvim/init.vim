@@ -118,39 +118,6 @@ let g:tagbar_autoshowtag = 1
 set updatetime=500
 
 
-
-Plug 'w0rp/ale'
-
-let g:ale_linters = {
-\ 'python': ['flake8'],
-\ 'javascript': ['prettier', 'flow']
-\}
-
-let g:ale_fixers = {
-\   'ruby': ['rubocop'],
-\   'python': ['autopep8','black','isort'],
-\   'javascript': ['prettier']
-\}
-let g:ale_pattern_options = { 'schema.rb': { 'ale_enabled': 0 }}
-let g:ale_enabled = 1
-let g:ale_fix_on_save = 1
-let g:ale_set_quickfix = 1
-
-"let g:ale_ruby_rubocop_executable = expand('~/.rbenv/shims/rubocop')
-"let g:ale_ruby_rubocop_executable = 'bundle'
-
-" python
-let g:ale_python_flake8_executable = expand('~/.pyenv/versions/neovim3/bin/flake8')
-let g:ale_python_autopep8_executable = expand('~/.pyenv/versions/neovim3/bin/autopep8')
-let g:ale_python_isort_executable = expand('~/.pyenv/versions/neovim3/bin/isort')
-let g:ale_python_black_executable = expand('~/.pyenv/versions/neovim3/bin/black')
-
-
-"let g:ale_javascript_prettier_eslint_excutable = expand('./node_modules/.bin/prettier-eslint')
-"let g:ale_javascript_prettier_excutable = expand('./node_modules/.bin/prettier')
-"let g:ale_javascript_eslint_excutable = expand('./node_modules/.bin/eslint')
-"let g:ale_javascript_flow_excutable = expand('./node_modules/.bin/flow')
-
 "set rtp+=~/.fzf
 "Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 "
