@@ -141,3 +141,8 @@ hyper - e : yabai -m space --balance
 ###########################################################
 # shift + hyper - b : hs -c 'stackline.config:toggle("appearance.showIcons")'
 #
+
+# stack up neighbor windows
+# https://github.com/koekeishiya/yabai/issues/203#issuecomment-700493082
+hyper - u : yabai -m window --stack prev
+hyper - i : yabai -m window --stack next
