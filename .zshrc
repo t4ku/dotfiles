@@ -81,14 +81,9 @@ export GTAGSLABEL=pygments
 
 export PATH="$HOME/.anyenv/bin:$HOME/.cask/bin:$PATH"
 eval "$(anyenv init -)"
-# for installing ruby < 2.4, you need to install openssl@1.0
-# https://github.com/rbenv/ruby-build/wiki#openssl-version-compatibility
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-#[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh
-#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-#if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+if which pyenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which virtualenvwrapper.sh > /dev/null; then export WORKON_HOME=$HOME/.virtualenvs; fi
 
 
 eval "$(fasd --init auto)"
