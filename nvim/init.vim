@@ -158,6 +158,8 @@ nnoremap <Leader>c :Files<CR>
 nnoremap <Leader>B :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>b :BTags<CR>
+Plug 'voldikss/vim-floaterm'
+let g:floaterm_autoclose = 1
 
 "Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
@@ -285,6 +287,7 @@ EOF
 
 
 nnoremap gl :Gitv!<cr>
+nnoremap <Leader>Fg :FloatermNew --width=0.8 --height=0.9 'lazygit'<cr>
 
 " this overrides jumps (CTRL-I # see :verbose map <C-i> )
 nnoremap <Tab> gt
@@ -342,10 +345,14 @@ if (exists("$COLORFGBG"))
   if  split($COLORFGBG, ";")[0] == 15
     colorscheme onehalfdark
     set background=dark
+    hi Floaterm guifg=dark guibg=dark
+    hi FloatermBorder guifg=dark guibg=dark
     "colorscheme railscasts
   else
     colorscheme onehalflight
     set background=light
+    hi Floaterm guifg=light guibg=light
+    hi FloatermBorder guifg=light guibg=light
     "colorscheme hemisu
     "colorscheme github
   endif
