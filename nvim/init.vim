@@ -267,6 +267,9 @@ require'telescope'.setup {
   defaults = {
   },
   pickers = {
+    find_files = {
+        hidden = true
+    },
     -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#change-directory
     oldfiles = {
       mappings = {
