@@ -4,9 +4,10 @@
    "diagnostic.checkCurrentLine": false,
    "diagnostic.messageTarget":"echo",
    "coc.preferences.previewAutoClose": true,
-   "solargraph.commandPath": "/Users/t_okawa/.anyenv/envs/rbenv/versions/2.7.5/bin/solargraph",
    "tsserver.enableJavascript": true,
    "eslint.filetypes": ["javascript"],
    "eslint.autoFixOnSave": true,
-   "eslint.alwaysShowStatus": true
+   "eslint.alwaysShowStatus": true,
+   "solargraph.commandPath": "/Users/t_okawa/.anyenv/envs/rbenv/versions/2.7.5/bin/solargraph",
+   "solargraph.diagnostics": true
 }
