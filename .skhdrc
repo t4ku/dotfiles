@@ -89,6 +89,7 @@ hyper - q : yabai -m window --warp next
 
 # full screen
 hyper - z: yabai -m window --toggle zoom-fullscreen
+hyper - x: yabai -m window --toggle zoom-parent
 
 # float
 #hyper + lalt - f : yabai -m window --toggle float
