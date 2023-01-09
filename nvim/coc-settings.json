@@ -9,5 +9,15 @@
    "eslint.autoFixOnSave": true,
    "eslint.alwaysShowStatus": true,
    "solargraph.commandPath": "/Users/t_okawa/.anyenv/envs/rbenv/versions/2.7.5/bin/solargraph",
-   "solargraph.diagnostics": true
+   "solargraph.diagnostics": true,
+   "jedi.enable": true,
+   "languageserver": {
+     "golangci-lint-languageserver": {
+       "command": "golangci-lint-langserver",
+       "filetypes": ["go"],
+       "initializationOptions": {
+         "command": ["golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1"]
+       }
+     }
+   }
 }
