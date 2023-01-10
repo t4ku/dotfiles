@@ -49,6 +49,14 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 source $HOME/dotfiles/nvim/coc-settings.vim
 
+" easier for older rubies(rubocop via solargraph(requires ruby < 2.5))
+Plug 'dense-analysis/ale'
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_linters_explicit = 1 
+let g:airline#extensions#ale#enabled = 1
+
 " Plug 'prabirshrestha/async.vim'
 " Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'prabirshrestha/asyncomplete-lsp.vim'
