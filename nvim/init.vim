@@ -161,6 +161,8 @@ Plug 'peitalin/vim-jsx-typescript'
 
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'tpope/vim-commentary'
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
@@ -258,6 +260,8 @@ call plug#end()
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  -- https://github.com/nvim-treesitter/nvim-treesitter/issues/5536
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
   highlight = {
     enable = true,
     disable = {
@@ -265,7 +269,19 @@ require'nvim-treesitter.configs'.setup {
       'c_sharp',
       'vue',
     }
-  }
+  },
+  -- http://neovimcraft.com/plugin/JoosepAlviste/nvim-ts-context-commentstring/index.html
+  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/82
+  -- context_commentstring = {
+  --   enable = true
+  -- }
+}
+-- see above for the context_commentstring
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+  languages = {
+    typescript = '// %s',
+  },
 }
 EOF
 
