@@ -1,0 +1,86 @@
+import = [
+    #"~/.config/alacritty/themes/themes/atom_one_light.toml",
+    #"~/.config/alacritty/themes/themes/one_dark.toml",
+]
+
+# ====================== WINDOW ======================
+[window]
+
+# Window dimensions
+dimensions = { columns = 0, lines = 0 }  # Default: columns = 0, lines = 0
+
+# Window startup position
+position = "None"  # Default: "None"
+
+# Blank space added around the window in pixels
+padding = { x = 0, y = 0 }  # Default: x = 0, y = 0
+
+# Spread additional padding evenly around the terminal content
+dynamic_padding = false  # Default: false
+
+# Window decorations
+decorations = "None"  # Default: "Full"
+
+# Opacity
+opacity = 1.0  # Default: 1.0
+
+# Request compositor to blur content behind transparent windows.
+blur = false  # Default: false
+
+# Startup mode (changes require restart)
+startup_mode = "Windowed"  # Default: "Windowed"
+
+# Window title
+title = "Alacritty"  # Default: "Alacritty"
+
+# Allow terminal applications to change Alacritty's window title.
+dynamic_title = true  # Default: true
+
+# Window class (Linux/BSD only)
+class = { instance = "Alacritty", general = "Alacritty" }  # Default: instance = "Alacritty", general = "Alacritty"
+
+# Override the variant of the System theme/GTK theme/Wayland client side decorations.
+decorations_theme_variant = "None"  # Default: "None"
+
+# Prefer resizing window by discrete steps equal to cell dimensions.
+resize_increments = false  # Default: false
+
+# Make Option key behave as Alt.
+option_as_alt = "Both"  # Default: "None"
+
+
+[font]
+normal = {family = "NotoSansM Nerd Font Mono", style = "Regular" }
+bold = {family = "NotoSansM Nerd Font Mono", style = "Regular" }
+#normal = {family = "Menlo", style = "Regular" }
+#bold = {family = "Menlo", style = "Regular" }
+#normal = {family = "Hack Nerd Font Mono", style = "Regular" }
+#bold = {family = "Hack Nerd Font Mono", style = "Regular" }
+size = 14.0
+
+# Colors (One Half Dark)
+[colors]
+  [colors.primary]
+    background = '0x282c34'
+    foreground = '0xdcdfe4'
+
+  [colors.normal]
+    black = '0x282c34'
+    red = '0xe06c75'
+    green = '0x98c379'
+    yellow = '0xe5c07b'
+    blue = '0x61afef'
+    magenta = '0xc678dd'
+    cyan = '0x56b6c2'
+    white = '0xdcdfe4'
+
+  [colors.bright]
+    black = '0x282c34'
+    red = '0xe06c75'
+    green = '0x98c379'
+    yellow = '0xe5c07b'
+    blue = '0x61afef'
+    magenta = '0xc678dd'
+    cyan = '0x56b6c2'
+    white = '0xdcdfe4'
+

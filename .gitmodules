@@ -226,3 +226,6 @@
 [submodule ".emacs.d/src/ox-ipynb"]
 	path = .emacs.d/src/ox-ipynb
 	url = https://github.com/jkitchin/ox-ipynb
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = git@github.com:alacritty/alacritty-theme.git
