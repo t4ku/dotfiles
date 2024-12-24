@@ -1,4 +1,0 @@
-#!/bin/sh
-# http://stackoverflow.com/questions/23177561/switch-python-version-for-vim-syntastic
-PYMAJOR=$(python --version | awk '{print $2}'| awk -F. '{print $1}')
-exec $HOME/.pyenv/versions/neovim$PYMAJOR/bin/pep8 $@

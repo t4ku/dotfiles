@@ -88,15 +88,9 @@
 [submodule ".vim/bundle/vim-rails"]
 	path = .vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
-[submodule "resources/Hemisu-Light-iTerm2"]
-	path = resources/Hemisu-Light-iTerm2
-	url = https://github.com/wozozo/Hemisu-Light-iTerm2.git
 [submodule ".vim/bundle/vim-colors-hemisu"]
 	path = .vim/bundle/vim-colors-hemisu
 	url = https://github.com/noahfrederick/Hemisu.git
-[submodule "resources/Hemisu-Termianl-Theme"]
-	path = resources/Hemisu-Termianl-Theme
-	url = https://github.com/noahfrederick/Hemisu-Terminal-app.git
 [submodule ".vim/bundle/vim-HiLinkTrace"]
 	path = .vim/bundle/vim-HiLinkTrace
 	url = https://github.com/gerw/vim-HiLinkTrace.git
@@ -166,9 +160,6 @@
 [submodule ".vim/bundle/vim-vcscommand"]
 	path = .vim/bundle/vim-vcscommand
 	url = https://github.com/vim-scripts/vcscommand.vim.git
-[submodule "resources/iTerm2-Color-Schemes"]
-	path = resources/iTerm2-Color-Schemes
-	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
 [submodule ".vim/bundle/summerfruit256.vim"]
 	path = .vim/bundle/summerfruit256.vim
 	url = https://github.com/t4ku/summerfruit256.vim.git
@@ -214,9 +205,6 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "resources/atom-one-dark-terminal"]
-	path = resources/atom-one-dark-terminal
-	url = https://github.com/nathanbuchar/atom-one-dark-terminal.git
 [submodule ".emacs.d/src/org-sync"]
 	path = .emacs.d/src/org-sync
 	url = https://github.com/arbox/org-sync.git
@@ -226,6 +214,3 @@
 [submodule ".emacs.d/src/ox-ipynb"]
 	path = .emacs.d/src/ox-ipynb
 	url = https://github.com/jkitchin/ox-ipynb
-[submodule "alacritty/themes"]
-	path = alacritty/themes
-	url = git@github.com:alacritty/alacritty-theme.git
