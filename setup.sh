@@ -1,5 +1,17 @@
 #!/bin/zsh
 
+cd $(dirname $0)
+for dotfile in .?* 
+do
+       if [ $dotfile != '..' ] && [ $dotfile != '.git' ] ; then
+           ln -Ffs "$PWD/$dotfile" $HOME
+       fi
+done
+
+#
+## config
+#ln -Ffs "$HOME/.config/nvim" "$HOME/dotfiles/nvim"
+
 ## git submodule status is slow...
 #if [[ `grep submodule .git/config | wc -l` == 0 ]] ; then
 #    git submodule init --update
