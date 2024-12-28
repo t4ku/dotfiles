@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/ctrlp-mark"]
 	path = .vim/bundle/ctrlp-mark
 	url = https://github.com/mattn/ctrlp-mark.git
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme.git

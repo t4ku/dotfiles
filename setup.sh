@@ -1,12 +1,51 @@
 #!/bin/zsh
 
+# Set XDG variables if they are not already set.
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+DOTFILES=(
+    .zshrc
+    .zprofile
+    .gitconfig
+    .tmux.conf
+)
+
+DOTCONFIGS=(
+    #hammerspoon
+    alacritty
+    # nvim
+)
+
 cd $(dirname $0)
-for dotfile in .?* 
-do
+
+
+
+# Create symbolic links for dotfiles
+for dotfile in "${DOTFILES[@]}"; do
        if [ $dotfile != '..' ] && [ $dotfile != '.git' ] ; then
            ln -Ffs "$PWD/$dotfile" $HOME
        fi
 done
+
+# Create config links for all config in XDG
+echo "Creating symbolic links for config in XDG"
+for config in "${DOTCONFIGS[@]}"; do
+    config_path="$XDG_CONFIG_HOME/$config"
+    source_path="$PWD/$config"
+    
+    if [ -d "$source_path" ]; then
+       echo " Linking directory $config -> $config_path"
+       ln -Ffs "$source_path" "$config_path"
+    else
+       echo " skip $config cause $source_path does not exist."
+    fi
+done
+
+# https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
+defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
 #
 ## config
