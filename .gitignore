@@ -14,3 +14,5 @@ nvim/plugged/*
 .emacs.d/ac-comphist.dat
 
 .hammerspoon/stackline
+
+tmux/plugins
