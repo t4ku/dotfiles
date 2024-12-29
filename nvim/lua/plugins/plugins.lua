@@ -7,7 +7,7 @@ return {
     keys = {
       { "<leader>gs", "<cmd>Git<cr>", desc = "Fugitive status" },
       { "<leader>gb", "<cmd>GBrowse<cr>", desc = "Fugitive GBrowse" },
-      { "gl", "<cmd>Gitv!<cr>", desc = "Gitv" },
+      -- { "gl", "<cmd>Gitv!<cr>", desc = "Gitv" },
     },
   },
   -- {
