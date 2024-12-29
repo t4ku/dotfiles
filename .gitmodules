@@ -1,15 +1,3 @@
-[submodule ".vim/bundle/Railscasts-Theme"]
-	path = .vim/bundle/Railscasts-Theme
-	url = https://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git
-[submodule ".vim/bundle/vim-matchit"]
-	path = .vim/bundle/vim-matchit
-	url = https://github.com/edsono/vim-matchit.git
-[submodule "resources/iterm2/iTerm-2-Color-Themes"]
-	path = resources/iterm2/iTerm-2-Color-Themes
-	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
-[submodule ".vim/bundle/ctrlp-mark"]
-	path = .vim/bundle/ctrlp-mark
-	url = https://github.com/mattn/ctrlp-mark.git
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
