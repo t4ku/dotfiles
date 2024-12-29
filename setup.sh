@@ -7,6 +7,7 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 
 DOTFILES=(
     .zshrc
+    .zshenv
     .zprofile
     .gitconfig
     .tmux.conf
@@ -16,6 +17,7 @@ DOTCONFIGS=(
     #hammerspoon
     alacritty
     # nvim
+    tmux
 )
 
 cd $(dirname $0)
