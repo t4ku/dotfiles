@@ -16,7 +16,7 @@ DOTFILES=(
 DOTCONFIGS=(
     #hammerspoon
     alacritty
-    # nvim
+    nvim
     tmux
 )
 
