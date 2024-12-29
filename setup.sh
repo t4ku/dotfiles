@@ -18,6 +18,7 @@ DOTCONFIGS=(
     alacritty
     nvim
     tmux
+    fzf
 )
 
 cd $(dirname $0)
@@ -34,15 +35,33 @@ done
 # Create config links for all config in XDG
 echo "Creating symbolic links for config in XDG"
 for config in "${DOTCONFIGS[@]}"; do
-    config_path="$XDG_CONFIG_HOME/$config"
-    source_path="$PWD/$config"
-    
-    if [ -d "$source_path" ]; then
-       echo " Linking directory $config -> $config_path"
-       ln -Ffs "$source_path" "$config_path"
-    else
-       echo " skip $config cause $source_path does not exist."
+  target_dir="$XDG_CONFIG_HOME/$config"
+  source_dir="$PWD/$config"
+
+  # Check if the source directory exists
+  if [ -d "$source_dir" ]; then
+    # Remove the target if it exists and is a symlink to avoid loops
+    if [ -L "$target_dir" ]; then
+      echo "Removing existing symlink: $target_dir"
+      rm "$target_dir"
     fi
+
+    # Create the parent directory if it doesn't exist
+    if [ ! -d "$(dirname "$target_dir")" ]; then
+      echo "Creating directory: $(dirname "$target_dir")"
+      mkdir -p "$(dirname "$target_dir")"
+    fi
+
+    # Create a new symlink if the target doesn't exist or is not a symlink
+    if [ ! -e "$target_dir" ] || [ ! -L "$target_dir" ]; then
+      echo "Linking directory $source_dir -> $target_dir"
+      ln -s "$source_dir" "$target_dir"
+    else
+      echo "Symlink already exists: $target_dir"
+    fi
+  else
+    echo "Source directory does not exist: $source_dir"
+  fi
 done
 
 # https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
