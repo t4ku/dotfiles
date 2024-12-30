@@ -18,3 +18,12 @@ brew "neovim"
 brew "tmux"
 brew "anyenv"
 brew "starship"
+brew "fzf"
+# TODO: use zi to innvoke fzf
+brew "zoxide"
+# python dependencies
+brew "xz"
+
+brew "tfenv"
+brew "tgenv"
+brew "gh"
