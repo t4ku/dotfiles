@@ -19,6 +19,7 @@ DOTCONFIGS=(
     nvim
     tmux
     fzf
+    mise
 )
 
 cd $(dirname $0)

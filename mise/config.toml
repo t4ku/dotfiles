@@ -1,0 +1,26 @@
+# Global mise configuration
+# This will be installed in ~/.config/mise/config.toml
+
+# Settings for mise itself
+[settings]
+env_file = ".env"
+# Always use shims to ensure consistent behavior
+always_keep_download = true
+# Enable experimental features
+experimental = false
+# Legacy mode for compatibility with .tool-versions
+legacy_version_file = true
+verbose = false
+
+# Configure tools mise should manage
+[tools]
+# Specify default versions for each tool
+# node = "lts"
+# python = "3.11"
+# ruby = "3.2"
+
+# Default environment variables
+[env]
+EDITOR = "nvim"
+# Extend PATH to include local bin directories
+# PATH = { append = ["./bin"] }

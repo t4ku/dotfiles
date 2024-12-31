@@ -8,3 +8,4 @@ autoload -U compinit && compinit
 
 eval "$(zoxide init zsh)"
 eval "$(anyenv init -)"
+eval "$(mise activate zsh)"

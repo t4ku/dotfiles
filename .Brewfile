@@ -17,6 +17,8 @@ cask "notion"
 brew "neovim"
 brew "tmux"
 brew "anyenv"
+brew "mise"
+
 brew "starship"
 brew "fzf"
 # TODO: use zi to innvoke fzf
