@@ -68,6 +68,30 @@ done
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
+# SSH config setup
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+
+# Create base SSH config if it doesn't exist
+if [ ! -f ~/.ssh/config ]; then
+    cat > ~/.ssh/config << 'EOL'
+# Default GitHub
+Host github.com
+    HostName github.com
+    User git
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    IdentitiesOnly yes
+
+# Example: GitHub Enterprise/Work Account
+# Host github.com-work
+#     HostName github.com
+#     User git
+#     IdentitiesOnly yes
+#     IdentityFile ~/.ssh/public-key-downloaded-from-1password.pub
+EOL
+    chmod 600 ~/.ssh/config
+fi
+
 #
 ## config
 #ln -Ffs "$HOME/.config/nvim" "$HOME/dotfiles/nvim"
