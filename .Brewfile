@@ -23,7 +23,10 @@ brew "fzf"
 brew "zoxide"
 # python dependencies
 brew "xz"
+brew "ripgrep"
 
 brew "tfenv"
 brew "tgenv"
 brew "gh"
+
+brew "awscli"
