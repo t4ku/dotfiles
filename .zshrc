@@ -25,3 +25,9 @@ setopt HIST_IGNORE_ALL_DUPS  # Keeps history clean of duplicates
 setopt HIST_IGNORE_SPACE     # Doesn't save commands starting with space
 setopt INC_APPEND_HISTORY    # Saves commands immediately
 setopt SHARE_HISTORY         # Shares history across sessions
+
+# this also fix control key related shortcuts(like ctrl-a/e) doesn't work propery
+# in tmux
+# c.f https://superuser.com/questions/523564/emacs-keybindings-in-zsh-not-working-ctrl-a-ctrl-e
+# https://superuser.com/questions/523564/emacs-keybindings-in-zsh-not-working-ctrl-a-ctrl-e
+bindkey -e

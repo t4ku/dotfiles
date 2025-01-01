@@ -20,6 +20,7 @@ DOTCONFIGS=(
     tmux
     fzf
     mise
+    tmux-powerline
 )
 
 cd $(dirname $0)
