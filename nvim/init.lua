@@ -9,6 +9,8 @@ vim.o.number = true
 vim.o.tabstop = 2
 vim.o.expandtab = true
 
+vim.o.termguicolors = true
+
 -- Set the clipboard option to include 'unnamedplus'
 vim.opt.clipboard:append("unnamedplus")
 

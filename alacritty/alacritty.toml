@@ -1,7 +1,8 @@
 general.import = [
     #"~/.config/alacritty/themes/themes/atom_one_light.toml",
     #"~/.config/alacritty/themes/themes/one_dark.toml",
-    "~/.config/alacritty/themes/themes/ayu_mirage.toml"
+    #"~/.config/alacritty/themes/themes/ayu_mirage.toml",
+    "~/.config/alacritty/themes/themes/catppuccin-mocha.toml"
 ]
 
 # ====================== WINDOW ======================
@@ -58,6 +59,9 @@ bold = {family = "NotoSansM Nerd Font Mono", style = "Regular" }
 #normal = {family = "Hack Nerd Font Mono", style = "Regular" }
 #bold = {family = "Hack Nerd Font Mono", style = "Regular" }
 size = 14.0
+
+[env]
+TERM = "xterm-256color"
 
 # Colors (One Half Dark)
 #[colors]
