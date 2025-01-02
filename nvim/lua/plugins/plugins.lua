@@ -1,29 +1,4 @@
--- ~/.config/nvim/lua/plugins/plugins.lua
 return {
-  -- Git
-  {
-    'tpope/vim-fugitive',
-    -- cmd = { "G", "Git", "GBrowse" },
-    -- keys = {
-    --   { "<leader>gs", "<cmd>Git<cr>", desc = "Fugitive status" },
-    --   { "<leader>gb", "<cmd>GBrowse<cr>", desc = "Fugitive GBrowse" },
-    --   -- { "gl", "<cmd>Gitv!<cr>", desc = "Gitv" },
-    -- },
-  },
-  -- {
-  --   'gbrlsnchs/vim-gitv',
-  --   cmd = { 'Gitv' },
-  -- },
-  {
-      "sindrets/diffview.nvim",
-      dependencies = {
-          "nvim-lua/plenary.nvim",
-      },
-      cmd = {
-          "DiffviewOpen",
-          "DiffviewFileHistory",
-      }
-  },
   -- File Explorer
   {
     'nvim-tree/nvim-tree.lua',
@@ -94,7 +69,6 @@ return {
       }
     end
   }
-    
   -- Other smaller plugins
   -- { 'tpope/vim-surround' },
   -- { 'tpope/vim-commentary' },
