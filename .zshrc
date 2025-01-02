@@ -7,7 +7,7 @@ eval "$(starship init zsh)"
 autoload -U compinit && compinit
 
 eval "$(zoxide init zsh)"
-eval "$(anyenv init -)"
+#eval "$(anyenv init -)"
 eval "$(mise activate zsh)"
 
 

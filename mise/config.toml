@@ -15,9 +15,9 @@ verbose = false
 # Configure tools mise should manage
 [tools]
 # Specify default versions for each tool
-# node = "lts"
-# python = "3.11"
-# ruby = "3.2"
+node = "20.18.1"
+python = "3.13.1"
+poetry = "latest"
 
 # Default environment variables
 [env]

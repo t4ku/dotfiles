@@ -16,7 +16,7 @@ cask "notion"
 
 brew "neovim"
 brew "tmux"
-brew "anyenv"
+# brew "anyenv" dropped in favor of mise
 brew "mise"
 
 brew "starship"

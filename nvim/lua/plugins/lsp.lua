@@ -113,15 +113,25 @@ return {
           },
         },
         -- TypeScript/JavaScript(nodenv)
-        tsserver = {
+        ts_ls = {
+          cmd = {
+            "mise",
+            "exec",
+            "node",
+            "--",
+            "typescript-language-server",
+            "--stdio",
+          },
           root_dir = require("lspconfig.util").root_pattern("package.json","tsconfig.json","jsconfig.json"),
           single_file_support = false
         },
         -- Python(poetry/virtualenv/pyenv)
         pyright = {
           cmd = {
-            "nodenv",
+            "mise",
             "exec",
+            "node",
+            "--",
             "pyright-langserver",
             "--stdio",
           },
