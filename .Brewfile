@@ -32,3 +32,6 @@ brew "tgenv"
 brew "gh"
 
 brew "awscli"
+
+brew "mysql-client"
+brew "pkg-config"
