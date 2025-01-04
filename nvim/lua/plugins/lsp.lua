@@ -53,6 +53,11 @@ return {
         }),
       })
 
+      -- if inlay hints are supported, enable it
+      if vim.lsp.inlay_hint then
+        vim.lsp.inlay_hint.enable(true, { 0 })
+      end
+
       -- Setup LSP servers
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require('lspconfig')
@@ -125,46 +130,52 @@ return {
           root_dir = require("lspconfig.util").root_pattern("package.json","tsconfig.json","jsconfig.json"),
           single_file_support = false
         },
-        -- Python(poetry/virtualenv/pyenv)
-        pyright = {
-          cmd = {
-            "mise",
-            "exec",
-            "node",
-            "--",
-            "pyright-langserver",
-            "--stdio",
-          },
+        -- Python(pyright->basedpyright)
+        basedpyright = {
+          -- :LspInfo shows mason installed bin at /Users/username/.local/share/mason/bin/
+          -- and it somehow detects the correct path to the bin
+          -- c.f. https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/basedpyright.lua#L45
+          -- cmd = {
+          --   "mise",
+          --   "exec",
+          --   "node",
+          --   "--",
+          --   "pyright-langserver",
+          --   "--stdio",
+          -- },
           before_init = function(_, config)
             local workspace = config.root_dir
-            config.settings.python.pythonPath = get_python_path(workspace)
+            config.settings.basedpyright.pythonPath = get_python_path(workspace)
+            -- config.settings.basedpyright.venvPath = get_poetry_path(workspace)
           end,
-          disableOrganizeImports = false,  -- in favor of ruff
+          disableOrganizeImports = true,  -- in favor of ruff
           settings = {
-            python = {
+            basedpyright = {
               analysis = {
-                -- Support for Poetry/pyproject.toml dependencies
+                -- pyright doesn't support inlay hints
+                inlayHints = {
+                  enabled = true,
+                  variableTypes = true,
+                  functionReturnTypes = true,
+                  -- https://docs.basedpyright.com/latest/configuration/language-server-settings/
+                  -- parameterTypes = true,
+                  callArgumentNames = true,
+                  genericTypes = true,
+                },
+                -- only use language features, and disable type checking
+                -- c.f How can I disable Pyright diagnotic function? #3929
+                -- https://github.com/microsoft/pyright/discussions/3929#discussioncomment-3620347
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "workspace",
-                -- Enable type checking
-                typeCheckingMode = "basic",
+                -- disable type checking in favor of mypy or ruff
+                typeCheckingMode = "off",
                 -- Respect pyproject.toml configurations
                 stubPath = "typings",
                 extraPaths = {},
               },
-              -- Auto detect pyproject.toml for project structure
-              venvPath = "",
             },
           },
-          root_dir = require("lspconfig.util").root_pattern(
-            "pyproject.toml",
-            "setup.py",
-            "setup.cfg",
-            "requirements.txt",
-            "Pipfile",
-            ".git"
-          ),
         },
         -- ruff
         ruff = {
