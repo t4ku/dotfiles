@@ -95,7 +95,6 @@ return {
 
 
       -- LSP server configurations
-      -- :MasonInstall <server> to install LSP servers
       local servers = {
         lua_ls = {
           settings = {
@@ -140,6 +139,7 @@ return {
             local workspace = config.root_dir
             config.settings.python.pythonPath = get_python_path(workspace)
           end,
+          disableOrganizeImports = false,  -- in favor of ruff
           settings = {
             python = {
               analysis = {
@@ -174,8 +174,20 @@ return {
             client.server_capabilities.documentFormattingProvider = true
             -- Add format command
             vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-              vim.lsp.buf.format({ async = true })
+              vim.lsp.buf.format({
+                async = false,
+              })
             end, { desc = "Format current buffer with LSP" })
+
+            vim.api.nvim_buf_create_user_command(bufnr, "OrganizeImports", function()
+              vim.lsp.buf.code_action({
+                context = {
+                  only = { "source.organizeImports" },
+                  diagnostics = vim.lsp.diagnostic.get_line_diagnostics(),
+                },
+                apply = true,
+              })
+            end, { desc = "Organize imports with Ruff" })
           end,
           -- Use the same root pattern as Pyright to find pyproject.toml
           root_dir = require("lspconfig.util").root_pattern(
