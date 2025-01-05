@@ -145,8 +145,13 @@ return {
           -- },
           before_init = function(_, config)
             local workspace = config.root_dir
-            config.settings.basedpyright.pythonPath = get_python_path(workspace)
+            -- config.settings.basedpyright.pythonPath = get_python_path(workspace)
             -- config.settings.basedpyright.venvPath = get_poetry_path(workspace)
+            --
+            -- This is a lot easier to `poetry shell` and then start nvim
+            -- c.f https://stackoverflow.com/questions/74510279/pyright-cant-see-poetry-dependencies
+            -- config.settings.basedpyright.venv = "xxx-backend-5vgmF_2I-py3.13"
+            -- config.settings.basedpyright.venvPath = "/Users/t_okawa/Library/Caches/pypoetry/virtualenvs"
           end,
           disableOrganizeImports = true,  -- in favor of ruff
           settings = {
@@ -170,8 +175,9 @@ return {
                 diagnosticMode = "workspace",
                 -- disable type checking in favor of mypy or ruff
                 typeCheckingMode = "off",
-                -- Respect pyproject.toml configurations
-                stubPath = "typings",
+                -- c.f typings.py file inside a project causes pyright to report that this is not a valid directory. #777
+                -- https://github.com/microsoft/pyright/issues/777#issuecomment-651954306
+                stubPath = "",
                 extraPaths = {},
               },
             },
