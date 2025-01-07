@@ -2,7 +2,8 @@ general.import = [
     #"~/.config/alacritty/themes/themes/atom_one_light.toml",
     #"~/.config/alacritty/themes/themes/one_dark.toml",
     #"~/.config/alacritty/themes/themes/ayu_mirage.toml",
-    "~/.config/alacritty/themes/themes/catppuccin-mocha.toml"
+    #"~/.config/alacritty/themes/themes/catppuccin-mocha.toml"
+    "~/.config/alacritty/themes/themes/catppuccin.toml"
 ]
 
 # ====================== WINDOW ======================
