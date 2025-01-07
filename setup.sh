@@ -34,6 +34,8 @@ for dotfile in "${DOTFILES[@]}"; do
        fi
 done
 
+ln -Ffs "$PWD/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
+
 # Create config links for all config in XDG
 echo "Creating symbolic links for config in XDG"
 for config in "${DOTCONFIGS[@]}"; do
