@@ -37,6 +37,8 @@ return {
           gitrebase = false,
           ["."] = false,
         },
+        -- TODO: make this dynamic, `mise which node -t node@20`
+        copilot_node_command = '/Users/t_okawa/.local/share/mise/installs/node/20.18.1/bin/node'
       })
     end,
   }
