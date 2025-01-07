@@ -12,6 +12,7 @@ return {
       { "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
       { "<leader>tv", "<cmd>TestVisit<cr>", desc = "Test visit" },
     },
+    cmd = { "TestNearest", "TestFile", "TestLast" },
     config = function()
       -- Use tslime strategy for running tests
       vim.g['test#strategy'] = "tslime"
@@ -35,6 +36,7 @@ return {
         return nil
       end
       -- Command to set test executable
+      -- TestExecutable docker-compose exec api pytest
       vim.api.nvim_create_user_command('TestExecutable', function(opts)
         local config_key = get_test_config_key()
         if not config_key then
