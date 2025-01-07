@@ -9,6 +9,9 @@ return {
     --   -- { "gl", "<cmd>Gitv!<cr>", desc = "Gitv" },
     -- },
   },
+  {
+    'tpope/vim-rhubarb',
+  },
   -- {
   --   'gbrlsnchs/vim-gitv',
   --   cmd = { 'Gitv' },
