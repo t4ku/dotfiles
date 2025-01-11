@@ -218,6 +218,19 @@ return {
             "Pipfile",
             ".git"
           ),
+        },
+        terraformls = {
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            -- Enable formatting
+            client.server_capabilities.documentFormattingProvider = true
+            -- Add format command
+            vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+              vim.lsp.buf.format({
+                async = false,
+              })
+            end, { desc = "Format current buffer with LSP" })
+          end,
         }
       }
 
