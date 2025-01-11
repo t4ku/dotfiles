@@ -170,6 +170,9 @@ return {
                 -- only use language features, and disable type checking
                 -- c.f How can I disable Pyright diagnotic function? #3929
                 -- https://github.com/microsoft/pyright/discussions/3929#discussioncomment-3620347
+                --
+                -- it's still not ignoring all the warnings/errors/hints, so maybe we need to filter using vim lsp hooks,
+                -- like filtering out the hints that are not inlay hints
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "workspace",
