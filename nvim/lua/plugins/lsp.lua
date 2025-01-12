@@ -221,6 +221,8 @@ return {
         },
         terraformls = {
           capabilities = capabilities,
+          -- add terragrunt support 
+          filetypes = { "terraform", "hcl" },
           on_attach = function(client, bufnr)
             -- Enable formatting
             client.server_capabilities.documentFormattingProvider = true
