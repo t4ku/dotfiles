@@ -12,3 +12,6 @@ export XDG_CACHE_HOME=$HOME/.cache
 #   export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
 #   # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
 # fi
+
+# uv
+export PATH="$HOME/.local/share/../bin:$PATH"
