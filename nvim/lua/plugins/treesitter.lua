@@ -14,7 +14,6 @@ return {
           "vimdoc",
           "query",
         },
-        
         -- List of parsers to ignore installing
         ignore_install = {},
 
@@ -33,7 +32,7 @@ return {
         },
 
         indent = {
-          enable = true,
+          enable = false,
         },
       })
 

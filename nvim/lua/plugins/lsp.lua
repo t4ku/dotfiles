@@ -304,8 +304,8 @@ return {
             end,
             diagnostics_format = "#{m} [#{c}]",
           }),
-          -- null_ls.builtins.formatting.ruff,
-          -- null_ls.builtins.formatting.terraform_fmt,
+          null_ls.builtins.formatting.ruff,
+          null_ls.builtins.formatting.terraform_fmt,
         },
       })
     end,
