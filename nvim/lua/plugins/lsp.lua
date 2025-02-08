@@ -15,6 +15,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       -- Additional utilities
       "folke/neodev.nvim", -- for Lua development
+      "nvimtools/none-ls.nvim", -- for LSP server management
     },
     config = function()
       -- Setup neodev first (important for Lua development)
@@ -96,6 +97,20 @@ return {
 
         -- Fallback to system Python
         return vim.fn.exepath('python3') or vim.fn.exepath('python')
+      end
+
+      -- Function to get mypy path based on Python environment
+      local function get_mypy_command(params)
+        local python_path = get_python_path(params.root)
+        local bin_dir = vim.fn.fnamemodify(python_path, ':h')
+        local mypy_path = bin_dir .. '/mypy'
+
+        if vim.fn.executable(mypy_path) == 1 then
+          return mypy_path
+        end
+
+        -- Fallback to system mypy
+        return 'mypy'
       end
 
 
@@ -222,7 +237,7 @@ return {
         terraformls = {
           capabilities = capabilities,
           -- add terragrunt support 
-          filetypes = { "terraform", "hcl" },
+          filetypes = { "terraform", "hcl", "tf" },
           on_attach = function(client, bufnr)
             -- Enable formatting
             client.server_capabilities.documentFormattingProvider = true
@@ -263,6 +278,36 @@ return {
         config.capabilities = capabilities
         lspconfig[server].setup(config)
       end
+
+      -- Setup none-ls
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.mypy.with({
+            command = get_mypy_command,
+            extra_args = function(params)
+              -- Check for pyproject.toml first
+              local pyproject_path = params.root .. "/pyproject.toml"
+              if vim.fn.filereadable(pyproject_path) == 1 then
+                return { "--config-file", pyproject_path }
+              end
+              -- Use your previous mypy settings as defaults
+              return {
+                "--python-version=3.11",
+                "--warn-return-any",
+                "--disallow-untyped-defs",
+                "--check-untyped-defs",
+                "--show-column-numbers",
+                "--no-error-summary",
+                "--no-pretty",
+              }
+            end,
+            diagnostics_format = "#{m} [#{c}]",
+          }),
+          -- null_ls.builtins.formatting.ruff,
+          -- null_ls.builtins.formatting.terraform_fmt,
+        },
+      })
     end,
   },
 }
