@@ -38,6 +38,14 @@ vim.keymap.set("n", "<Leader>yf", function()
   vim.notify("Copied filename: " .. filename)
 end, { desc = "Copy filename to clipboard" })
 
+-- Copy relative filepath to clipboard (with ./ prefix)
+vim.keymap.set("n", "<Leader>yr", function()
+  local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  local path_with_prefix = relative_path:match("^%./") and relative_path or "./" .. relative_path
+  vim.fn.setreg("*", path_with_prefix)
+  vim.notify("Copied relative path: " .. path_with_prefix)
+end, { desc = "Copy relative file path to clipboard" })
+
 -- Set the clipboard option to include 'unnamedplus'
 vim.opt.clipboard:append("unnamedplus")
 
