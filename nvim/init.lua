@@ -8,6 +8,8 @@ vim.g.maplocalleader = "\\"
 vim.o.number = true
 vim.o.tabstop = 2
 vim.o.expandtab = true
+-- equivalent of `filetype plugin indent on`
+vim.cmd("filetype plugin indent on")
 
 vim.o.termguicolors = true
 
