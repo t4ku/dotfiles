@@ -248,7 +248,11 @@ return {
               })
             end, { desc = "Format current buffer with LSP" })
           end,
-        }
+        },
+        solargraph = {
+          capabilities = capabilities,
+          cmd = { "mise", "exec", "ruby@3.3.0", "--", "solargraph", "stdio" },
+        },
       }
 
       -- LSP keybindings (applied to all LSP buffers)
