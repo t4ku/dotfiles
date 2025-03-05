@@ -81,6 +81,63 @@ export FZF_ALT_C_OPTS="
   --bind='ctrl-/:toggle-preview'
 "
 
+function fzf_aws_ecs_exec() {
+  zparseopts -D -E -A opthash -- -profile:
+
+  local profile="${opthash[--profile]}"
+  local query="$*"
+  local selections
+  local clusters services tasks containers
+
+  # cluster > service > taskdef > taskid > container
+  clusters=`aws --profile ${profile} ecs list-clusters --no-paginate | jq -r '.clusterArns[]' | sort | cut -d '/' -f 2`
+  clusters=(`echo ${clusters}`)
+  for cluster in "${clusters[@]}"; do
+    # echo "cluster: ${cluster}"
+    services=`aws --profile ${profile} ecs list-services --no-paginate --cluster ${cluster} | jq -r '.serviceArns[]' | sort | cut -d '/' -f 3`
+    services=(`echo ${services}`)
+    for service in "${services[@]}"; do
+      # echo "service: ${service}"
+      tasks=`aws --profile ${profile} ecs list-tasks --no-paginate --cluster ${cluster} --service-name ${service} | jq -r '.taskArns[]' | sort | cut -d '/' -f 3`
+      tasks=(`echo ${tasks}`)
+      for task in "${tasks[@]}"; do
+        # echo "task: ${task}"
+        containers=`aws --profile ${profile} ecs describe-tasks --no-paginate --cluster ${cluster} --tasks ${task} | jq -r '.tasks[].containers[].name' | sort`
+        containers=(`echo ${containers}`)
+        for container in "${containers[@]}"; do
+          selections+="${cluster}/${service}/${task}/${container}\n"
+        done
+      done
+    done
+  done
+
+  local selected=`echo -n ${selections} | sort | fzf --query "${query}" | tr '/' '\n'`
+  if [ -z $selected ]; then
+    return 0
+  fi
+
+  selected=(`echo ${selected}`)
+  print -z "aws --profile ${profile} ecs execute-command --cluster ${selected[1]} --task ${selected[3]} --container ${selected[4]} --interactive --command '/bin/bash'"
+}
+
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fbrm - checkout git branch (including remote branches)
+fbrm() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/origin/##")
+}
+
+alias aee=fzf_aws_ecs_exec
 # completion
 # TODO: add zsh completion
 # fpath=($HOME/dotfiles/zsh/completion $fpath)
