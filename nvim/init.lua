@@ -49,4 +49,18 @@ end, { desc = "Copy relative file path to clipboard" })
 -- Set the clipboard option to include 'unnamedplus'
 vim.opt.clipboard:append("unnamedplus")
 
+-- PKM
+-- add timestamp entry to makrdown
+vim.api.nvim_create_user_command('InsertTimestampTitle', function()
+  -- Prompt user for a title
+  local title = vim.fn.input('Title: ')
+  if title == "" then
+    title = "PKM"
+  end
+  local ts = os.date("(ts: %Y-%m-%d %H:%M)")
+  local line = "# " .. title .. " " .. ts
+  vim.api.nvim_put({line}, 'l', true, true)
+end, {})
+vim.keymap.set('n', '<leader>tt', '<cmd>InsertTimestampTitle<CR>')
+
 require("config.lazy")
