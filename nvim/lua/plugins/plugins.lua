@@ -71,7 +71,7 @@ return {
         extensions = {}
       }
     end
-  }
+  },
   -- Other smaller plugins
   -- { 'tpope/vim-surround' },
   -- { 'tpope/vim-commentary' },

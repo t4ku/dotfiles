@@ -12,7 +12,7 @@ return {
       { "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
       { "<leader>tv", "<cmd>TestVisit<cr>", desc = "Test visit" },
     },
-    cmd = { "TestNearest", "TestFile", "TestLast" },
+    cmd = { "TestNearest", "TestFile", "TestLast", "TestExecutable", "TestReset" },
     config = function()
       -- Use tslime strategy for running tests
       vim.g['test#strategy'] = "tslime"

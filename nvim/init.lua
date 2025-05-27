@@ -15,6 +15,9 @@ vim.o.termguicolors = true
 
 
 -- alias
+-- Tab navigation
+vim.keymap.set("n", "<Tab>", "gt", { desc = "Next tab" })
+vim.keymap.set("n", "<S-Tab>", "gT", { desc = "Previous tab" })
 -- Expand current directory in command mode
 -- Similar to cnoremap <Leader>e <c-r>=expand("%:h")<cr>
 vim.keymap.set("c", "<Leader>e", function()
