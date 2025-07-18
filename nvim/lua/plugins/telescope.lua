@@ -94,5 +94,6 @@ return {
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
         { "<leader>fr", "<cmd>Telescope command_history<cr>", desc = "Command History" },
         { "<leader>fm", "<cmd>Maps<cr>", desc = "Search Key Mappings" },
+        { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Telescope Keymaps" },
     }
 }
