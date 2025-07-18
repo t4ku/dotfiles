@@ -72,6 +72,15 @@ return {
       }
     end
   },
+  -- vim-table-mode for creating formatted tables
+  {
+    'dhruvasagar/vim-table-mode',
+    config = function()
+      -- Default keymaps: <leader>tm to toggle table mode
+      -- In table mode: || to create separator line
+      -- <leader>tr to realign table
+    end,
+  },
   -- Other smaller plugins
   -- { 'tpope/vim-surround' },
   -- { 'tpope/vim-commentary' },
