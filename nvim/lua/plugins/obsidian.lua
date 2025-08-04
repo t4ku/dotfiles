@@ -37,13 +37,28 @@ return {
     -- Custom note ID function for readable filenames
     note_id_func = function(title)
       -- Use title as filename (no ID prefix)
-      if title ~= nil then
-        -- Convert to kebab-case: "My Note Title" -> "my-note-title"
-        return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      else
-        -- Fallback to timestamp if no title
-        return tostring(os.time())
+      if title ~= nil and title ~= "" then
+        -- Check if this is a markdown link pattern [[filename]]
+        local link_content = title:match("%[%[(.-)%]%]")
+        if link_content then
+          -- Extract just the filename part (before any |alias)
+          local filename = link_content:match("^([^|]+)")
+          if filename then
+            return filename
+          end
+        end
+        
+        -- Replace spaces with hyphens, keep Unicode characters
+        local formatted = title:gsub(" ", "-")
+        -- Remove only truly problematic characters for filenames
+        formatted = formatted:gsub("[<>:\"/\\|?*]", "")
+        -- Ensure we don't return an empty string
+        if formatted ~= "" then
+          return formatted
+        end
       end
+      -- Fallback to timestamp if no title or empty after formatting
+      return tostring(os.time())
     end,
     -- see below for full list of options 👇
   },
