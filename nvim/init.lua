@@ -61,9 +61,18 @@ vim.api.nvim_create_user_command('InsertTimestampTitle', function()
     title = "PKM"
   end
   local ts = os.date("(ts: %Y-%m-%d %H:%M)")
-  local line = "# " .. title .. " " .. ts
+  local line = "### " .. title .. " " .. ts
   vim.api.nvim_put({line}, 'l', true, true)
 end, {})
-vim.keymap.set('n', '<leader>tt', '<cmd>InsertTimestampTitle<CR>')
+vim.keymap.set('n', '<leader>ti', '<cmd>InsertTimestampTitle<CR>')
 
 require("config.lazy")
+-- autocmd BufReadPost *.kt setlocal filetype=kotlin
+-- above in lua
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.kt",
+  callback = function()
+    vim.bo.filetype = "kotlin"
+  end,
+})
+
