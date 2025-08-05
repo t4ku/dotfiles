@@ -118,6 +118,13 @@ return {
 
       -- LSP server configurations
       local servers = {
+        -- kotolin
+        -- install with nvim command `:MasonInstall kotlin-language-server`
+        -- https://github.com/fwcd/kotlin-language-server/blob/main/EDITORS.md
+        kotlin_language_server = {
+           -- add filetypes .kts, .kt, .ktscript
+           -- `autocmd BufReadPost *.kt setlocal filetype=kotlin`, in appropriate settings
+        },
         lua_ls = {
           settings = {
             Lua = {
