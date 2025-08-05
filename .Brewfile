@@ -13,6 +13,7 @@ cask "slack"
 cask "zoom"
 cask "figma"
 cask "notion"
+cask "visual-studio-code"
 
 brew "neovim"
 brew "tmux"
