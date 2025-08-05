@@ -6,6 +6,12 @@ eval "$(zoxide init zsh)"
 #eval "$(anyenv init -)"
 eval "$(mise activate zsh)"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/t_okawa/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/t_okawa/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/t_okawa/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/t_okawa/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
 
 # History settings
 HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
@@ -138,7 +144,38 @@ fbrm() {
 }
 
 alias aee=fzf_aws_ecs_exec
+
+fssh() {
+  SSH_ID=`aws ec2 describe-instances --query 'Reservations[].Instances[].{InstanceId:InstanceId,Name:Tags[?Key==\`Name\`].Value}' |
+  jq -c '.[] | { name: .Name[0], id: .InstanceId}' | sort | fzf | jq -r '.id'`
+  ssh ${SSH_ID}
+}
+
+fsst() {
+  SSH_ID=`aws ec2 describe-instances --query 'Reservations[].Instances[].{InstanceId:InstanceId,Name:Tags[?Key==\`Name\`].Value}' |
+  jq -c '.[] | { name: .Name[0], id: .InstanceId}' | sort | fzf | jq -r '.id'`
+  aws ec2 start-instances --instance-ids ${SSH_ID}
+}
+
+
+alias aider='/Users/t_okawa/.local/share/mise/installs/python/3.12.9/bin/aider'
+
 # completion
 # TODO: add zsh completion
 # fpath=($HOME/dotfiles/zsh/completion $fpath)
 autoload -U compinit && compinit
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/t_okawa/.config/.dart-cli-completion/zsh-config.zsh ]] && . /Users/t_okawa/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# pnpm
+export PNPM_HOME="/Users/t_okawa/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
