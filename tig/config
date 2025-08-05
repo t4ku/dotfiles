@@ -1,0 +1,66 @@
+# Tig configuration for better contrast with Catppuccin theme
+
+# UI colors
+color default           white   default
+color cursor            black   cyan    bold
+color title-focus       white   blue    bold
+color title-blur        white   default bold
+color status            green   default
+color stat-none         default default
+color stat-staged       green   default
+color stat-unstaged     red     default
+color stat-untracked    yellow  default
+color help-group        blue    default bold
+color help-action       yellow  default
+color diff-stat         blue    default
+color diff-add          green   default
+color diff-del          red     default
+color diff-chunk        cyan    default bold
+color diff-header       yellow  default bold
+color diff-index        blue    default
+color diff-oldmode      yellow  default
+color diff-newmode      yellow  default
+color date              cyan    default
+color author            green   default
+color graph-commit      blue    default
+color main-remote       yellow  default
+color main-head         cyan    default bold
+color main-tag          magenta default bold
+color main-local-tag    magenta default
+color main-ref          cyan    default
+color main-tracked      yellow  default
+color tree.header       default default bold
+color tree.directory    yellow  default
+color tree.file         default default
+
+# Line graphics
+set line-graphics = utf-8
+
+# Main view columns
+#set main-view = id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+
+# View settings - use vertical split for better modal experience
+#set vertical-split = no
+#set split-view-height = 80%
+#set focus-child = yes
+
+# Refresh
+set refresh-mode = auto
+
+# Commit view
+set commit-order = default
+
+# Diff options
+set diff-options = -C
+
+# Show line numbers in blame view
+set blame-view = date:default author:full file-name:auto id:yes,color line-number:yes,interval=5 text
+
+# Make selection more visible
+color cursor            black   yellow  bold
+
+# Status bar colors for better contrast
+color status            black   cyan    bold
+color title-focus       black   yellow  bold
+color title-blur        white   black
+color search-result     black   yellow
