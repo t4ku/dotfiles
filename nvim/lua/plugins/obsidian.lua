@@ -102,5 +102,12 @@ return {
         vim.keymap.set("n", "<leader>of", "<cmd>ObsidianAddFrontmatter<cr>", { buffer = true, desc = "Add obsidian frontmatter" })
       end,
     })
+    -- shortcut for call :ObisidanBacklinks command in markdown files
+     vim.api.nvim_create_autocmd("FileType", {
+       pattern = "markdown",
+       callback = function()
+         vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { buffer = true, desc = "Show backlinks" })
+       end,
+     })
   end,
 }

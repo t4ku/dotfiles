@@ -8,15 +8,16 @@ return {
     vim.g.vista_echo_cursor = 0
     vim.g.vista_update_on_text_changed = 0
     vim.g.vista_blink = {0, 0}
+    vim.g.vista_no_mappings = 1
+    vim.g.vista_no_lazy_init = 1
     
-    -- Disable Vista completely for markdown files
-    vim.api.nvim_create_autocmd({"BufEnter", "FileType"}, {
-      pattern = {"*.md", "*.markdown", "markdown"},
+    -- Completely disable Vista autocommands
+    vim.api.nvim_create_autocmd("VimEnter", {
       callback = function()
-        vim.b.vista_skip = 1
-        -- Clear any existing Vista autocommands for this buffer
-        pcall(function()
-          vim.cmd('silent! autocmd! vista BufEnter <buffer>')
+        vim.schedule(function()
+          pcall(function()
+            vim.cmd('silent! autocmd! vista')
+          end)
         end)
       end,
     })
