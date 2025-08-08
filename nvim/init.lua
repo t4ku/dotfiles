@@ -66,6 +66,44 @@ vim.api.nvim_create_user_command('InsertTimestampTitle', function()
 end, {})
 vim.keymap.set('n', '<leader>ti', '<cmd>InsertTimestampTitle<CR>')
 
+-- Inbox Capture Commands
+vim.api.nvim_create_user_command('InboxCapture', function()
+  require('inbox_capture').create()
+end, { desc = 'Create new inbox capture' })
+
+vim.api.nvim_create_user_command('InboxQuick', function()
+  require('inbox_capture').quick_capture()
+end, { desc = 'Quick inbox capture' })
+
+vim.api.nvim_create_user_command('InboxList', function()
+  require('inbox_capture').list_today()
+end, { desc = 'List today\'s inbox captures' })
+
+vim.api.nvim_create_user_command('InboxProcess', function()
+  require('inbox_capture').process_today()
+end, { desc = 'Process today\'s inbox items' })
+
+vim.api.nvim_create_user_command('InboxUnprocessed', function()
+  require('inbox_capture').list_unprocessed()
+end, { desc = 'List unprocessed inbox items' })
+
+vim.api.nvim_create_user_command('InboxSearch', function()
+  require('inbox_capture').search_inbox()
+end, { desc = 'Search inbox with telescope' })
+
+-- Inbox Capture Keybindings
+vim.keymap.set('n', '<leader>oi', ':InboxCapture<CR>', { desc = 'Capture to inbox' })
+vim.keymap.set('n', '<leader>oiq', ':InboxQuick<CR>', { desc = 'Quick capture to inbox' })
+vim.keymap.set('n', '<leader>oil', ':InboxList<CR>', { desc = 'List today inbox' })
+vim.keymap.set('n', '<leader>oip', ':InboxProcess<CR>', { desc = 'Process inbox' })
+vim.keymap.set('n', '<leader>oiu', ':InboxUnprocessed<CR>', { desc = 'List unprocessed inbox' })
+vim.keymap.set('n', '<leader>ois', ':InboxSearch<CR>', { desc = 'Search inbox' })
+
+-- Visual mode capture
+vim.keymap.set('v', '<leader>oic', function()
+  require('inbox_capture').capture_selection()
+end, { desc = 'Capture selection to inbox' })
+
 require("config.lazy")
 -- autocmd BufReadPost *.kt setlocal filetype=kotlin
 -- above in lua

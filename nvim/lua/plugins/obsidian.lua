@@ -60,6 +60,79 @@ return {
       -- Fallback to timestamp if no title or empty after formatting
       return tostring(os.time())
     end,
+    
+    -- Template configuration for inbox capture
+    templates = {
+      subdir = "Templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
+      substitutions = {
+        -- Service type (chatwork, slack, email, teams, web, misc)
+        SERVICE = function()
+          return vim.fn.input("Service (chatwork/slack/email/teams/web/misc): ", "misc")
+        end,
+        
+        -- Channel or source within the service
+        CHANNEL = function()
+          return vim.fn.input("Channel/Source: ", "general")
+        end,
+        
+        -- Participants in the conversation
+        PARTICIPANTS = function()
+          return vim.fn.input("Participants (comma-separated): ", "")
+        end,
+        
+        -- Title for the capture
+        TITLE = function()
+          return vim.fn.input("Title: ", "")
+        end,
+        
+        -- File naming components
+        YYYYMMDD = function()
+          return os.date("%Y%m%d")
+        end,
+        
+        HHMM = function()
+          return os.date("%H%M")
+        end,
+        
+        -- Full timestamp for frontmatter
+        TIMESTAMP = function()
+          return os.date("%Y-%m-%d %H:%M:%S")
+        end,
+        
+        -- Current date
+        DATE = function()
+          return os.date("%Y-%m-%d")
+        end,
+        
+        -- Current time
+        TIME = function()
+          return os.date("%H:%M")
+        end,
+        
+        -- Content placeholder (will be filled manually)
+        CONTENT = function()
+          return "<!-- Paste content here -->"
+        end,
+        
+        -- Processing status
+        PROCESSED = function()
+          return "false"
+        end,
+        
+        -- Priority level
+        PRIORITY = function()
+          return vim.fn.input("Priority (high/medium/low): ", "medium")
+        end,
+        
+        -- Project association
+        PROJECT = function()
+          return vim.fn.input("Project (optional): ", "")
+        end,
+      },
+    },
+    
     -- see below for full list of options 👇
   },
   config = function(_, opts)
