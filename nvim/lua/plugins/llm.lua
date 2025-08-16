@@ -69,16 +69,45 @@ return {
       file_types = { "markdown", "Avante" },
       indent = {
           enabled = true,
-          pre_level = 2,
-          skip_level = 1,
-          skip_headdings = true,
+          --pre_level = 2,
+          --skip_level = 1,
+          per_level = 2,
+          skip_headdings = false,
+      },
+      bullet = {
+          enbled = true,
       },
       -- https://github.com/linkarzu/dotfiles-latest/blob/4a0b799c51e131a01937a083a673417d4a1ce032/neovim/neobean/lua/plugins/render-markdown.lua#L14
       -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki/Headings
       heading = {
+        position = 'inline', -- prevent '#### Heading' from being deeply indented
         width = { 'full', 'full', 'block', 'block', 'block', 'block' },
+        backgrounds = {
+            'RenderMarkdownH1Bg',
+            'RenderMarkdownH2Bg',
+            'RenderMarkdownH3Bg',
+            'RenderMarkdownH4Bg',
+            --'RenderMarkdownH5Bg',
+            --'RenderMarkdownH6Bg',
+            --"Headline4Bg",
+           "Headline5Bg",
+           "Headline6Bg",
+        },
+        foregrounds = {
+            'RenderMarkdownH1',
+            'RenderMarkdownH2',
+            'RenderMarkdownH3',
+            'RenderMarkdownH4',
+            --'RenderMarkdownH5',
+            --'RenderMarkdownH6',
+            --'Headline4Fg',
+            'Headline5Fg',
+            'Headline6Fg',
+        },
         sign = false,
-        -- icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+        -- signs = { '󰫎 ' },
+        --icons = { "󰼏 ", "󰼐 ", "󰼑 ", "󰼒 " },
+        icons = { '󰼏 ', '󰎨 ' }
       },
     },
     ft = { "markdown" },
