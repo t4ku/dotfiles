@@ -67,6 +67,19 @@ return {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {
       file_types = { "markdown", "Avante" },
+      indent = {
+          enabled = true,
+          pre_level = 2,
+          skip_level = 1,
+          skip_headdings = true,
+      },
+      -- https://github.com/linkarzu/dotfiles-latest/blob/4a0b799c51e131a01937a083a673417d4a1ce032/neovim/neobean/lua/plugins/render-markdown.lua#L14
+      -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki/Headings
+      heading = {
+        width = { 'full', 'full', 'block', 'block', 'block', 'block' },
+        sign = false,
+        -- icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+      },
     },
     ft = { "markdown" },
     keys = {
