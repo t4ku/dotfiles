@@ -1,6 +1,10 @@
-import = [
+general.import = [
     #"~/.config/alacritty/themes/themes/atom_one_light.toml",
     #"~/.config/alacritty/themes/themes/one_dark.toml",
+    #"~/.config/alacritty/themes/themes/ayu_mirage.toml",
+    #"~/.config/alacritty/themes/themes/catppuccin-mocha.toml"
+    "~/.config/alacritty/themes/themes/catppuccin.toml"
+    #"~/.config/alacritty/themes/themes/catppuccin_latte.toml",
 ]
 
 # ====================== WINDOW ======================
@@ -58,29 +62,32 @@ bold = {family = "NotoSansM Nerd Font Mono", style = "Regular" }
 #bold = {family = "Hack Nerd Font Mono", style = "Regular" }
 size = 14.0
 
+[env]
+TERM = "xterm-256color"
+
 # Colors (One Half Dark)
-[colors]
-  [colors.primary]
-    background = '0x282c34'
-    foreground = '0xdcdfe4'
-
-  [colors.normal]
-    black = '0x282c34'
-    red = '0xe06c75'
-    green = '0x98c379'
-    yellow = '0xe5c07b'
-    blue = '0x61afef'
-    magenta = '0xc678dd'
-    cyan = '0x56b6c2'
-    white = '0xdcdfe4'
-
-  [colors.bright]
-    black = '0x282c34'
-    red = '0xe06c75'
-    green = '0x98c379'
-    yellow = '0xe5c07b'
-    blue = '0x61afef'
-    magenta = '0xc678dd'
-    cyan = '0x56b6c2'
-    white = '0xdcdfe4'
-
+#[colors]
+#  [colors.primary]
+#    background = '0x282c34'
+#    foreground = '0xdcdfe4'
+#
+#  [colors.normal]
+#    black = '0x282c34'
+#    red = '0xe06c75'
+#    green = '0x98c379'
+#    yellow = '0xe5c07b'
+#    blue = '0x61afef'
+#    magenta = '0xc678dd'
+#    cyan = '0x56b6c2'
+#    white = '0xdcdfe4'
+#
+#  [colors.bright]
+#    black = '0x282c34'
+#    red = '0xe06c75'
+#    green = '0x98c379'
+#    yellow = '0xe5c07b'
+#    blue = '0x61afef'
+#    magenta = '0xc678dd'
+#    cyan = '0x56b6c2'
+#    white = '0xdcdfe4'
+#

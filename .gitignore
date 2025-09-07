@@ -14,3 +14,12 @@ nvim/plugged/*
 .emacs.d/ac-comphist.dat
 
 .hammerspoon/stackline
+
+tmux/plugins
+
+# Sensitive files and directories
+.webui_secret_key
+prompts/
+daily.txt
+.aider*
+nvim/init.vim.bk

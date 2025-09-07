@@ -1,0 +1,137 @@
+return {
+  -- in favor of claude code
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   version = false, -- Never set this value to "*"! Never!
+  --   opts = {
+  --     providers = {
+  --       openai = {
+  --         endpoint = "https://api.openai.com/v1",
+  --         model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+  --         timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+  --         --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+  --         extra_request_body = {
+  --           -- Uncomment to use reasoning models
+  --           -- reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+  --           max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+  --           temperature = 0,
+  --         },
+  --       },
+  --     },
+  --   },
+  --   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  --   build = "make",
+  --   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --     --- The below dependencies are optional,
+  --     "echasnovski/mini.pick", -- for file_selector provider mini.pick
+  --     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+  --     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+  --     "ibhagwan/fzf-lua", -- for file_selector provider fzf
+  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+  --     "zbirenbaum/copilot.lua", -- for providers='copilot'
+  --     {
+  --       -- support for image pasting
+  --       "HakonHarnes/img-clip.nvim",
+  --       event = "VeryLazy",
+  --       opts = {
+  --         -- recommended settings
+  --         default = {
+  --           embed_image_as_base64 = false,
+  --           prompt_for_file_name = false,
+  --           drag_and_drop = {
+  --             insert_mode = true,
+  --           },
+  --           -- required for Windows users
+  --           use_absolute_path = true,
+  --         },
+  --       },
+  --     },
+  --     {
+  --       -- Make sure to set this up properly if you have lazy=true
+  --       'MeanderingProgrammer/render-markdown.nvim',
+  --       opts = {
+  --         file_types = { "markdown", "Avante" },
+  --       },
+  --       ft = { "markdown", "Avante" },
+  --     },
+  --   },
+  -- },
+  {
+    -- Make sure to set this up properly if you have lazy=true
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {
+      file_types = { "markdown", "Avante" },
+      indent = {
+          enabled = true,
+          --pre_level = 2,
+          --skip_level = 1,
+          per_level = 2,
+          skip_headdings = false,
+      },
+      bullet = {
+          enbled = true,
+      },
+      -- https://github.com/linkarzu/dotfiles-latest/blob/4a0b799c51e131a01937a083a673417d4a1ce032/neovim/neobean/lua/plugins/render-markdown.lua#L14
+      -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki/Headings
+      heading = {
+        position = 'inline', -- prevent '#### Heading' from being deeply indented
+        width = { 'full', 'full', 'block', 'block', 'block', 'block' },
+        backgrounds = {
+            'RenderMarkdownH1Bg',
+            'RenderMarkdownH2Bg',
+            'RenderMarkdownH3Bg',
+            'RenderMarkdownH4Bg',
+            --'RenderMarkdownH5Bg',
+            --'RenderMarkdownH6Bg',
+            --"Headline4Bg",
+           "Headline5Bg",
+           "Headline6Bg",
+        },
+        foregrounds = {
+            'RenderMarkdownH1',
+            'RenderMarkdownH2',
+            'RenderMarkdownH3',
+            'RenderMarkdownH4',
+            --'RenderMarkdownH5',
+            --'RenderMarkdownH6',
+            --'Headline4Fg',
+            'Headline5Fg',
+            'Headline6Fg',
+        },
+        sign = false,
+        -- signs = { '󰫎 ' },
+        --icons = { "󰼏 ", "󰼐 ", "󰼑 ", "󰼒 " },
+        icons = { '󰼏 ', '󰎨 ' }
+      },
+    },
+    ft = { "markdown" },
+    keys = {
+      { "<leader>rm", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Render Markdown", ft = "markdown" },
+    },
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Job制御やHTTPリクエストに必要 [5, 6]
+    },
+    -- 推奨: mcp-hub CLIの管理を容易にするため、バンドルビルドを使用
+    build = "bundled_build.lua", -- mcp-hubをプラグインと共にローカルにインストール [6]
+    cmd = "MCPHub", -- :MCPHub コマンド使用時に遅延ロード [6]
+    config = function()
+      require("mcphub").setup({
+        use_bundled_binary = true,
+        extensions = {
+           avante = {
+             make_slash_commands = true,
+           }
+        }
+      })
+    end,
+  }
+}

@@ -1,47 +1,17 @@
-# local customization function prototype
-before_zshenv(){}
-after_zshenv(){}
-before_zshrc(){}
-after_zshrc(){}
-before_zprofile(){}
-after_zprofile(){}
+#!/usr/bin/env zsh
 
-# load functions
-if [[ -f "$HOME/dotfiles/local/local.zsh" ]]; then
-    source  "$HOME/dotfiles/local/local.zsh"
-fi
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
 
-#if [[ -z $TMUX ]]; then
+# if homebrew installed mysql-client exists, lanaguage specific 
+# binding may need to set these flags
+# if [ -d /opt/homebrew/opt/mysql-client ]; then
+#   export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+#   export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+#   # export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+# fi
 
-    before_zshenv
-
-    ## base setting for all shells (login/non-login, interactive)
-    export EDITOR="vim"
-    export SVN_EDITOR=$EDITOR
-
-    # environment variable
-    export OS=`uname -s`
-    export ARCH=`uname -m`
-
-    # create nicer name
-    if [[ "$OS" == 'Darwin' ]];then
-        PLATFORM='osx'
-    elif [[ "$OS" == 'Linux' ]];then
-        PLATFORM='linux'
-    fi
-
-    export PLATFORM
-
-    # load platform specific ones
-    if [[ -f "$HOME/dotfiles/.zshenv.$PLATFORM" ]];then
-        source "$HOME/dotfiles/.zshenv.$PLATFORM" 
-    fi
-
-
-    after_zshenv
-#fi
-
-# terminal vimrc dark
-#export COLORFGBG='15;0'
-# terminal vimrc light
-#export COLORFGBG='0;15'
+# uv
+export PATH="$HOME/.local/share/../bin:$PATH"

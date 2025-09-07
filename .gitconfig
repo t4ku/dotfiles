@@ -1,6 +1,8 @@
 [user]
   name  = 'Taku Okawa'
   email = 'taku.okawa@gmail.com'
+  # https://stackoverflow.com/questions/8337071/different-gitconfig-for-a-given-subdirectory
+	useConfigOnly = true
   
 [color]
   ui = auto
@@ -42,6 +44,7 @@
 [core]
   precomposeunicode = true
   editor = nvim
+	quotePath = false
 [pager]
   #log = diff-highlight | less
   #show = diff-highlight | less
@@ -66,3 +69,5 @@
 #	file = "https://{host}:8888/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[credential]
+	helper = store

@@ -24,6 +24,7 @@
 -- 
 local log = hs.logger.new('utils', 'info')
 local hyper = {"cmd", "alt", "ctrl", "shift"}
+--local hyper={"left_"}
 
 -- Function to move the focused window to the next screen
 local function moveFocusedWindowToNextScreen()

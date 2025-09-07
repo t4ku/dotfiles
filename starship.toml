@@ -1,0 +1,8 @@
+# Disable the gcloud module entirely
+[gcloud]
+disabled = true
+
+# Or if you want to keep the module but hide the account/email
+#[gcloud]
+#format = '[$symbol$active]($style) '
+#style = 'bold yellow'
