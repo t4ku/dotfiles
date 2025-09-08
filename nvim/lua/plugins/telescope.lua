@@ -62,7 +62,13 @@ return {
 
         require('telescope').setup {
             defaults = {
-                -- Your telescope settings
+                path_display = { 
+                    "filename_first",
+                    shorten = {
+                        len = 2,
+                        exclude = {1, -1}  -- NOTE: exclude may not work with filename_first due to processing conflicts
+                    }
+                },
             },
             pickers = {
                 find_files = {
